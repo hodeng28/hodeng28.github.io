@@ -28,7 +28,7 @@
 <meta property="og:description" content="연산자 (Operator) 연산자는 하나 이상의 표현식을 대상으로 산술, 할당, 비교, 논리, 타입, 지수 연산 등을 수햏애 하나의 값을 만든다. 연산의 대상을 피연산자(Operand)라 한다.  피연산자는 값을 평가 될 수 있는 표현식이여야 한다. 피연산자와 연산자의 조합으로 이루어진 연산자 표현식도 값으로 평가될 수 있는 표현식이다. 피연산자는 연산의">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-21T11:54:16.121Z">
-<meta property="article:modified_time" content="2020-02-22T15:17:37.499Z">
+<meta property="article:modified_time" content="2020-02-22T15:21:45.339Z">
 <meta property="article:author" content="hodeng28">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content=" js">
@@ -180,7 +180,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 00:17:37" itemprop="dateModified" datetime="2020-02-23T00:17:37+09:00">2020-02-23</time>
+                <time title="Modified: 2020-02-23 00:21:45" itemprop="dateModified" datetime="2020-02-23T00:21:45+09:00">2020-02-23</time>
               </span>
 
           
@@ -225,10 +225,10 @@
 <h2 id="2-할당-연산자"><a href="#2-할당-연산자" class="headerlink" title="2. 할당 연산자"></a>2. 할당 연산자</h2><p>  할당 연산자(Assignment Operator)는 우항에 있는 피연산자의 평가 결과를 좌항에 있는 변수에 할당한다.<br>  할당 연산자는 좌항의 변수에 값을 할당하므로 변수의 값이 변하는 부수효과가 있다.</p>
 <pre><code>할당 연산자| 사례| 동일 표현 | 부수 효과 
 ---|:---:|---:|---:
-= | x = 5 | x = 5 | O 
-+= | x += 5 | x = x + 5 | O 
-/= | x /= 5 | x = x / 5  | O 
-%= | x %= 5 | x = x % 5 | O 
+`=` | x = 5 | x = 5 | O 
+`+=` | x += 5 | x = x + 5 | O 
+`/=` | x /= 5 | x = x / 5  | O 
+`%=` | x %= 5 | x = x % 5 | O 
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">문자열 연결 연산자</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'My name is'</span>;</span><br><span class="line">str += <span class="string">'Jung'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str);      <span class="comment">//'My name is Jung'</span></span><br></pre></td></tr></table></figure>
  할당 연산은 값으로 평가되는 표현식인 문이다.</code></pre><h2 id="3-비교-연산자"><a href="#3-비교-연산자" class="headerlink" title="3. 비교 연산자"></a>3. 비교 연산자</h2><p>  비교연산자(Comparison Operator)는 좌항과 우항의 피연산자를 비교한 다음 그 결과를 불리언 값으로 반환한다. 제어문(if문, for문)의 조건식에서 주로 사용</p>
@@ -244,16 +244,13 @@
 </li>
 </ul>
 <h2 id="4-삼항-조건-연산자"><a href="#4-삼항-조건-연산자" class="headerlink" title="4. 삼항 조건 연산자"></a>4. 삼항 조건 연산자</h2><ul>
-<li><p>삼항 조건 연산자(ternary oprator)는 조건식의 평가 결과에 따라 반환할 값을 결정한다.</p>
-</li>
-<li><p>값으로 평가할 수 있는 표현식인 문이다.</p>
-</li>
-<li><p>어떤 값을 결정해야 한다면 if..else 문보다 삼항 조건 연산자 표현식을 사용하는 것이 유리하다.  (수행해야할 문이 여러개라면 if..else문이 가독성이 좋음)</p>
-<p><strong>조건식?  조건식이 true일때 반환할 값 : 조건식이 false일때 반환할 값</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2 % 2는 0, 0은 false로 암묵적 타입 변환된다.</span></span><br><span class="line"><span class="keyword">var</span> result = x % <span class="number">2</span> ? <span class="string">'홀수'</span> : <span class="string">'짝수'</span> ;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result);      <span class="comment">//짝수</span></span><br></pre></td></tr></table></figure>
-
-</li>
+<li>삼항 조건 연산자(ternary oprator)는 조건식의 평가 결과에 따라 반환할 값을 결정한다.</li>
+<li>값으로 평가할 수 있는 표현식인 문이다.</li>
+<li>어떤 값을 결정해야 한다면 if..else 문보다 삼항 조건 연산자 표현식을 사용하는 것이 유리하다.  (수행해야할 문이 여러개라면 if..else문이 가독성이 좋음)</li>
 </ul>
+<p>  <strong>조건식?  조건식이 true일때 반환할 값 : 조건식이 false일때 반환할 값</strong></p>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2 % 2는 0, 0은 false로 암묵적 타입 변환된다.</span></span><br><span class="line"><span class="keyword">var</span> result = x % <span class="number">2</span> ? <span class="string">'홀수'</span> : <span class="string">'짝수'</span> ;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(result);      <span class="comment">//짝수</span></span><br></pre></td></tr></table></figure>
+
 <h2 id="5-논리-연산자"><a href="#5-논리-연산자" class="headerlink" title="5. 논리 연산자"></a>5. 논리 연산자</h2><p>  논리 연산자(Logical Operator)는 우항과 좌항의 피연산자를 논리 연산한다.</p>
 <table>
 <thead>
@@ -264,17 +261,17 @@
 </tr>
 </thead>
 <tbody><tr>
-<td></td>
+<td>`</td>
 <td align="center"></td>
-<td align="right"></td>
+<td align="right">`</td>
 </tr>
 <tr>
-<td>&amp;&amp;</td>
+<td><code>&amp;&amp;</code></td>
 <td align="center">논리곱(AND)</td>
 <td align="right">X</td>
 </tr>
 <tr>
-<td>!</td>
+<td><code>!</code></td>
 <td align="center">부정(NOT)</td>
 <td align="right">X</td>
 </tr>

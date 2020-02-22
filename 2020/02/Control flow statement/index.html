@@ -28,7 +28,7 @@
 <meta property="og:description" content="제어문  제어문은 주어진 조건에 따라 코드 블록을 실행(조건문)하거나 반복 실행(반복문)할 때 사용한다.  일반적으로 코드는 위에서 아래 방향으로 순차적으로 실행된다.  코드의 흐름을 이해하기 어렵게 만들어 가독성을 해치는 단점이 있다. 1. 블록문 0개 이상의 문을 중괄호로 묶은 것으로 코드 블록 또는 블록이라고 부른다. 자바스크립트는 블록문을 하나의 실">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-22T04:29:28.316Z">
-<meta property="article:modified_time" content="2020-02-22T05:31:05.592Z">
+<meta property="article:modified_time" content="2020-02-22T14:37:59.801Z">
 <meta property="article:author" content="hodeng28">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content=" js">
@@ -174,7 +174,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-02-22 13:29:28 / Modified: 14:31:05" itemprop="dateCreated datePublished" datetime="2020-02-22T13:29:28+09:00">2020-02-22</time>
+              <time title="Created: 2020-02-22 13:29:28 / Modified: 23:37:59" itemprop="dateCreated datePublished" datetime="2020-02-22T13:29:28+09:00">2020-02-22</time>
             </span>
 
           
@@ -236,7 +236,7 @@
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// count 가 5보다 작을 때까지 코드 블록을 계속 반복 실행한다.</span></span><br><span class="line"><span class="keyword">while</span> (count &lt; <span class="number">5</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(count);</span><br><span class="line">  count++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//  0 ~ 5</span></span><br></pre></td></tr></table></figure>
 
-**무한루프 탈출**
+
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> count = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;     <span class="comment">//조건식의 평가 결과가 언제나 참이면 무한루프</span></span><br><span class="line">  <span class="built_in">console</span>.log(count);</span><br><span class="line">  count++;</span><br><span class="line"><span class="keyword">if</span> (count === <span class="number">3</span>) <span class="keyword">break</span>;    <span class="comment">//count가 3이면 코드 블록 탈출</span></span><br><span class="line">&#125;    <span class="comment">// 0 1 2</span></span><br></pre></td></tr></table></figure></code></pre><h3 id="do-while-문"><a href="#do-while-문" class="headerlink" title="do.. while 문"></a>do.. while 문</h3><pre><code>do.. while 문은 코드 블록을 먼저 실행하고 조건식을 평가한다. 따라서 코드 블록은 무조건 한번 이상 실행된다.</code></pre><h3 id="break-문"><a href="#break-문" class="headerlink" title="break 문"></a>break 문</h3><pre><code>- 레이블 문, 반복문, switch 문의 코드 블록을 탈출한다.
 - 레이블 문, 반복문, switch 문의 코드 블록 이외에 break 문을 사용하면 SyntaxError가 발생한다.</code></pre><h3 id="레이블-문"><a href="#레이블-문" class="headerlink" title="레이블 문"></a>레이블 문</h3><pre><code>- 레이블 문(Label statement)는 식별자가 붙은 문을 말한다.
 - 레이블 문은 프로그램의 실행 순서를 제어하기 위해 사용한다.

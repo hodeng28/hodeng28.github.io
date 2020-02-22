@@ -316,7 +316,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-02-23 00:12:05" itemprop="dateModified" datetime="2020-02-23T00:12:05+09:00">2020-02-23</time>
+                <time title="Modified: 2020-02-23 00:17:37" itemprop="dateModified" datetime="2020-02-23T00:17:37+09:00">2020-02-23</time>
               </span>
 
           
@@ -339,15 +339,14 @@
 </ul>
 <h2 id="1-산술연산자"><a href="#1-산술연산자" class="headerlink" title="1. 산술연산자"></a>1. 산술연산자</h2><pre><code>산술 연산자(Arithmetic Operator)는 피연산자를 대상으로 수학적 계산을 수행해 새로운 값을 만든다. 
 산술 연산이 불가능한 경우, NaN을 반환한다.</code></pre><h3 id="이항-산술-연산자"><a href="#이항-산술-연산자" class="headerlink" title="이항 산술 연산자"></a>이항 산술 연산자</h3><ul>
-<li><p>이항 산술 연산자는 2개의 피연산자를 산술 연산하여 숫자타입의 값을 만든다.</p>
-</li>
-<li><p>모든 이항 산술 연산자는 피연산자의 값을 변경하는 side effect가 없다.<br>   (어떤 산술 연산을 해도 피연산자의 값이 바뀌는 경우는 없다.)</p>
-<h3 id="단항-산술-연산자"><a href="#단항-산술-연산자" class="headerlink" title="단항 산술 연산자"></a>단항 산술 연산자</h3></li>
-<li><p>1개의 피연산자를 산술하여 숫자 타입의 값을 만든다.</p>
-</li>
-<li><p>증가/감소 (++/–) 연산자는 피연산자의 값을 변경하는 부수효과가 있다. (암묵적 할당이 이루어진다.)</p>
-</li>
-<li><p>증가/감소 (++/–) 연산자는 위치에 의미가 있다.</p>
+<li>이항 산술 연산자는 2개의 피연산자를 산술 연산하여 숫자타입의 값을 만든다.</li>
+<li>모든 이항 산술 연산자는 피연산자의 값을 변경하는 side effect가 없다.<br>  (어떤 산술 연산을 해도 피연산자의 값이 바뀌는 경우는 없다.)</li>
+</ul>
+<h3 id="단항-산술-연산자"><a href="#단항-산술-연산자" class="headerlink" title="단항 산술 연산자"></a>단항 산술 연산자</h3><ul>
+<li>1개의 피연산자를 산술하여 숫자 타입의 값을 만든다.</li>
+<li>증가/감소 (++/–) 연산자는 피연산자의 값을 변경하는 부수효과가 있다. (암묵적 할당이 이루어진다.)</li>
+<li>증가/감소 (++/–) 연산자는 위치에 의미가 있다.</li>
+</ul>
 <ul>
 <li>피연산자 앞에 위치한 전위 증가/감소 연산자는 먼저 피연산자의 값을 증가/감소시킨 후, 다른 연산을 수행한다.</li>
 <li>피연산자 뒤에 위치한 후위 증가/감소 연산자는 먼저 다른 연산을 수행한 후, 피연산자의 값을 증가/감소시킨다.</li>
@@ -359,15 +358,13 @@
 <li>자바스크립트 엔진에 의해 암묵적으로 타입이 자동 변환되기도 한다  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> + <span class="literal">true</span>;   <span class="comment">//2</span></span><br><span class="line"><span class="number">1</span> + <span class="literal">false</span>;  <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line"><span class="literal">undefined</span>는 숫자로 타입 변환되지 않는다.</span><br><span class="line"><span class="number">1</span> + <span class="literal">undefined</span>;  <span class="literal">NaN</span></span><br></pre></td></tr></table></figure>
 이를 <strong>암묵적 타입변환(Implicit coercion) or 타입 강제 변환(Type coercion)라한다.</strong></li>
 </ul>
-</li>
-</ul>
 <h2 id="2-할당-연산자"><a href="#2-할당-연산자" class="headerlink" title="2. 할당 연산자"></a>2. 할당 연산자</h2><p>  할당 연산자(Assignment Operator)는 우항에 있는 피연산자의 평가 결과를 좌항에 있는 변수에 할당한다.<br>  할당 연산자는 좌항의 변수에 값을 할당하므로 변수의 값이 변하는 부수효과가 있다.</p>
-<pre><code>  | 할당 연산자| 사례| 동일 표현 | 부수 효과 |
-  |---|:---:|---:|---:|
-  | = | x = 5 | x = 5 | O |
-  | += | x += 5 | x = x + 5 | O |
-  | /= | x /= 5 | x = x / 5  | O |
-  | %= | x %= 5 | x = x % 5 | O |
+<pre><code>할당 연산자| 사례| 동일 표현 | 부수 효과 
+---|:---:|---:|---:
+= | x = 5 | x = 5 | O 
++= | x += 5 | x = x + 5 | O 
+/= | x /= 5 | x = x / 5  | O 
+%= | x %= 5 | x = x % 5 | O 
 
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">문자열 연결 연산자</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'My name is'</span>;</span><br><span class="line">str += <span class="string">'Jung'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(str);      <span class="comment">//'My name is Jung'</span></span><br></pre></td></tr></table></figure>
  할당 연산은 값으로 평가되는 표현식인 문이다.</code></pre><h2 id="3-비교-연산자"><a href="#3-비교-연산자" class="headerlink" title="3. 비교 연산자"></a>3. 비교 연산자</h2><p>  비교연산자(Comparison Operator)는 좌항과 우항의 피연산자를 비교한 다음 그 결과를 불리언 값으로 반환한다. 제어문(if문, for문)의 조건식에서 주로 사용</p>
@@ -394,13 +391,32 @@
 </li>
 </ul>
 <h2 id="5-논리-연산자"><a href="#5-논리-연산자" class="headerlink" title="5. 논리 연산자"></a>5. 논리 연산자</h2><p>  논리 연산자(Logical Operator)는 우항과 좌항의 피연산자를 논리 연산한다.</p>
-<pre><code>| 논리 연산자| 의미 | 부수 효과 |
-|---|:---:|---:|
-| || | 논리합(OR) | X |
-| &amp;&amp; | 논리곱(AND) | X |
-| ! | 부정(NOT) | X |
-
-  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//논리합(||) 연산자</span></span><br><span class="line"><span class="literal">true</span> || <span class="literal">true</span>;    <span class="comment">//true</span></span><br><span class="line"><span class="literal">true</span> || <span class="literal">false</span>;   <span class="comment">//true   좌항이 true인 경우, 연산종료?</span></span><br><span class="line"><span class="literal">false</span> || <span class="literal">true</span>;   <span class="comment">//true</span></span><br><span class="line"><span class="literal">false</span> || <span class="literal">false</span>;  <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//논리곱(&amp;&amp;) 연산자</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="literal">true</span>;    <span class="comment">//true</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="literal">false</span>;   <span class="comment">//false</span></span><br><span class="line"><span class="literal">false</span> &amp;&amp; <span class="literal">true</span>;   <span class="comment">//false    </span></span><br><span class="line"><span class="literal">false</span> &amp;&amp; <span class="literal">false</span>;  <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//논리 부정(!) 연산자</span></span><br><span class="line">!<span class="literal">true</span>;           <span class="comment">//false</span></span><br><span class="line">!<span class="literal">false</span>;          <span class="comment">//true</span></span><br></pre></td></tr></table></figure></code></pre><ul>
+<table>
+<thead>
+<tr>
+<th>논리 연산자</th>
+<th align="center">의미</th>
+<th align="right">부수 효과</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td align="center"></td>
+<td align="right"></td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td align="center">논리곱(AND)</td>
+<td align="right">X</td>
+</tr>
+<tr>
+<td>!</td>
+<td align="center">부정(NOT)</td>
+<td align="right">X</td>
+</tr>
+</tbody></table>
+  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//논리합(||) 연산자</span></span><br><span class="line"><span class="literal">true</span> || <span class="literal">true</span>;    <span class="comment">//true</span></span><br><span class="line"><span class="literal">true</span> || <span class="literal">false</span>;   <span class="comment">//true   좌항이 true인 경우, 연산종료?</span></span><br><span class="line"><span class="literal">false</span> || <span class="literal">true</span>;   <span class="comment">//true</span></span><br><span class="line"><span class="literal">false</span> || <span class="literal">false</span>;  <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//논리곱(&amp;&amp;) 연산자</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="literal">true</span>;    <span class="comment">//true</span></span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="literal">false</span>;   <span class="comment">//false</span></span><br><span class="line"><span class="literal">false</span> &amp;&amp; <span class="literal">true</span>;   <span class="comment">//false    </span></span><br><span class="line"><span class="literal">false</span> &amp;&amp; <span class="literal">false</span>;  <span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//논리 부정(!) 연산자</span></span><br><span class="line">!<span class="literal">true</span>;           <span class="comment">//false</span></span><br><span class="line">!<span class="literal">false</span>;          <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li>논리 부정(!) 연산자는 언제나 불리언 값을 반환한다.</li>
 <li>피연산자가 반드시 불리언 값일  필요는 없다. 불리언 값이 아니라면, 불리언 타입으로 암묵적 타입 변환된다.</li>
 <li>논리합(||), 논리곱(&amp;&amp;) 연산자의 평가 결과는 불리언이 아닐 수도 있다.</li>

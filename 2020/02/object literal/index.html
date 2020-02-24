@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hodeng28.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="객체란? 자바스크립트는 객체기반의 프로그래밍 언어, 원시 값을 제외한 나머지 모든 값들이 객체이다.  원시 값이랑 반대로 객체는 변경 가능한 값이다.  객체는 키(key) 값(value)로 구성된 프로퍼티(Property)들의 집합 12345var person &#x3D; &amp;#123;  name : &#39;Lee&#39;   &#x2F;&#x2F;  프로퍼티  age : 20   &#x2F;&#x2F;  프로퍼티">
+<meta property="og:type" content="article">
+<meta property="og:title" content="object literal">
+<meta property="og:url" content="http://hodeng28.github.io/2020/02/object%20literal/index.html">
+<meta property="og:site_name" content="hodeng">
+<meta property="og:description" content="객체란? 자바스크립트는 객체기반의 프로그래밍 언어, 원시 값을 제외한 나머지 모든 값들이 객체이다.  원시 값이랑 반대로 객체는 변경 가능한 값이다.  객체는 키(key) 값(value)로 구성된 프로퍼티(Property)들의 집합 12345var person &#x3D; &amp;#123;  name : &#39;Lee&#39;   &#x2F;&#x2F;  프로퍼티  age : 20   &#x2F;&#x2F;  프로퍼티">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-02-24T14:48:25.959Z">
+<meta property="article:modified_time" content="2020-02-24T15:53:04.584Z">
+<meta property="article:author" content="hodeng28">
+<meta property="article:tag" content="javaScript">
+<meta property="article:tag" content=" js">
+<meta property="article:tag" content=" react">
+<meta property="article:tag" content=" angular">
+<meta property="article:tag" content=" HTML">
+<meta property="article:tag" content=" CSS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://hodeng28.github.io/2020/02/object%20literal/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>object literal | hodeng</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hodeng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">호뎅의 개발블로그</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hodeng28.github.io/2020/02/object%20literal/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hodeng28">
+      <meta itemprop="description" content="헤헤">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hodeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          object literal
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-24 23:48:25" itemprop="dateCreated datePublished" datetime="2020-02-24T23:48:25+09:00">2020-02-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-02-25 00:53:04" itemprop="dateModified" datetime="2020-02-25T00:53:04+09:00">2020-02-25</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="객체란"><a href="#객체란" class="headerlink" title="객체란?"></a>객체란?</h2><ul>
+<li><p>자바스크립트는 객체기반의 프로그래밍 언어, 원시 값을 제외한 나머지 모든 값들이 객체이다.</p>
+</li>
+<li><p>원시 값이랑 반대로 객체는 변경 가능한 값이다.</p>
+</li>
+<li><p>객체는 키(key) 값(value)로 구성된 프로퍼티(Property)들의 집합</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name : <span class="string">'Lee'</span>   <span class="comment">//  프로퍼티</span></span><br><span class="line">  age : <span class="number">20</span>   <span class="comment">//  프로퍼티</span></span><br><span class="line">  <span class="comment">//name, age 프로퍼티 키 / 'Lee' 20 프로퍼티 값</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>프로퍼티 값으로 함수를 사용할 수도 있다.</p>
+</li>
+<li><p>프로퍼티 값이 함수일 경우, 메소드(Method)라 부른다.</p>
+<ul>
+<li>프로퍼티: 객체의 상태를 나타내는 값</li>
+<li>메소드: 프로퍼티를 참조하고 조작할 수 있는 동작</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> counter = &#123;</span><br><span class="line">  num: <span class="number">0</span>,                    <span class="comment">//프로퍼티</span></span><br><span class="line">  increase: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;      <span class="comment">//메소드</span></span><br><span class="line">    <span class="keyword">this</span>.num++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="객체-리터럴에-의한-객체-생성"><a href="#객체-리터럴에-의한-객체-생성" class="headerlink" title="객체 리터럴에 의한 객체 생성"></a>객체 리터럴에 의한 객체 생성</h2><p>자바스크립트는 프로토타입 기반 객체지향 언어로서 클래스 기반 객체지향 언어와는 다른 다양한 객체 생성 방법이 존재한다.<br>(<strong>객체 리터럴</strong>, Object 생성자 함수, 생성자 함수, Object.create메소드, 클래스(ES6) )</p>
+<ul>
+<li>객체리터럴은 중괄호 내에 0개 이상의 프로퍼티를 정의한다.</li>
+<li>변수에 할당이 이루어지는 시점에 엔진은 객체리터럴을 해석하여 객체를 생성한다.</li>
+<li>중괄호 내에 프로퍼티를 정의하지 않으면 빈 객체가 생성된다.</li>
+<li>객체 리터럴은 값으로 평가되는 표현식이다.</li>
+<li>객체 리터럴에 프로퍼티를 포함시켜 객체의 생성과 동시에 프로퍼티를 만들 수도 있고, 객체를 생성한 이후에 프로퍼티를 동적으로 추가할 수 있다.</li>
+</ul>
+<h3 id="프로퍼티"><a href="#프로퍼티" class="headerlink" title="프로퍼티"></a>프로퍼티</h3><p>키(key) + 값(value) = 프로퍼티<br>프로퍼티의 집합 = 객체</p>
+<ul>
+<li>프로퍼티 값 : 자바스크립트에서 사용할 수 있는 모든 값</li>
+<li>프로퍼티 키 : 빈 문자열을 포함하는 모든 문자열 또는 symbol 값<br>프로퍼티 갑셍 접근할 수 있는 이름으로 식별자 역할을 한다.</li>
+<li>식별자 네이밍 규칙을 따르지 않는 이름에는 반드시 따옴표를 사용하여야 한다.</li>
+<li>프로퍼티 키에 문자열이나 symbol 값 이외의 값을 사용하면 암묵적 타입변환을 통해 문자열이 된다.</li>
+<li>프로퍼티 키를 중복 선언하면 나중에 선언한 프로퍼티가 덮어쓴다. 에러는 발생하지 않는다.</li>
+</ul>
+<h3 id="메소드"><a href="#메소드" class="headerlink" title="메소드"></a>메소드</h3><p>자바스크립트에서 사용할 수 있는 모든 값을 프로퍼티 값으로 사용할 수 있다.<br>프로퍼티 값이 함수일 경우, 일반함수와 구분하기 위해 메소드라 부른다. </p>
+<h3 id="프로퍼티-접근"><a href="#프로퍼티-접근" class="headerlink" title="프로퍼티 접근"></a>프로퍼티 접근</h3><ul>
+<li>프로퍼티 값에 접근하려면 마침표 표기법(Dot notation) 또는 대괄호 표기법(Bracket notation)을 사용한다.</li>
+<li>대괄호 내에 들어가는 프로퍼티 키는 반드시 따옴표로 감싼 문자열이여야 한다. 단 프로퍼티 키가 숫자로 이루어진 문자열인 경우, 생략가능</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name : <span class="string">'Jung'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//마침표 표기법에 의한 프로퍼티 접근</span></span><br><span class="line"><span class="built_in">console</span>.log(person.name);   <span class="comment">//Jung</span></span><br><span class="line"><span class="comment">//대괄호 표기법에 의한 프로퍼티 접근 , 대괄호 내 프로퍼티 키는 반드시 따옴표로 감싼 문자열이여야 함</span></span><br><span class="line"><span class="built_in">console</span>.log(person[<span class="string">'name'</span>])  <span class="comment">//Jung</span></span><br></pre></td></tr></table></figure>
+<p>객체에 존재하지 않는 프로퍼티에 접근하면 <strong>undefined</strong> 반환</p>
+<h3 id="프로퍼티-동적-생성"><a href="#프로퍼티-동적-생성" class="headerlink" title="프로퍼티 동적 생성"></a>프로퍼티 동적 생성</h3><p>존재하지 않는 <strong>프로퍼티에 값</strong>을 할당하면 프로퍼티가 동적으로 생성되어 추가되고 프로퍼티 값이 할당된다.</p>
+<h3 id="프로퍼티-삭제"><a href="#프로퍼티-삭제" class="headerlink" title="프로퍼티 삭제"></a>프로퍼티 삭제</h3><p>delete 연산자는 객체의 프로퍼티를 삭제한다.<br>delete 연산자의 피연산자는 프로퍼티 값에 접근할 수 있는 표현식이여야 한다.</p>
+<h2 id="객체-리터럴의-확장-기능-ES6"><a href="#객체-리터럴의-확장-기능-ES6" class="headerlink" title="객체 리터럴의 확장 기능(ES6)"></a>객체 리터럴의 확장 기능(ES6)</h2><h3 id="프로퍼티-축약-표현"><a href="#프로퍼티-축약-표현" class="headerlink" title="프로퍼티 축약 표현"></a>프로퍼티 축약 표현</h3><p>프로퍼티의 값은 변수에 할당된 값, 즉 식별자 표현식일 수도 있다.<br>변수 이름과 프로퍼티 키가 동일한 이름일 떄, 생략가능</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">1</span>, y = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = &#123;x, y&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(obj);  <span class="comment">// &#123;x:1 , y:2&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="프로퍼티-키-동적-생성"><a href="#프로퍼티-키-동적-생성" class="headerlink" title="프로퍼티 키 동적 생성"></a>프로퍼티 키 동적 생성</h3><p>ES6에서는 객체 리터럴 내부에도 계산된 프로퍼티 이름으로 프로퍼티 키를 동적 생성할 수 있다.</p>
+<h3 id="메소드-축약-표현"><a href="#메소드-축약-표현" class="headerlink" title="메소드 축약 표현"></a>메소드 축약 표현</h3><p>ES5에서 메소드를 정의하려면 프로퍼티 값으로 함수를 할당<br>ES6에서는 메소드를 정의할 때, <strong>function 키워드를 생략</strong>한 축약 표현 사용 가능</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/typeCasting/" rel="prev" title="typeCasting">
+      <i class="fa fa-chevron-left"></i> typeCasting
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#객체란"><span class="nav-number">1.</span> <span class="nav-text">객체란?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#객체-리터럴에-의한-객체-생성"><span class="nav-number">2.</span> <span class="nav-text">객체 리터럴에 의한 객체 생성</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#프로퍼티"><span class="nav-number">2.1.</span> <span class="nav-text">프로퍼티</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#메소드"><span class="nav-number">2.2.</span> <span class="nav-text">메소드</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#프로퍼티-접근"><span class="nav-number">2.3.</span> <span class="nav-text">프로퍼티 접근</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#프로퍼티-동적-생성"><span class="nav-number">2.4.</span> <span class="nav-text">프로퍼티 동적 생성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#프로퍼티-삭제"><span class="nav-number">2.5.</span> <span class="nav-text">프로퍼티 삭제</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#객체-리터럴의-확장-기능-ES6"><span class="nav-number">3.</span> <span class="nav-text">객체 리터럴의 확장 기능(ES6)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#프로퍼티-축약-표현"><span class="nav-number">3.1.</span> <span class="nav-text">프로퍼티 축약 표현</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#프로퍼티-키-동적-생성"><span class="nav-number">3.2.</span> <span class="nav-text">프로퍼티 키 동적 생성</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#메소드-축약-표현"><span class="nav-number">3.3.</span> <span class="nav-text">메소드 축약 표현</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">hodeng28</p>
+  <div class="site-description" itemprop="description">헤헤</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hodeng28</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

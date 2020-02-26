@@ -171,8 +171,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
+              
 
-              <time title="Created: 2020-02-26 16:36:31" itemprop="dateCreated datePublished" datetime="2020-02-26T16:36:31+09:00">2020-02-26</time>
+              <time title="Created: 2020-02-26 16:36:31 / Modified: 18:18:19" itemprop="dateCreated datePublished" datetime="2020-02-26T16:36:31+09:00">2020-02-26</time>
             </span>
 
           
@@ -186,7 +187,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="스코프"><a href="#스코프" class="headerlink" title="스코프"></a>스코프</h1><p>스코프는 변수, 함수와 관련있다. 스코프는 식별자가 유효한 범위를 말한다.</p>
+<p><strong>함수</strong>의 매개변수는 함수 몸체 내부에서만 참조할 수 있고, 함수 몸체 외부에서는 참조할 수 없다.<br>매개변수의 스포크가 함수 몸체 내부로 한정되기 때문이다.</p>
+<p><strong>변수</strong>는 코드의 가장 바깥영역(window)뿐만 아니라 코드 블록이나 함수 몸체 내에서도 선언할 수 있다. 코드 블록이나 함수는 중첩될 수 있다.<br>변수는 자신이 선언된 위치에 의해 자신이 유효한 범위(다른 코드가 변수 자신을 참조할 수 있는 범위)가 결정된다.<br>이를 스코프라 한다.</p>
+<p>프로그래밍 언어에서 스코프를 통해 식별자인 변수 이름의 충돌을 방지하여 같은 이름의 변수를 사용할 수 있도록 한다. 스코프 내에서 식별자는 유일해야 하지만 다른 스코프에는 같은 이름의 식별자를 사용할 수 있다.</p>
+<h2 id="스코프의-종류"><a href="#스코프의-종류" class="headerlink" title="스코프의 종류"></a>스코프의 종류</h2><p>코드는 전역(global)과 지역(local)으로 구분할 수 있다.</p>
+<p>이때 변수는 자신이 선언된 위치(전역 or 지역)에 의해 자신이 유효한 범위인 스코프가 결정된다.</p>
+<p><strong>전역</strong>이란 코드의 가장 바깥쪽 영역(global)을 말한다.<br>전역은 전역 스코프를 만들고, 변수를 선언하면 전역 스코프를 갖는 전역 변수가 된다. 전역 변수는 어디서든 참조할 수 있다.</p>
+<p><strong>지역</strong>이란 함수 몸체 내부를 말한다. 지역은 지역 스코프를 만들고, 변수를 선언하면 지역 스코프를 갖는 지역 변수가 된다.<br>지역 변수는 자신이 선언된 지역과 하위 지역(중첩함수)에서만 참조할 수 있다.</p>
+<h2 id="스코프-체인"><a href="#스코프-체인" class="headerlink" title="스코프 체인"></a>스코프 체인</h2><p>함수의 중첩 - 함수 몸체 내부에서 함수가 정의된 것<br>중첩 함수(nested function) - 함수 몸체 내부에서 정의한 함수<br>외부 함수(outer function) - 중첩 함수를 포함하는 함수</p>
+<ul>
+<li>함수는 중첩될 수 있으므로 함수의 지역 스코프도 중첩될 수 있다.<br>중첩 함수의 지역 스코프는 중첩 함수를 포함하는 외부함수의 지역 스코프와 계층적 구조를 갖는다.</li>
+<li>변수를 참조할 때, 자바스크립트 엔진은 스코프 체인을 통해 변수를 참조하는 코드의 스코프에서 시작하여 상위 스코프 방향으로 이동하며 선언된 변수를 검색한다.<br><strong>지역 -&gt; 전역</strong></li>
+</ul>
+<p><strong>렉시컬 환경(Lexical Environment)</strong><br>스코프 체인은 실행 컨택스트(Execution Contxt)의 렉시컬 환경(Lexical Environment)을 단방향으로 연결한 것이다.<br>전역 렉시컬 환경은 코드가 로드되면 곧바로 생성되고 함수의 렉시컬 환경은 함수가 호출되면 곧바로 생성된다.</p>
+<h3 id="스코프-체인에-의한-변수-검색"><a href="#스코프-체인에-의한-변수-검색" class="headerlink" title="스코프 체인에 의한 변수 검색"></a>스코프 체인에 의한 변수 검색</h3><p>상위 스코프에서 유효한 변수는 하위스코프에서 참조할 수 있지만,<br>하위 스코프에서 유효한 변수를 상위스코프에서 참조할 수 없다.</p>
+<h2 id="함수-레벨-스코프"><a href="#함수-레벨-스코프" class="headerlink" title="함수 레벨 스코프"></a>함수 레벨 스코프</h2><p>코드블록 아닌 함수에 의해서만 지역 스코프가 생성된다.</p>
+<ul>
+<li><p>블록 레벨 스코프(Block level scope)<br>모든 코드블록이 지역 스코프를 만든다.<br>let, const (ES6)</p>
+</li>
+<li><p>함수 레벨 스코프(Function level scope)<br>var 키워드로 선언된 변수는 오로지 함수이 코드 블록 만을 지역 스코프로 인정한다.</p>
+</li>
+</ul>
+<h2 id="렉시컬-스코프"><a href="#렉시컬-스코프" class="headerlink" title="렉시컬 스코프"></a>렉시컬 스코프</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">A</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line">  B();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">B</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">A();  <span class="comment">//?</span></span><br><span class="line">B();  <span class="comment">//?</span></span><br></pre></td></tr></table></figure>
+<p>함수 B의 상위 스코프가 무엇인지에 따라 결정된다.</p>
+<ul>
+<li><p>함수를 어디서 <strong>호출</strong>했는지에 따라 함수의 상위 스코프를 결정한다.</p>
+<ul>
+<li>함수 B의 상위 스코프는 함수 A와 전역</li>
+<li>동적 스코프(Dynamic scope) 함수 정의 시점에는 함수가 어디서 호출될지 알 수 없다. 함수가 호출되는 시점에 동적으로 상위 스코프를 결정해야 하기 때문에 동적 스코프라고 부른다.</li>
+</ul>
+</li>
+<li><p>함수를 어디서 <strong>정의</strong>했는지에 따라 함수의 상위 스코프를 결정한다.</p>
+<ul>
+<li>함수 B의 상위 스코프는 전역</li>
+<li>렉시컬 스코프(Lexical scope), 정적스코프(Static scope) 함수 정의가 평가되는 시점에 상위 스코프가 정적으로 결정된다. <strong>자바스크립트를 비롯한 대부분의 프로그래밍 언어는 렉시컬 스코프를 따른다.</strong></li>
+</ul>
+</li>
+</ul>
+
       
     </div>
 

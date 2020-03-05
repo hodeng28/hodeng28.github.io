@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"hodeng28.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="프로퍼티">
+  <meta name="description" content="프로퍼티 어트리뷰트1. 내부 슬롯과 내부 메소드 내부 슬롯과 내부 메소드는 자바스크립트 엔진의 알고리즘을 설명하기 위해 ECMA 사양에서 사용하는 의사 프로퍼티와 의사 메소드 이다.  [[]] 외부로 공개된 객체의 프로퍼티는 아니다. 간접적으로만 접근할 수 있다.  2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체자바스크립트 엔진은 프로퍼티를 생성할 때,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js.property">
 <meta property="og:url" content="http://hodeng28.github.io/2020/02/js.property/index.html">
 <meta property="og:site_name" content="hodeng">
-<meta property="og:description" content="프로퍼티">
+<meta property="og:description" content="프로퍼티 어트리뷰트1. 내부 슬롯과 내부 메소드 내부 슬롯과 내부 메소드는 자바스크립트 엔진의 알고리즘을 설명하기 위해 ECMA 사양에서 사용하는 의사 프로퍼티와 의사 메소드 이다.  [[]] 외부로 공개된 객체의 프로퍼티는 아니다. 간접적으로만 접근할 수 있다.  2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체자바스크립트 엔진은 프로퍼티를 생성할 때,">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-29T09:57:36.551Z">
-<meta property="article:modified_time" content="2020-03-03T09:13:49.989Z">
+<meta property="article:modified_time" content="2020-03-05T10:34:35.682Z">
 <meta property="article:author" content="hodeng28">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content=" js">
@@ -180,7 +180,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-03 18:13:49" itemprop="dateModified" datetime="2020-03-03T18:13:49+09:00">2020-03-03</time>
+                <time title="Modified: 2020-03-05 19:34:35" itemprop="dateModified" datetime="2020-03-05T19:34:35+09:00">2020-03-05</time>
               </span>
 
           
@@ -194,7 +194,175 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="프로퍼티"><a href="#프로퍼티" class="headerlink" title="프로퍼티"></a>프로퍼티</h1>
+        <h1 id="프로퍼티-어트리뷰트"><a href="#프로퍼티-어트리뷰트" class="headerlink" title="프로퍼티 어트리뷰트"></a>프로퍼티 어트리뷰트</h1><h2 id="1-내부-슬롯과-내부-메소드"><a href="#1-내부-슬롯과-내부-메소드" class="headerlink" title="1. 내부 슬롯과 내부 메소드"></a>1. 내부 슬롯과 내부 메소드</h2><ul>
+<li>내부 슬롯과 내부 메소드는 자바스크립트 엔진의 알고리즘을 설명하기 위해 ECMA 사양에서 사용하는 의사 프로퍼티와 의사 메소드 이다.  [[]]</li>
+<li>외부로 공개된 객체의 프로퍼티는 아니다.</li>
+<li>간접적으로만 접근할 수 있다.</li>
+</ul>
+<h2 id="2-프로퍼티-어트리뷰트와-프로퍼티-디스크립터-객체"><a href="#2-프로퍼티-어트리뷰트와-프로퍼티-디스크립터-객체" class="headerlink" title="2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체"></a>2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체</h2><p>자바스크립트 엔진은 프로퍼티를 생성할 때, 프로퍼티의 상태를 나타내는 프로퍼티 어트리뷰트를 기본값으로 자동 정의</p>
+<p><strong>프로퍼티 상태?</strong><br>프로퍼티의 값(value), 값의 갱신 가능여부(writable), 열거가능여부(enumberable), 재정의 가능여부(configurable)</p>
+<p><strong>프로퍼티 어트리뷰트</strong></p>
+<ul>
+<li>자바스크립트 엔진이 관리하는 내부 상태 값(meta-property)</li>
+<li>Object.getOwnPropertyDescriptor 메소드를 이용해 간접적으로 확인할 수 있다. (직접적 불가)<ul>
+<li>메소드를 호출할 때, 첫번째 매개변수에는 객체의 참조를 전달<br>두번째 매개변수에는 프로퍼티 키를 문자열로 전달한다.                </li>
+<li>프로퍼티 어트리뷰트 정보를 제공하는 프로퍼티 디스크립터(PropertyDescriptor)객체를 반환</li>
+<li>만약 존재하지 않는 프로퍼티, 상속받은 프로퍼티에 대한 프로퍼티 디스크립터를 요구하면 undifined가 반환</li>
+<li>ES8에 도입된 Object.getOwnPropertyDescriptors 메소드는 모든 프로퍼티의 프로퍼티 어트리뷰트 정보를 제공하는 프로퍼티 디스크립터 객체들을 반환</li>
+</ul>
+</li>
+</ul>
+<h2 id="3-데이터-프로퍼티와-접근자-프로퍼티"><a href="#3-데이터-프로퍼티와-접근자-프로퍼티" class="headerlink" title="3. 데이터 프로퍼티와 접근자 프로퍼티"></a>3. 데이터 프로퍼티와 접근자 프로퍼티</h2><ul>
+<li>데이터 프로퍼티(date property) 키와 값으로 구성된 일반적인 프로퍼티</li>
+<li>잡근자 프로퍼티(Accessor property) 자체적으로는 값을 갖지않고, 다른 데이터 프로퍼티 값을 읽거나 저장할 때 호출되는 접근자 함수로 구성된 프로퍼티</li>
+</ul>
+<h3 id="3-1-데이터-프로퍼티"><a href="#3-1-데이터-프로퍼티" class="headerlink" title="3.1 데이터 프로퍼티"></a>3.1 데이터 프로퍼티</h3><p>데이터 프로퍼티 어트리뷰트는 자바스크립트 엔진이 프로퍼티를 생성할 때, 기본값으로 자동 정의된다.</p>
+<table>
+<thead>
+<tr>
+<th>프로퍼티 어트리뷰트</th>
+<th align="center">프로퍼티 디스크립터 객체의 프로퍼티</th>
+<th align="right">설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[[Value]]</td>
+<td align="center">vlaue</td>
+<td align="right">- 프로퍼티 키로 프로퍼티 값에 접근하면 반환되는 값 <br>-프로퍼티 키로 프로퍼티 값을 저장하면 [[Value]]에 값을 저장한다. 프로퍼티가 없으면 프로퍼티를 생성하고 생성된 프로퍼티의[[Value]]에 값을 저장한다.</td>
+</tr>
+<tr>
+<td>[[Writable]]</td>
+<td align="center">writable</td>
+<td align="right">- 프로퍼티 값의 변경 가능 여부를 나타내며 불리언 값을 갖는다.<br> - false인 경우, 해당 프로퍼티의 [[Value]]의 값을 변경할 수 없는는 읽기 전용 프로퍼티가 된다.</td>
+</tr>
+<tr>
+<td>[[Enumberable]]</td>
+<td align="center">enumberable</td>
+<td align="right">- 프로퍼티의 열거 가능여부를 나타내며 불리언 값을 갖는다.<br>- false인 경우, 해당 프로퍼티는 for…in문이나 Object.keys 메소드 등으로 열거할 수 없다.</td>
+</tr>
+<tr>
+<td>[[Configurable]]</td>
+<td align="center">configurable</td>
+<td align="right">- 프로퍼티의 재정의 가능 여부를 나타내며 불리언 값을 갖는다.<br> - false인 경우, 해당 프로퍼티의 삭제, 프로퍼티 어트리뷰트 값의 변경이 금지된다. 단 [[Writable]]이 true인 경우, [[Value]]의 변경과 [[Writable]]을 false로 변경하는 것은 허용된다.</td>
+</tr>
+</tbody></table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'Lee'</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnpropertyDescriptor(person.<span class="string">'name'</span>));</span><br><span class="line"><span class="comment">// &#123; value: "Lee", wrtable: true, enumberale: true, configurable: true&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-2-접근자-프로퍼티"><a href="#3-2-접근자-프로퍼티" class="headerlink" title="3.2 접근자 프로퍼티"></a>3.2 접근자 프로퍼티</h3><ul>
+<li><p>자체적으로는 값을 갖지 않고 다른 데이터 프로퍼티의 값을 읽거나 저장할 때 사용하는 접근자 함수로 구성된 프로퍼티다.</p>
+</li>
+<li><p>getter, setter 함수라고도 부른다. 두 함수 모두 정의할 수 있고, 하나만 정의할 수도 있다.</p>
+<table>
+<thead>
+<tr>
+<th>프로퍼티 어트리뷰트</th>
+<th align="center">프로퍼티 디스크립터 객체의 프로퍼티</th>
+<th align="right">설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[[Get]]</td>
+<td align="center">get</td>
+<td align="right">- 데이터 프로퍼티의 값을 저장할 때 호출<br>프로퍼티 키로 프로퍼티 값에 접근하면 프로퍼티 어트리뷰트 [[Get]]의 값, getter 함수가 호출, 그결과가 프로퍼티 값으로 반환된다.</td>
+</tr>
+<tr>
+<td>[[Set]]</td>
+<td align="center">set</td>
+<td align="right">데이터 프로퍼티의 값을 저장할 때 호출<br>프로퍼티 어트리뷰트[[Set]]의 값, setter함수가 호출되고 그결과가 프로퍼티 값으로 저장된다.</td>
+</tr>
+<tr>
+<td>[[Enumberable]]</td>
+<td align="center">enumberable</td>
+<td align="right">데이터 프로퍼티의 [[Enumerable]]와 같다.</td>
+</tr>
+<tr>
+<td>[[Configurable]]</td>
+<td align="center">configurable</td>
+<td align="right">데이터 프로퍼티의 [[Configurable]]와 같다.</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<ol>
+<li>프로퍼티 키가 유효한지 확인한다. 문자열 또는 심볼이여야 한다.</li>
+<li>프로토타입 체인에서 프로퍼티를 검색한다.</li>
+<li>검색된 프로퍼티가 데이터 프로퍼티인지, 접근자 프로퍼티인지 확인한다.</li>
+<li>프로퍼티 어트리뷰트 [[Get]]. getter 함수를 호출하여 그 결과를 반환한다.</li>
+</ol>
+<h2 id="4-프로퍼티-정의"><a href="#4-프로퍼티-정의" class="headerlink" title="4. 프로퍼티 정의"></a>4. 프로퍼티 정의</h2><ul>
+<li>새로운 프로퍼티를 추가하면서 프로퍼티 어트리뷰트를 명시적으로 정의하거나, 기존 프로퍼티의 프로퍼티 어트릴뷰트를 재정의 하는 것</li>
+<li>객체의 프로퍼티가 어떻게 동작해야 하는지 명확히 정의할 수 있다.</li>
+<li>Object.defineProperty 메소드를 사용하면 프로퍼티의 어트리뷰트를 정의할 수 있다. </li>
+<li>인수는 객체의 참조와 데이터 프로퍼티의 키인 문자열 그리고 프로퍼티 디스크립터 객체를 전달한다.</li>
+<li>Object.defineProperty 메소드로 프로퍼티 정의할 때, 프로퍼티 디스크립터 객체의 프로퍼티를 일부 생략할 수 있다.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>프로퍼티 디스크립터 객체의 프로퍼티</th>
+<th align="center">대응하는 프로퍼티 어트리뷰트</th>
+<th align="right">디스크립터 객체의 프로퍼티 누락시 기본값</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td align="center">[[Value]]</td>
+<td align="right">undifined</td>
+</tr>
+<tr>
+<td>get</td>
+<td align="center">[[Get]]</td>
+<td align="right">undifined</td>
+</tr>
+<tr>
+<td>set</td>
+<td align="center">[[Set]]</td>
+<td align="right">undifined</td>
+</tr>
+<tr>
+<td>writable</td>
+<td align="center">[[Writable]]</td>
+<td align="right">false</td>
+</tr>
+<tr>
+<td>enumberable</td>
+<td align="center">[[Enumberable]]</td>
+<td align="right">false</td>
+</tr>
+<tr>
+<td>configurable</td>
+<td align="center">[[Configurable]]</td>
+<td align="right">false</td>
+</tr>
+</tbody></table>
+<h2 id="5-객체-변경-방지"><a href="#5-객체-변경-방지" class="headerlink" title="5. 객체 변경 방지"></a>5. 객체 변경 방지</h2><ul>
+<li>객체는 변경 가능한 값. 재할당 없이 직접 변경 가능</li>
+<li>Object.defineProperty or Object.defineProperties 메소드를 사용하여 프로퍼티 어트리뷰트를 재정의할 수 도있다.</li>
+<li>자바스크립트는 객체의 변경을 방지할 수 있는 다양한 메소드를 제공</li>
+</ul>
+<h3 id="5-1-객체-확장-금지"><a href="#5-1-객체-확장-금지" class="headerlink" title="5.1 객체 확장 금지"></a>5.1 객체 확장 금지</h3><ul>
+<li>Object.preventExtensions 메소드는 객체의 확장을 금지</li>
+<li>확장이 금지된 객체는 추가가 금지된다.</li>
+<li>동적추가와, 메소드로 추가  둗가지 모두 금지</li>
+<li>확장금지 객체 여부는 Object.isExtensible 메소드로 확인 가능하다</li>
+</ul>
+<h3 id="5-2-객체-밀봉"><a href="#5-2-객체-밀봉" class="headerlink" title="5.2 객체 밀봉"></a>5.2 객체 밀봉</h3><ul>
+<li>Object.seal 메소드는 객체를 밀봉</li>
+<li>프로퍼티 추가 및 삭제와 프로퍼티 어트리뷰트 재정의를 금지한다.</li>
+<li>밀봉된 객체는 읽기와 쓰기만 가능</li>
+<li>밀봉 객체 여부는 Object.isSealed 메소드로 확인가능</li>
+</ul>
+<h3 id="5-3-객체-동결"><a href="#5-3-객체-동결" class="headerlink" title="5.3 객체 동결"></a>5.3 객체 동결</h3><ul>
+<li>Object.freeze 메소드는 객체를 동결</li>
+<li>프로퍼티 추가 삭제 금지, 재정의 금지, 갱신 금지</li>
+<li>동결된 객체는 읽기만 가능</li>
+<li>Object.Frozen 메소드로 확인가능</li>
+</ul>
+<h3 id="5-4-불변-객체"><a href="#5-4-불변-객체" class="headerlink" title="5.4 불변 객체"></a>5.4 불변 객체</h3><ul>
+<li>위 메소드들은 얕은 변경방지(Shallow only) =&gt; 직속  프로퍼티에만 변경이 방지되고 중첩 객체 까지는 영향을 주지 못한다.</li>
+<li>객체의 중첩 객체까지 동결하여 변경이 불가능한 읽기 전용의 불변객체를 구현하려면, 객체를 값으로 갖는 모든 프로퍼티에 대해 재귀적으로 Object.freeze 메소드를 호출해야 한다.</li>
+</ul>
+
     </div>
 
     
@@ -275,7 +443,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#프로퍼티"><span class="nav-number">1.</span> <span class="nav-text">프로퍼티</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#프로퍼티-어트리뷰트"><span class="nav-number">1.</span> <span class="nav-text">프로퍼티 어트리뷰트</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-내부-슬롯과-내부-메소드"><span class="nav-number">1.1.</span> <span class="nav-text">1. 내부 슬롯과 내부 메소드</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-프로퍼티-어트리뷰트와-프로퍼티-디스크립터-객체"><span class="nav-number">1.2.</span> <span class="nav-text">2. 프로퍼티 어트리뷰트와 프로퍼티 디스크립터 객체</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-데이터-프로퍼티와-접근자-프로퍼티"><span class="nav-number">1.3.</span> <span class="nav-text">3. 데이터 프로퍼티와 접근자 프로퍼티</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-데이터-프로퍼티"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 데이터 프로퍼티</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-접근자-프로퍼티"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 접근자 프로퍼티</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-프로퍼티-정의"><span class="nav-number">1.4.</span> <span class="nav-text">4. 프로퍼티 정의</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-객체-변경-방지"><span class="nav-number">1.5.</span> <span class="nav-text">5. 객체 변경 방지</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-객체-확장-금지"><span class="nav-number">1.5.1.</span> <span class="nav-text">5.1 객체 확장 금지</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-객체-밀봉"><span class="nav-number">1.5.2.</span> <span class="nav-text">5.2 객체 밀봉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-객체-동결"><span class="nav-number">1.5.3.</span> <span class="nav-text">5.3 객체 동결</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-4-불변-객체"><span class="nav-number">1.5.4.</span> <span class="nav-text">5.4 불변 객체</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

@@ -148,6 +148,136 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hodeng28.github.io/2020/03/js.this/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hodeng28">
+      <meta itemprop="description" content="헤헤">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hodeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/js.this/" class="post-title-link" itemprop="url">js.this</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-15 01:35:36 / Modified: 02:31:58" itemprop="dateCreated datePublished" datetime="2020-03-15T01:35:36+09:00">2020-03-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="this"><a href="#this" class="headerlink" title="this"></a>this</h1><table>
+<thead>
+<tr>
+<th>함수 호출 방식</th>
+<th align="center">this 바인딩</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>일반 함수 호출</td>
+<td align="center">전역 객체</td>
+</tr>
+<tr>
+<td>메소드 호출</td>
+<td align="center">메소드를 호출한 객체</td>
+</tr>
+<tr>
+<td>생성자 함수 호출</td>
+<td align="center">생성자 함수가(미래에) 생성할 인스턴스</td>
+</tr>
+<tr>
+<td>Function.prototype.apply/call/bind 메소드에 의한 간접 호출</td>
+<td align="center">Function.prototype.apply/call/bind 메소드에 인자로 전달한 객체</td>
+</tr>
+</tbody></table>
+<p>바인딩 - 식별자와 값을 연결하는 과정  ex) 변수는 할당에 의해 값이 바인딩된다.  </p>
+<h2 id="1-this-키워드"><a href="#1-this-키워드" class="headerlink" title="1. this 키워드"></a>1. this 키워드</h2><p>동작을 나타내는 메소드는 자신이 속한 객체의 프로퍼티를 참조하고 변경할 수 있어야한다. 이 때 메소드가 자신이 속한 객체의 프로퍼티를 참조하려면 먼저 자신이 속한 객체를 가리키는 식별자를 참조할 수 있어야한다.</p>
+<ul>
+<li><p>생성자 함수 내부에서는 프로퍼티 또는 메소드를 추가하기 위해 자신이 생성할 인스턴스를 참조할 수 있어야 한다.</p>
+</li>
+<li><p>생성자 함수로 인스턴스를 생성하려면 먼저 생성자 함수가 존재해야 한다.</p>
+</li>
+<li><p>생성자 함수를 정의하는 시점에서는 아직 인스턴스를 생성하기 이저이므로 생성자 함수가 생성할 인스턴스를 가리키는 식별자를 알 수 없다.</p>
+</li>
+<li><p>따라서 자신이 속한 객체 또는 자신이 생성할 인스턴스를 가리키는 특수한 식별자가 필요한데 이를 위해 자바스크립트는 this라는 특수한 식별자를 제공한다.</p>
+</li>
+<li><p>this는 자신이 속한 객체 또는 자신이 생성할 인스턴스를 가리키는 자기 참조 변수이다.<br>this를 통해 자신이 속한 객체 또는 자신이 생성할 인스턴스의  프로퍼티나 메소드를 참조할 수 있다.</p>
+</li>
+<li><p>자바스크립트 엔진에 의해 암묵적으로 생성되며 코드 어디에서든지 참조할 수 있다.</p>
+</li>
+<li><p>this가 가리키는 값, 즉 this 바인딩은 함수 호출 방식에 의해 동적으로 결정된다.</p>
+</li>
+</ul>
+<h2 id="2-함수-호출-방식과-this-바인딩"><a href="#2-함수-호출-방식과-this-바인딩" class="headerlink" title="2. 함수 호출 방식과 this 바인딩"></a>2. 함수 호출 방식과 this 바인딩</h2><p>렉시컬 스코프와 this 바인딩은 결정 시기가 다르다.</p>
+<ul>
+<li>함수의 상위 스코프를 결정하는 방식인 렉시컬 스코프는 함수 정의가 평가되어 함수 객체가 생성되는 시점에 상위 스코프를 결정한다. </li>
+<li>this에 바인딩될 객체는 함수 호출 시점에 결정된다.</li>
+</ul>
+<h3 id="2-1-일반-함수-호출"><a href="#2-1-일반-함수-호출" class="headerlink" title="2.1 일반 함수 호출"></a>2.1 일반 함수 호출</h3><p>기본적으로 this는 전역객체가 바인딩된다.</p>
+<ul>
+<li>전역 함수는 물론, 중첩함수를 일반함수로 호출하면 함수 내부의 this에 전역 객체가 바인딩된다.   (중첩함수, 콜백함수 포함)</li>
+<li>this는 객체의 프로퍼티나 메소드를 참조하기 위한 자기 참조 변수이므로 객체를 생성하지 않는 일반 함수에서는 의미가 없다.</li>
+</ul>
+<h3 id="2-2-메소드-호출"><a href="#2-2-메소드-호출" class="headerlink" title="2.2 메소드 호출"></a>2.2 메소드 호출</h3><ul>
+<li>메소드 내부의 this는 메소드를 호출한 객체, 즉 메소드 이름 앞의 마침표 연산자 앞에 기술한 객체에 바인딩된다.</li>
+<li>메소드 내부의 this는 메소드를 소유한 객체가 아닌 메소드를 호출한 객체에 바인딩된다는 것</li>
+<li>메소드는 프로퍼티에 바인딩된 함수이다.</li>
+</ul>
+<h3 id="2-3-생성자-함수-호출"><a href="#2-3-생성자-함수-호출" class="headerlink" title="2.3 생성자 함수 호출"></a>2.3 생성자 함수 호출</h3><ul>
+<li>생성자 함수 내부의 this에는 생성자 함수가 (미래에) 생성할 인스턴스가 바인딩된다.</li>
+</ul>
+<h3 id="2-4-Function-prototype-apply-call-bind-메소드에-의한-간접-호출"><a href="#2-4-Function-prototype-apply-call-bind-메소드에-의한-간접-호출" class="headerlink" title="2.4 Function.prototype.apply/call/bind 메소드에 의한 간접 호출"></a>2.4 Function.prototype.apply/call/bind 메소드에 의한 간접 호출</h3><ul>
+<li><p>Function.prototype.apply/call/bind 메소드는 인수로 this와 인수 리스트를 전달받아 함수를 호출한다. </p>
+</li>
+<li><p>apply, call 메소드는 Function.prototype의 메소드, 따라서 Function 생성자 함수를 constructor 프로퍼티로 가리키는 모든 함수가 상속받아 사용할 수 있다.</p>
+</li>
+<li><p>apply와 call 메소드의 본질적인 기능은 함수를 호출하는 것,   apply와 call 메소드는 함수를 호출하면서 첫번째 인수로 전달한 특정 객체를 호출한 함수의 this에 바인딩한다.</p>
+</li>
+<li><p>Function.prototype.bind 메소드는 함수를 호출하지 않고 this로 사용할 객체만을 전달한다.</p>
+</li>
+<li><p>bind 메소드는 메소드의 this와 메소드의 내부의 중첩함수 또는 콜백함수의 this가 불일치하는 문제를 해결하기 위해 유용하게 사용된다.</p>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
     <link itemprop="mainEntityOfPage" href="http://hodeng28.github.io/2020/03/js.built-in%20object/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -171,10 +301,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-14 22:07:44 / Modified: 23:21:50" itemprop="dateCreated datePublished" datetime="2020-03-14T22:07:44+09:00">2020-03-14</time>
+              <time title="Created: 2020-03-14 22:07:44" itemprop="dateCreated datePublished" datetime="2020-03-14T22:07:44+09:00">2020-03-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-15 01:34:34" itemprop="dateModified" datetime="2020-03-15T01:34:34+09:00">2020-03-15</time>
+              </span>
 
           
 
@@ -226,10 +362,70 @@
 <li>위 예제는 원시값으로 표준 빌트인 객체의 프로토타입 메소드를 호출하면 정상적으로 동작한다.</li>
 <li>이는 원시값인 문자열, 숫자, 불리언 값의 경우 마치 객체처럼 이들 원시값에 대해 마침표 표기법(or 대괄호 표기법)으로 접근하면 자바스크립트 엔진이 일시적으로 원시값을 연관된 객체로 변환해 주기 때문이다.</li>
 <li>원시값을 객체처럼 사용하면 자바스크립트 엔진은 암묵적으로 연관된 객체를 생성하고 생성된 객체로 프로퍼티에 접근하거나 메소드를 호출하고 다시 원시값으로 되돌린다.</li>
-<li>문자열, 숫자 불리언 값에 대해 객체처럼 접근하면 생성되는 임시 객체를 래퍼 객체라 한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'hi'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//원시 타입인 문자열이 -&gt; 래퍼 객체인 String 인스턴스로 변환된다.</span></span><br><span class="line"><span class="built_in">console</span>.log(str.length);    <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(str.toUpperCase());  <span class="comment">//HI</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//래퍼 객체로 프로퍼티 접근이나 메소드 호출한 후,  -&gt;  다시 원시값으로 되돌린다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);    <span class="comment">//string</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//이 때 문자열 래퍼 객체인 String 생성자 함수의 인스턴스는 String,prototype의 메소드를 상속받아 사용할 수 있다.</span></span><br></pre></td></tr></table></figure>
+<li>문자열, 숫자 불리언 값에 대해 객체처럼 접근하면 생성되는 임시 객체를 래퍼 객체라 한다.</li>
+<li>래퍼 객체의 처리가 종료되면 래퍼 객체의 [[StringData]] 내부 슬롯에 할당된 원시값을 되돌리고 래퍼 객체는 가비지 컬렉션의 대상이 된다. (number, boolean, Symbol도)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'hi'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//원시 타입인 문자열이 -&gt; 래퍼 객체인 String 인스턴스로 변환된다.</span></span><br><span class="line"><span class="built_in">console</span>.log(str.length);    <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(str.toUpperCase());  <span class="comment">//HI</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//래퍼 객체로 프로퍼티 접근이나 메소드 호출한 후,  -&gt;  다시 원시값으로 되돌린다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);    <span class="comment">//string</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//이 때 문자열 래퍼 객체인 String 생성자 함수의 인스턴스는 String.prototype의 메소드를 상속받아 사용할 수 있다.</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'hello'</span>;</span><br><span class="line"></span><br><span class="line">str.name = <span class="string">'jung'</span>;  <span class="comment">//래퍼 객체에 프로퍼티 추가</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 위 코드의 래퍼 객체가 아닌 새로운 래퍼 객체를 가리킨다.</span></span><br><span class="line"><span class="built_in">console</span>.log(str.name);  <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>String, Number, Boolean, Symbol 이외의 원시값은 래퍼 객체를 생성하지 않는다.</li>
+<li>원시값 null, undefined 래퍼 객체가 없다. 객체처럼 사용하면 에러발생</li>
+</ul>
+<h2 id="4-전역-객체"><a href="#4-전역-객체" class="headerlink" title="4. 전역 객체"></a>4. 전역 객체</h2><p>전역 객체(Global Object)는 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 어떤 객체보다도 먼저 생성되는 특수한 객체이며 어떤 객체에도 속하지 않는 최상위 객체이다.</p>
+<ul>
+<li><p>자바스크립트 환경에 따라 지칭하는 이름이 다르다.</p>
+<ul>
+<li>브라우저 환경 - window, self, this, frames 이 전역 객체를 가리킴</li>
+<li>Node.js 환경 - global </li>
+</ul>
+</li>
+<li><p>전역 객체는 표준 빌트인 객체들과 환경에 따른 호스트 객체, var 키워드로 선언한 전역 변수와 전역 함수를 프로퍼티로 갖는다.</p>
+</li>
+<li><p>계층적 구조 상 어떤 객체에도 속하지 않은 모든 빌트인 객체의 최상위 객체이다.</p>
+</li>
+<li><p>프로토타입 상속 관계 상에서 최상위 객체라는 의미가 아니다</p>
+</li>
+<li><p>객체의 계층적 구조 상 표준 빌트인 객체와 호스트 객체를 프로퍼티로 소유한다는 것을 말한다.</p>
+</li>
+<li><p>전역 객체의 특징</p>
+<ul>
+<li>전역 객체는 개발자가 의도적으로 생성할 수 없다. 전역 객체를 생성할 수 있는 생성자 함수가 제공되지 않는다.</li>
+<li>전역 객체의 프로퍼티를 참조할 때 window(global)를 생략할 수 있다.</li>
+<li>전역 객체는 모든 표준 빌트인 객체를 프로퍼티로 가지고 있다.</li>
+<li>자바스크립트 실행 환경에 따라 추가적으로 프로퍼티와 메소드를 갖는다.</li>
+<li>클라이언트 사이드 Web API, Node.js 고유의 API를 호스트 객체로 제공한다.</li>
+<li>전역 함수는 전역 객체의 프로퍼티가 된다.</li>
+<li>var 키워드로 선언한 전역 변수와 선언하지 않는 변수에 값을 할당한 암묵적 전역</li>
+<li>let , const 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 아니다.</li>
+<li>브라우저 환경의 모든 자바스크립트 코드는 하나의 전역 객체 window를 공유한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.foo);   <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line">bar = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.bar);  <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line">funciton baz() &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.baz());  <span class="comment">//3</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>전역 객체는 몇가지 프로퍼티와 메소드를 가지고 있다. 전역 객체의 프로퍼티와 메소드는 전역 객체를 가리키는 식별자를 생락하여 참조/호출 할 수 있으므로 전역 변수와 전역 함수처럼 사용할 수 있다.</p>
+</li>
+</ul>
+<h3 id="4-1-빌트인-전역-프로퍼티-Built-in-global-property"><a href="#4-1-빌트인-전역-프로퍼티-Built-in-global-property" class="headerlink" title="4.1 빌트인 전역 프로퍼티 (Built-in global property)"></a>4.1 빌트인 전역 프로퍼티 (Built-in global property)</h3><p>전역 객체의 프로퍼티를 의미, 주로 애플리케이션 전역에서 사용하는 값을 제공한다.</p>
+<h4 id="4-1-1-Infinity"><a href="#4-1-1-Infinity" class="headerlink" title="4.1.1 Infinity"></a>4.1.1 Infinity</h4><p>Infinity 프로퍼티는 양/음의 무한대를 나타내는 숫자값 Infinity를 갖는다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.Infinity === <span class="literal">Infinity</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-1-2-NaN"><a href="#4-1-2-NaN" class="headerlink" title="4.1.2 NaN"></a>4.1.2 NaN</h4><p>NaN 프로퍼티는 숫자가 아님을 나타내는 숫자값 NaN을 갖는다.<br>NaN 프로퍼티는 Number.NaN 프로퍼티와 같다.</p>
+<h4 id="4-1-3-undifined"><a href="#4-1-3-undifined" class="headerlink" title="4.1.3 undifined"></a>4.1.3 undifined</h4><p>undifined 프로퍼티는 원시 타입 undifined를 값으로 갖는다.</p>
+<h3 id="4-2-빌트인-전역-함수"><a href="#4-2-빌트인-전역-함수" class="headerlink" title="4.2 빌트인 전역 함수"></a>4.2 빌트인 전역 함수</h3><p>빌트인 전역 함수는 애플리케이션 전역에서 호출할 수 있는 빌트인 함수로서 전역 객체의 메소드이다.</p>
+<h4 id="4-2-1-eval"><a href="#4-2-1-eval" class="headerlink" title="4.2.1 eval"></a>4.2.1 eval</h4><p>문자열 형태로 매개변수에 전달된 코드를 런타임에 동적으로 평가하고 실행하여 결과값을 반환한다. 전달된 문자열 코드가 여러 개의 문으로 이루어져 있다면 모든 문을 실행 후 마지막 결과 값을 반환한다.<br>eval 함수는 런타임에 자신이 호출된 기존의 스코프를 동적으로 수정한다.</p>
+<h4 id="4-2-2-isFinite"><a href="#4-2-2-isFinite" class="headerlink" title="4.2.2 isFinite"></a>4.2.2 isFinite</h4><p>매개변수에 전달된 값이 정상적인 유한수인지 검사하여 그 결과를 불리언 타입으로 반환한다.<br>매개변수에 전달된 값이 숫자가 아닌 경우, 숫자로 타입을 변환한 후 검사를 수행한다.</p>
+<h4 id="4-2-3-isNaN"><a href="#4-2-3-isNaN" class="headerlink" title="4.2.3  isNaN"></a>4.2.3  isNaN</h4><p>매개변수에 전달된 값이 NaN인지 검사하여 그 결과를 불리언 타입으로 반환한다.<br>매개변수에 전달된 값이 숫자가 아닌 경우, 숫자로 변환한 후 검사를 수행한다.</p>
+<h4 id="4-2-4-parseFloat"><a href="#4-2-4-parseFloat" class="headerlink" title="4.2.4 parseFloat"></a>4.2.4 parseFloat</h4><p>매개변수에 전달된 문자열을 부동소수점 숫자로 변환하여 반환한다.</p>
+<h4 id="4-2-5-parseInt"><a href="#4-2-5-parseInt" class="headerlink" title="4.2.5 parseInt"></a>4.2.5 parseInt</h4><p>매개변수에 전달된 문자열을 정수형 숫자로 해석하여 반환한다. 반환값은 언제나 10진수</p>
+<h4 id="4-2-6-encodeURI-decodeURI"><a href="#4-2-6-encodeURI-decodeURI" class="headerlink" title="4.2.6 encodeURI / decodeURI"></a>4.2.6 encodeURI / decodeURI</h4><p>encodeURI 함수는 매개변수로 전달된 URI(Uniform Resource Identifier)를 인코딩한다. URI는 인터넷에 있는 자원을 나타내는 유일한 주소를 말함<br>URI의 하위 개념으로 URL, URN이 있다.</p>
+<ul>
+<li>인코딩이란 URI의 문자들을 이스케이프 처리하는 것을 의미</li>
+</ul>
+<h4 id="4-2-7-encodeURIComponent-decodeURIComponent"><a href="#4-2-7-encodeURIComponent-decodeURIComponent" class="headerlink" title="4.2.7 encodeURIComponent / decodeURIComponent"></a>4.2.7 encodeURIComponent / decodeURIComponent</h4><p>encodeURIComponent 함수은 매개변수로 전달된 URI(Uniform Resource Identifier) 구성 요소 (component)를 인코딩한다.<br>decodeURIComponent 함수는 매개변수로 전달된 URI 구성 요소를 디코딩한다.</p>
+<h4 id="4-3-암묵적-전역"><a href="#4-3-암묵적-전역" class="headerlink" title="4.3 암묵적 전역"></a>4.3 암묵적 전역</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  y = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x + y);   <span class="comment">// 30</span></span><br></pre></td></tr></table></figure>
+<p>foo 함수 내의 y는 선언하지 않은 식별자여서  y = 20이 실행되면 참조 에러가 발생할 것처럼 보인다. 하지만 선언하지 않는 식별자 y는 선언된 전역 변수처럼 동작한다.<br><strong>선언하지 않은 식별자에 값을 할당하면 전역 객체의 프로퍼티가 되기 때문이다.</strong></p>
+<p>foo 함수가 호출되면 자바스크립트 엔진은 변수 y에 값을 할당하기 위해 먼저 스코프체인을 통해 선언된 변수인지 확인한다.  foo 함수의 스코프, 전역 스코프 어디에서도 변수 y의 선언을 찾을 수 없으므로 참조에러가 발생햐아한다.<br>하지만 자바스크립트엔진은 y = 20을 window.y = 20 으로 해석하여 전역 객체에 프로퍼티를 동적 생성한다.  y는 전역 객체의 프로퍼티가 되어 마치 전역 변수가 동작한다.<br>이러한 현상을 암묵적 전역이라 한다.<br>y는 변수 없이 전역 객체의 프로퍼티로 추가 되었을 뿐, y는 변수가 아니다.<br>따라서 y는 변수 호이스팅이 발생하지 않는다.<br>delete 연산자로 삭제할 수 있다. (변수가 아니기 때문) ,<br>전역 변수는 프로퍼티이지만 delete 연산자로 삭제할 수 없다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(x);  undifined</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(y); <span class="built_in">ReferenceError</span>: y is not defined</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">funciton foo () &#123;</span><br><span class="line">  y = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line"><span class="built_in">console</span>.log( x + y);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1458,190 +1654,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://hodeng28.github.io/2020/02/js.function/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="hodeng28">
-      <meta itemprop="description" content="헤헤">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="hodeng">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/js.function/" class="post-title-link" itemprop="url">js.function</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2020-02-27 00:07:49 / Modified: 02:06:42" itemprop="dateCreated datePublished" datetime="2020-02-27T00:07:49+09:00">2020-02-27</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="함수"><a href="#함수" class="headerlink" title="함수"></a>함수</h1><h2 id="1-함수란"><a href="#1-함수란" class="headerlink" title="1. 함수란?"></a>1. 함수란?</h2><p>input을 받아서 output을 내보내는 일련의 과정<br>함수는 함수 정의(Function definition)를 통해 생성한다.<br>JS의 함수는 다양한 방법으로 정의할 수 있다.<br>함수의 정의만으로 함수가 실행되지 않는다. 인수 -&gt; 매개변수를 통해 함수에게 전달하면서 함수의 실행을 명시적으로 지시해야한다. <br>이를 함수호출(Function call/invoke)이라 한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// f(x, y) = x + y</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;  <span class="comment">//함수 정의</span></span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line">add(<span class="number">2</span>, <span class="number">5</span>);   <span class="comment">//7     //함수 호출</span></span><br></pre></td></tr></table></figure>
-<p>함수를 호출하면 코드 블록에 담긴 문들이 일괄적으로 실행되고 반환값을 반환한다.</p>
-<h2 id="2-함수의-사용-이유"><a href="#2-함수의-사용-이유" class="headerlink" title="2. 함수의 사용 이유"></a>2. 함수의 사용 이유</h2><ul>
-<li>동일한 작업을 반복적으로 수행한다면, 미리 정의된 함수를 재사용하는 것이 효율적이다.<br>함수는 얼마든지 호출할 수 있으므로 코드의 재사용의 측면에서 매우 유용하다.</li>
-<li>함수는 유지보수의 편의성을 높이고 실수를 줄여 코드의 신뢰성을 높이는 효과가 있다.</li>
-<li>코드의 가독성을 향상시킨다. (객체타입의 값이라 식별자를 붙일 수 있음)</li>
-</ul>
-<h2 id="3-함수-리터럴"><a href="#3-함수-리터럴" class="headerlink" title="3. 함수 리터럴"></a>3. 함수 리터럴</h2><p>JS의 함수는 <strong>객체 타입의 값</strong><br>함수 리터럴은 function 키워드, 함수 이름, 매개변수, 함수 몸체로 구성된다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 변수에 함수 리터럴을 할당</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>함수는 호출할 수 있지만, 일반 객체는 호출할 수 없다.<br><br>함수 객체만의 고유한 프로퍼티를 갖는다.</p>
-<h4 id="함수이름"><a href="#함수이름" class="headerlink" title="함수이름"></a>함수이름</h4><ul>
-<li>함수 이름은 식별자. 네이밍 규칙을 준수해야한다.</li>
-<li>함수 이름은 함수 몸체 내에서만 참조할 수 있는 식별자이다.</li>
-<li>함수 이름은 생략 가능하다.</li>
-</ul>
-<h4 id="매개변수-목록"><a href="#매개변수-목록" class="headerlink" title="매개변수 목록"></a>매개변수 목록</h4><ul>
-<li>0개 이상의 매개변수를 소괄호로 감싸고 쉼표로 구분한다.</li>
-<li>함수 호출문의 인수가 순서대로 할당된다. 매개변수 목록은 순서에 의미가 있다.</li>
-<li>함수 몸체 내에서 변수와 동일하게 취급된다. 변수와 마찬가지로 식별자 네이밍 규칙을 준수해야한다.</li>
-</ul>
-<h4 id="함수-몸체"><a href="#함수-몸체" class="headerlink" title="함수 몸체"></a>함수 몸체</h4><ul>
-<li>함수 몸체는 함수 호출에 의해 실행된다.</li>
-<li>함수가 호출되었을 때 일괄적으로 실행될 문들을 하나의 실행 단위로 정의한 코드 블록이다.</li>
-</ul>
-<h2 id="4-함수-정의"><a href="#4-함수-정의" class="headerlink" title="4. 함수 정의"></a>4. 함수 정의</h2><p>함수를 호출하기 이전에 인수를 전달받을 매개변수와 실행할 문들, 그리고 반환할 값을 지정하는 것을 말한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 함수 선언문</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 표현식</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x+y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//function 생성자 함수</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="keyword">new</span> <span class="built_in">Function</span>(<span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'return x + y'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//화살표 함수 (ES6에 추가)</span></span><br><span class="line"><span class="keyword">var</span> add = <span class="function">(<span class="params">x, y</span>) =&gt;</span> x + y;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4-1-함수-선언문"><a href="#4-1-함수-선언문" class="headerlink" title="4.1 함수 선언문"></a>4.1 함수 선언문</h3><ul>
-<li>함수 선언문은 리터럴과 형태가 동일하다. 함수 선언문은 함수 이름을 생략할 수 없다.</li>
-<li>함수 선언문은 표현식이 아닌 문이다. (선언문이기 때문에 undefined를 출력한다.)</li>
-<li>표현식이 아닌 문은 변수에 할당할 수 없지만, <strong>함수 선언문은 변수에 할당하는 것 처럼 보인다.</strong></li>
-<li>JS 엔진은 함수 이름과 동일한 이름의 식별자를 암묵적으로 생성하고 생성된 함수 객체를 할당한다.</li>
-<li>함수는 함수 이름으로 호출하는게 아니라 함수 객체를 가리키는 식별자로 호출한다.</li>
-</ul>
-<p><strong>자바스크립트 엔진은 함수선언문을 함수 표현식으로 변환하여 함수 객체를 생성한다고 생각할 수 있다.</strong></p>
-<h3 id="4-2-함수-표현식"><a href="#4-2-함수-표현식" class="headerlink" title="4.2 함수 표현식"></a>4.2 함수 표현식</h3><ul>
-<li><p>자바스크립트의 함수는 일급 객체  (함수를 값처럼 자유롭게 사용할 수 있음)</p>
-</li>
-<li><p>일급 객체이므로 함수 리터럴로 생성한 함수 객체를 변수에 할당할 수 있다.</p>
-</li>
-<li><p>함수 리터럴의 함수 이름은 생략할 수 있다. (생략하는 것이 일반적, 익명 함수)</p>
-<p>함수 선언문과 함수 표현식의 차이.  함수 생성 시점과 호이스팅</p>
-</li>
-</ul>
-<h3 id="4-3-함수-생성-시점과-함수-호이스팅"><a href="#4-3-함수-생성-시점과-함수-호이스팅" class="headerlink" title="4.3 함수 생성 시점과 함수 호이스팅"></a>4.3 함수 생성 시점과 함수 호이스팅</h3><p>함수 선언문과 함수 표현식은 함수 생성 시점이 다르다.  </p>
-<ul>
-<li>함수 선언문으로 함수를 정의하면 런타임 이전에 함수 객체가 먼저 생성된다.<br>자바스크립트 엔진은 함수 이름과 동일한 이름의 식별자를 암묵적으로 생성하고 함수 객체를 할당</li>
-<li>함수 선언문을 통해 암묵적으로 생성된 식별자는 <strong>함수 객체로 초기화</strong></li>
-</ul>
-<p>함수 표현식은 변수 할당문의 값이 함수 리터럴인 문</p>
-<ul>
-<li>함수 표현식은 변수 선언문과 변수 할당문을 한번에 기술한 축약 표현과 동일하게 동작한다.</li>
-<li>변수 할당문의 런타임에 평가되므로 함수 표현식의 함수 리터럴도 할당문이 실행되는 시점에 평가되어 함수 객체가 된다.</li>
-<li>함수 표현식으로 함수를 정의하면 함수 호이스팅이 발생하는 것이 아니라 <strong>변수 호이스팅이 발생한다.</strong></li>
-<li>함수 표현식 이전에 함수를 참조하면 타입에러가 발생한다. </li>
-<li>함수 표현식으로 정의한 함수는 반드시 함수 표현식 이후에 참조 또는 호출해야 한다.</li>
-</ul>
-<h3 id="4-4-Function-생성자-함수-빌트인-함수-Constructor-Function"><a href="#4-4-Function-생성자-함수-빌트인-함수-Constructor-Function" class="headerlink" title="4.4 Function 생성자 함수 (빌트인 함수) (Constructor Function)"></a>4.4 Function 생성자 함수 (빌트인 함수) (Constructor Function)</h3><ul>
-<li>생성자 함수는 객체를 생성하는 함수.</li>
-<li>Function 생성자 함수로 생성한 함수는 클로저를 생성하지 않는 등, 함수 선언문이나 함수 표현식으로 생성한 함수와 다르게 동작한다.</li>
-</ul>
-<h3 id="4-5-화살표-함수"><a href="#4-5-화살표-함수" class="headerlink" title="4.5 화살표 함수"></a>4.5 화살표 함수</h3><ul>
-<li>화살표 함수는 항상 익명 함수로 정의한다.</li>
-<li>생성자 함수로 사용할 수 없으며 기존의 함수와 this 바인딩 방식이 다르고, prototype 프로퍼티가 없으며 arguments 객체를 생성하지 않는다.</li>
-</ul>
-<h2 id="5-함수-호출"><a href="#5-함수-호출" class="headerlink" title="5. 함수 호출"></a>5. 함수 호출</h2><ul>
-<li>함수는 함수를 가리키는 식별자와 한 쌍의 소괄호인 함수 호출 연산자로 호출한다.</li>
-<li>함수 호출 연산자 내에는 0개 이상의 인수(argument)를 쉼표로 구분하여 나열한다.</li>
-<li>호출하면 현재의 실행 흐름을 중단, 호출된 함수로 컨트롤을 넘긴다.<br>인수 -&gt; 매개변수 할당 , 함수 몸체의 문들이 실행</li>
-</ul>
-<h3 id="5-1-매개변수와-인수"><a href="#5-1-매개변수와-인수" class="headerlink" title="5.1 매개변수와 인수"></a>5.1 매개변수와 인수</h3><p>함수 외부에서 함수 내부로 필요 값을 전달할 필요가 있는 경우  인수(외부) -&gt; 매개변수(내부)</p>
-<ul>
-<li>인수는 값으로 평가될 수 있는 표현식이어야 하며, 함수를 호출할 때 지정하며 개수와 타입에 제한이 없다.</li>
-<li>매개변수는 함수를 정의할 때 선언하며 함수 몸체 내부에서 변수와 동일하게 취급한다.<br>(함수가 호출되면 함수 몸체 내에 암묵적으로 매개변수가 생성되고, undefined로 초기화된 이후 인수가 순서대로 할당된다.)  호출될 때마다 이 단계를 거침</li>
-<li>매개변수는 함수 몸체 내부에서만 참조할 수 있고 함수 몸체 외부에서는 참조할 수 없다.<br>(스코프는 함수 내부이다.)</li>
-<li>매개변수와 인수의 개수를 체크하지 않는다. <ul>
-<li>인수가 부족하면 할당되지 않은 매개변수의 값은 undefined</li>
-<li>초과된 인수는 무시된다. 모든 인수는 암묵적으로 arguments 객체의 프로퍼티로 보관된다.</li>
-</ul>
-</li>
-</ul>
-<h3 id="5-2-인수-확인"><a href="#5-2-인수-확인" class="headerlink" title="5.2 인수 확인"></a>5.2 인수 확인</h3><ul>
-<li>자바스크립트 함수는 매개변수와 인수의 개수가 일치하는지 확인하지 않는다.</li>
-<li>자바스크립트 함수는 매개변수의 타입을 사전에 지정할 수 없다.<br>따라서 함수를 정의할 때 적절한 인수가 전달되었는지 확인이 필요하다.</li>
-</ul>
-<h3 id="5-3-매개변수의-최대-개수"><a href="#5-3-매개변수의-최대-개수" class="headerlink" title="5.3 매개변수의 최대 개수"></a>5.3 매개변수의 최대 개수</h3><ul>
-<li>이상적인 매개변수 개수는 0개이며 적을 수록 좋다. </li>
-<li>3개 이상을 넘지 않는 것을 권장한다. (그 이상의 매개변수가 필요하다면 하나의 매개변수를 선언하고 객체를 인수로 전달받는 것이 유리하다.)</li>
-<li>매개변수의 개수나 순서가 변경되면 함수의 호출 방법도 변경되므로 함수를 사용하는 코드 전체가 영향을 받는다.  (유지보수성도 나빠진다.)</li>
-</ul>
-<h3 id="5-4-반환문"><a href="#5-4-반환문" class="headerlink" title="5.4 반환문"></a>5.4 반환문</h3><ul>
-<li>실행 결과를 함수 외부로 반환(return)</li>
-<li>반환문은 함수의 실행을 중단하고 함수 몸체를 빠져나간다.</li>
-<li>반환문 이후에 다른 문이 존재하면 그 문은 무시된다.</li>
-<li>return 키워드 뒤에 지정한 값을 반환한다. 명시적을 지정하지 않으면 undefined가 반환된다.</li>
-<li>반환문을 생략할 수 있다. 함수는 마지막 문까지 실행한 후 암묵적으로 undefined를 반환한다.</li>
-</ul>
-<h2 id="6-참조에-의한-전달과-외부-상태의-변경"><a href="#6-참조에-의한-전달과-외부-상태의-변경" class="headerlink" title="6. 참조에 의한 전달과 외부 상태의 변경"></a>6. 참조에 의한 전달과 외부 상태의 변경</h2><p>함수의 매개변수에 값을 전달하는 방식 <strong>Call by value, Call by reference</strong><br>동작 방식은 <strong>값에 의한 전달, 참조에 의한 전달</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//primitive은 원시값, obj는 객체를 전달받는다.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeVal</span>(<span class="params">primitive, obj</span>) </span>&#123;</span><br><span class="line">  primitive += <span class="number">100</span>;</span><br><span class="line">  obj.name = <span class="string">'Kim'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//외부 상태</span></span><br><span class="line"><span class="keyword">var</span> num = <span class="number">100</span>;</span><br><span class="line"><span class="keyword">var</span> person = &#123; <span class="attr">name</span>: <span class="string">'Jung'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(num); <span class="comment">// 100</span></span><br><span class="line"><span class="built_in">console</span>.log(person); <span class="comment">// &#123;name: 'Jung'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//원시값은 값 자체가 복사되어 전달되고 객체는 참조값이 복사되어 전달</span></span><br><span class="line">changeVal(num, person);</span><br></pre></td></tr></table></figure>
-<p>원시 값은 원본이 훼손되지 않는다. 객체는 원본이 훼손된다.</p>
-<ul>
-<li>원시 타입 인수는 값 자체가 복사되어 매개변수에 전달되기 때문에 원본은 훼손되지 않는다. side-effect가 없다</li>
-<li>객체 타입 인수는 참조값이 복사되어 매개변수에 전달되기 때문에 원본이 훼손된다. side-effect 발생</li>
-<li>객체를 불변 객체로 만들어 사용해서 외부상태가 변경되는 side-effect를 없앨 수 있다.</li>
-</ul>
-<h2 id="7-다양한-함수의-형태"><a href="#7-다양한-함수의-형태" class="headerlink" title="7. 다양한 함수의 형태"></a>7. 다양한 함수의 형태</h2><h3 id="7-1-즉시실행함수-IIFE"><a href="#7-1-즉시실행함수-IIFE" class="headerlink" title="7.1 즉시실행함수(IIFE)"></a>7.1 즉시실행함수(IIFE)</h3><ul>
-<li>즉시 실행 함수는 단 한번만 호출되며 다시 호출할 수 없다. (첫번째 메인 페이지에 사용)</li>
-<li>익명 함수를 사용하는 것이 일반적이다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line">  <span class="keyword">var</span> b = <span class="number">5</span>;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;());</span><br></pre></td></tr></table></figure></li>
-<li>즉시 실행 함수는 반드시 그룹 연산자()로 감싸 주어야 한다.</li>
-<li>그룹 연산자로 함수를 묶은 이유는 먼저 함수를 평가하여 함수 객체를 생성하기 위함이다.</li>
-</ul>
-<h3 id="7-2-재귀-함수-recursive-function"><a href="#7-2-재귀-함수-recursive-function" class="headerlink" title="7.2 재귀 함수(recursive function)"></a>7.2 재귀 함수(recursive function)</h3><ul>
-<li>함수가 자기 자신을 호출하는 것을 재귀 호출이라 한다.</li>
-<li>팩토리얼은 재귀 호출로 간단히 구현할 수 있다.</li>
-<li>재귀 호출을 멈출 수 있는 탈출 조건을 반드시 만들어야 한다.</li>
-<li>함수 호출은 반드시 함수를 가리키는 식별자로 해야 한다.</li>
-<li>재귀 함수는 for 문이나 while 문으로 구현 가능하다.</li>
-</ul>
-<h3 id="7-3-중첩-함수-nested-function"><a href="#7-3-중첩-함수-nested-function" class="headerlink" title="7.3 중첩 함수(nested function)"></a>7.3 중첩 함수(nested function)</h3><ul>
-<li>함수 내부에 정의된 함수를 중첩함수 또는 내부 함수(inner function)라 한다.</li>
-<li>중첩 함수를 포함하는 함수를 외부 함수(outer function)라 한다.</li>
-<li>일반적으로 중첩 함수는 자신을 포함하는 외부 함수를 돕는 헬퍼 함수 역할을 한다.</li>
-</ul>
-<h3 id="7-4-콜백-함수-Callback-function"><a href="#7-4-콜백-함수-Callback-function" class="headerlink" title="7.4 콜백 함수(Callback function)"></a>7.4 콜백 함수(Callback function)</h3><p>고차함수(Higher-Order Function, HOF)의 인자로 넘겨지는 함수.<br>콜백 함수는 고차함수 내에서 수행된다.   (내용 추가하기)</p>
-<h3 id="7-5-순수-함수와-비순수-함수"><a href="#7-5-순수-함수와-비순수-함수" class="headerlink" title="7.5 순수 함수와 비순수 함수"></a>7.5 순수 함수와 비순수 함수</h3><p>순수 함수 - 부수효과가 없는 함수(외부 상태를 변경시키는)<br>비순수 함수 - 부수효과가 있는 함수<br>함수형 프로그래밍은 순수 함수를 통해 부수 효과를 최대한 억제하여 오류를 피하고 프로그램의 안정성을 높이려는 노력의 한 방법이라고 할 수 있다.</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1712,7 +1724,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

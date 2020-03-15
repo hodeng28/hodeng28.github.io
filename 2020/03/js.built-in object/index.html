@@ -28,7 +28,7 @@
 <meta property="og:description" content="빌트인 객체1. 자바스크립트 객체의 분류자바스크립트 객체는 크게 3개의 객체로 분류할 수 있다.  표준 빌트인 객체(standard built-in objects, navtive object, global ojbects)  ECMAScript 사양에 정의된 객체, 애플리케이션 전역의 공통 기능을 제공 자바스크립트 실행환경과 관계없이 언제나 사용 가능 표준">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-14T13:07:44.357Z">
-<meta property="article:modified_time" content="2020-03-14T14:21:50.784Z">
+<meta property="article:modified_time" content="2020-03-14T16:34:34.597Z">
 <meta property="article:author" content="hodeng28">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content=" js">
@@ -172,10 +172,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-14 22:07:44 / Modified: 23:21:50" itemprop="dateCreated datePublished" datetime="2020-03-14T22:07:44+09:00">2020-03-14</time>
+              <time title="Created: 2020-03-14 22:07:44" itemprop="dateCreated datePublished" datetime="2020-03-14T22:07:44+09:00">2020-03-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-15 01:34:34" itemprop="dateModified" datetime="2020-03-15T01:34:34+09:00">2020-03-15</time>
+              </span>
 
           
 
@@ -227,10 +233,70 @@
 <li>위 예제는 원시값으로 표준 빌트인 객체의 프로토타입 메소드를 호출하면 정상적으로 동작한다.</li>
 <li>이는 원시값인 문자열, 숫자, 불리언 값의 경우 마치 객체처럼 이들 원시값에 대해 마침표 표기법(or 대괄호 표기법)으로 접근하면 자바스크립트 엔진이 일시적으로 원시값을 연관된 객체로 변환해 주기 때문이다.</li>
 <li>원시값을 객체처럼 사용하면 자바스크립트 엔진은 암묵적으로 연관된 객체를 생성하고 생성된 객체로 프로퍼티에 접근하거나 메소드를 호출하고 다시 원시값으로 되돌린다.</li>
-<li>문자열, 숫자 불리언 값에 대해 객체처럼 접근하면 생성되는 임시 객체를 래퍼 객체라 한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'hi'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//원시 타입인 문자열이 -&gt; 래퍼 객체인 String 인스턴스로 변환된다.</span></span><br><span class="line"><span class="built_in">console</span>.log(str.length);    <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(str.toUpperCase());  <span class="comment">//HI</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//래퍼 객체로 프로퍼티 접근이나 메소드 호출한 후,  -&gt;  다시 원시값으로 되돌린다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);    <span class="comment">//string</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//이 때 문자열 래퍼 객체인 String 생성자 함수의 인스턴스는 String,prototype의 메소드를 상속받아 사용할 수 있다.</span></span><br></pre></td></tr></table></figure>
+<li>문자열, 숫자 불리언 값에 대해 객체처럼 접근하면 생성되는 임시 객체를 래퍼 객체라 한다.</li>
+<li>래퍼 객체의 처리가 종료되면 래퍼 객체의 [[StringData]] 내부 슬롯에 할당된 원시값을 되돌리고 래퍼 객체는 가비지 컬렉션의 대상이 된다. (number, boolean, Symbol도)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'hi'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//원시 타입인 문자열이 -&gt; 래퍼 객체인 String 인스턴스로 변환된다.</span></span><br><span class="line"><span class="built_in">console</span>.log(str.length);    <span class="comment">//2</span></span><br><span class="line"><span class="built_in">console</span>.log(str.toUpperCase());  <span class="comment">//HI</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//래퍼 객체로 프로퍼티 접근이나 메소드 호출한 후,  -&gt;  다시 원시값으로 되돌린다.</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> str);    <span class="comment">//string</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//이 때 문자열 래퍼 객체인 String 생성자 함수의 인스턴스는 String.prototype의 메소드를 상속받아 사용할 수 있다.</span></span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> str = <span class="string">'hello'</span>;</span><br><span class="line"></span><br><span class="line">str.name = <span class="string">'jung'</span>;  <span class="comment">//래퍼 객체에 프로퍼티 추가</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 위 코드의 래퍼 객체가 아닌 새로운 래퍼 객체를 가리킨다.</span></span><br><span class="line"><span class="built_in">console</span>.log(str.name);  <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>String, Number, Boolean, Symbol 이외의 원시값은 래퍼 객체를 생성하지 않는다.</li>
+<li>원시값 null, undefined 래퍼 객체가 없다. 객체처럼 사용하면 에러발생</li>
+</ul>
+<h2 id="4-전역-객체"><a href="#4-전역-객체" class="headerlink" title="4. 전역 객체"></a>4. 전역 객체</h2><p>전역 객체(Global Object)는 코드가 실행되기 이전 단계에 자바스크립트 엔진에 의해 어떤 객체보다도 먼저 생성되는 특수한 객체이며 어떤 객체에도 속하지 않는 최상위 객체이다.</p>
+<ul>
+<li><p>자바스크립트 환경에 따라 지칭하는 이름이 다르다.</p>
+<ul>
+<li>브라우저 환경 - window, self, this, frames 이 전역 객체를 가리킴</li>
+<li>Node.js 환경 - global </li>
+</ul>
+</li>
+<li><p>전역 객체는 표준 빌트인 객체들과 환경에 따른 호스트 객체, var 키워드로 선언한 전역 변수와 전역 함수를 프로퍼티로 갖는다.</p>
+</li>
+<li><p>계층적 구조 상 어떤 객체에도 속하지 않은 모든 빌트인 객체의 최상위 객체이다.</p>
+</li>
+<li><p>프로토타입 상속 관계 상에서 최상위 객체라는 의미가 아니다</p>
+</li>
+<li><p>객체의 계층적 구조 상 표준 빌트인 객체와 호스트 객체를 프로퍼티로 소유한다는 것을 말한다.</p>
+</li>
+<li><p>전역 객체의 특징</p>
+<ul>
+<li>전역 객체는 개발자가 의도적으로 생성할 수 없다. 전역 객체를 생성할 수 있는 생성자 함수가 제공되지 않는다.</li>
+<li>전역 객체의 프로퍼티를 참조할 때 window(global)를 생략할 수 있다.</li>
+<li>전역 객체는 모든 표준 빌트인 객체를 프로퍼티로 가지고 있다.</li>
+<li>자바스크립트 실행 환경에 따라 추가적으로 프로퍼티와 메소드를 갖는다.</li>
+<li>클라이언트 사이드 Web API, Node.js 고유의 API를 호스트 객체로 제공한다.</li>
+<li>전역 함수는 전역 객체의 프로퍼티가 된다.</li>
+<li>var 키워드로 선언한 전역 변수와 선언하지 않는 변수에 값을 할당한 암묵적 전역</li>
+<li>let , const 키워드로 선언한 전역 변수는 전역 객체의 프로퍼티가 아니다.</li>
+<li>브라우저 환경의 모든 자바스크립트 코드는 하나의 전역 객체 window를 공유한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="number">1</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.foo);   <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line">bar = <span class="number">2</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.bar);  <span class="comment">//2</span></span><br><span class="line"></span><br><span class="line">funciton baz() &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.baz());  <span class="comment">//3</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>전역 객체는 몇가지 프로퍼티와 메소드를 가지고 있다. 전역 객체의 프로퍼티와 메소드는 전역 객체를 가리키는 식별자를 생락하여 참조/호출 할 수 있으므로 전역 변수와 전역 함수처럼 사용할 수 있다.</p>
+</li>
+</ul>
+<h3 id="4-1-빌트인-전역-프로퍼티-Built-in-global-property"><a href="#4-1-빌트인-전역-프로퍼티-Built-in-global-property" class="headerlink" title="4.1 빌트인 전역 프로퍼티 (Built-in global property)"></a>4.1 빌트인 전역 프로퍼티 (Built-in global property)</h3><p>전역 객체의 프로퍼티를 의미, 주로 애플리케이션 전역에서 사용하는 값을 제공한다.</p>
+<h4 id="4-1-1-Infinity"><a href="#4-1-1-Infinity" class="headerlink" title="4.1.1 Infinity"></a>4.1.1 Infinity</h4><p>Infinity 프로퍼티는 양/음의 무한대를 나타내는 숫자값 Infinity를 갖는다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.Infinity === <span class="literal">Infinity</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-1-2-NaN"><a href="#4-1-2-NaN" class="headerlink" title="4.1.2 NaN"></a>4.1.2 NaN</h4><p>NaN 프로퍼티는 숫자가 아님을 나타내는 숫자값 NaN을 갖는다.<br>NaN 프로퍼티는 Number.NaN 프로퍼티와 같다.</p>
+<h4 id="4-1-3-undifined"><a href="#4-1-3-undifined" class="headerlink" title="4.1.3 undifined"></a>4.1.3 undifined</h4><p>undifined 프로퍼티는 원시 타입 undifined를 값으로 갖는다.</p>
+<h3 id="4-2-빌트인-전역-함수"><a href="#4-2-빌트인-전역-함수" class="headerlink" title="4.2 빌트인 전역 함수"></a>4.2 빌트인 전역 함수</h3><p>빌트인 전역 함수는 애플리케이션 전역에서 호출할 수 있는 빌트인 함수로서 전역 객체의 메소드이다.</p>
+<h4 id="4-2-1-eval"><a href="#4-2-1-eval" class="headerlink" title="4.2.1 eval"></a>4.2.1 eval</h4><p>문자열 형태로 매개변수에 전달된 코드를 런타임에 동적으로 평가하고 실행하여 결과값을 반환한다. 전달된 문자열 코드가 여러 개의 문으로 이루어져 있다면 모든 문을 실행 후 마지막 결과 값을 반환한다.<br>eval 함수는 런타임에 자신이 호출된 기존의 스코프를 동적으로 수정한다.</p>
+<h4 id="4-2-2-isFinite"><a href="#4-2-2-isFinite" class="headerlink" title="4.2.2 isFinite"></a>4.2.2 isFinite</h4><p>매개변수에 전달된 값이 정상적인 유한수인지 검사하여 그 결과를 불리언 타입으로 반환한다.<br>매개변수에 전달된 값이 숫자가 아닌 경우, 숫자로 타입을 변환한 후 검사를 수행한다.</p>
+<h4 id="4-2-3-isNaN"><a href="#4-2-3-isNaN" class="headerlink" title="4.2.3  isNaN"></a>4.2.3  isNaN</h4><p>매개변수에 전달된 값이 NaN인지 검사하여 그 결과를 불리언 타입으로 반환한다.<br>매개변수에 전달된 값이 숫자가 아닌 경우, 숫자로 변환한 후 검사를 수행한다.</p>
+<h4 id="4-2-4-parseFloat"><a href="#4-2-4-parseFloat" class="headerlink" title="4.2.4 parseFloat"></a>4.2.4 parseFloat</h4><p>매개변수에 전달된 문자열을 부동소수점 숫자로 변환하여 반환한다.</p>
+<h4 id="4-2-5-parseInt"><a href="#4-2-5-parseInt" class="headerlink" title="4.2.5 parseInt"></a>4.2.5 parseInt</h4><p>매개변수에 전달된 문자열을 정수형 숫자로 해석하여 반환한다. 반환값은 언제나 10진수</p>
+<h4 id="4-2-6-encodeURI-decodeURI"><a href="#4-2-6-encodeURI-decodeURI" class="headerlink" title="4.2.6 encodeURI / decodeURI"></a>4.2.6 encodeURI / decodeURI</h4><p>encodeURI 함수는 매개변수로 전달된 URI(Uniform Resource Identifier)를 인코딩한다. URI는 인터넷에 있는 자원을 나타내는 유일한 주소를 말함<br>URI의 하위 개념으로 URL, URN이 있다.</p>
+<ul>
+<li>인코딩이란 URI의 문자들을 이스케이프 처리하는 것을 의미</li>
+</ul>
+<h4 id="4-2-7-encodeURIComponent-decodeURIComponent"><a href="#4-2-7-encodeURIComponent-decodeURIComponent" class="headerlink" title="4.2.7 encodeURIComponent / decodeURIComponent"></a>4.2.7 encodeURIComponent / decodeURIComponent</h4><p>encodeURIComponent 함수은 매개변수로 전달된 URI(Uniform Resource Identifier) 구성 요소 (component)를 인코딩한다.<br>decodeURIComponent 함수는 매개변수로 전달된 URI 구성 요소를 디코딩한다.</p>
+<h4 id="4-3-암묵적-전역"><a href="#4-3-암묵적-전역" class="headerlink" title="4.3 암묵적 전역"></a>4.3 암묵적 전역</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  y = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(x + y);   <span class="comment">// 30</span></span><br></pre></td></tr></table></figure>
+<p>foo 함수 내의 y는 선언하지 않은 식별자여서  y = 20이 실행되면 참조 에러가 발생할 것처럼 보인다. 하지만 선언하지 않는 식별자 y는 선언된 전역 변수처럼 동작한다.<br><strong>선언하지 않은 식별자에 값을 할당하면 전역 객체의 프로퍼티가 되기 때문이다.</strong></p>
+<p>foo 함수가 호출되면 자바스크립트 엔진은 변수 y에 값을 할당하기 위해 먼저 스코프체인을 통해 선언된 변수인지 확인한다.  foo 함수의 스코프, 전역 스코프 어디에서도 변수 y의 선언을 찾을 수 없으므로 참조에러가 발생햐아한다.<br>하지만 자바스크립트엔진은 y = 20을 window.y = 20 으로 해석하여 전역 객체에 프로퍼티를 동적 생성한다.  y는 전역 객체의 프로퍼티가 되어 마치 전역 변수가 동작한다.<br>이러한 현상을 암묵적 전역이라 한다.<br>y는 변수 없이 전역 객체의 프로퍼티로 추가 되었을 뿐, y는 변수가 아니다.<br>따라서 y는 변수 호이스팅이 발생하지 않는다.<br>delete 연산자로 삭제할 수 있다. (변수가 아니기 때문) ,<br>전역 변수는 프로퍼티이지만 delete 연산자로 삭제할 수 없다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(x);  undifined</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(y); <span class="built_in">ReferenceError</span>: y is not defined</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">funciton foo () &#123;</span><br><span class="line">  y = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br><span class="line"><span class="built_in">console</span>.log( x + y);</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -249,7 +315,10 @@
     <a href="/2020/03/js.strictMode/" rel="prev" title="js.strictMode">
       <i class="fa fa-chevron-left"></i> js.strictMode
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/js.this/" rel="next" title="js.this">
+      js.this <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -309,7 +378,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#빌트인-객체"><span class="nav-number">1.</span> <span class="nav-text">빌트인 객체</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-자바스크립트-객체의-분류"><span class="nav-number">1.1.</span> <span class="nav-text">1. 자바스크립트 객체의 분류</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-표준-빌트인-객체"><span class="nav-number">1.2.</span> <span class="nav-text">2. 표준 빌트인 객체</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-원시값과-래퍼-객체-wrapper-object"><span class="nav-number">1.3.</span> <span class="nav-text">3. 원시값과 래퍼 객체 (wrapper object)</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#빌트인-객체"><span class="nav-number">1.</span> <span class="nav-text">빌트인 객체</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-자바스크립트-객체의-분류"><span class="nav-number">1.1.</span> <span class="nav-text">1. 자바스크립트 객체의 분류</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-표준-빌트인-객체"><span class="nav-number">1.2.</span> <span class="nav-text">2. 표준 빌트인 객체</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-원시값과-래퍼-객체-wrapper-object"><span class="nav-number">1.3.</span> <span class="nav-text">3. 원시값과 래퍼 객체 (wrapper object)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-전역-객체"><span class="nav-number">1.4.</span> <span class="nav-text">4. 전역 객체</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-빌트인-전역-프로퍼티-Built-in-global-property"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 빌트인 전역 프로퍼티 (Built-in global property)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-1-Infinity"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">4.1.1 Infinity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-2-NaN"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">4.1.2 NaN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-3-undifined"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">4.1.3 undifined</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-빌트인-전역-함수"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 빌트인 전역 함수</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-1-eval"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">4.2.1 eval</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-2-isFinite"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">4.2.2 isFinite</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-3-isNaN"><span class="nav-number">1.4.2.3.</span> <span class="nav-text">4.2.3  isNaN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-4-parseFloat"><span class="nav-number">1.4.2.4.</span> <span class="nav-text">4.2.4 parseFloat</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-5-parseInt"><span class="nav-number">1.4.2.5.</span> <span class="nav-text">4.2.5 parseInt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-6-encodeURI-decodeURI"><span class="nav-number">1.4.2.6.</span> <span class="nav-text">4.2.6 encodeURI &#x2F; decodeURI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-7-encodeURIComponent-decodeURIComponent"><span class="nav-number">1.4.2.7.</span> <span class="nav-text">4.2.7 encodeURIComponent &#x2F; decodeURIComponent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-3-암묵적-전역"><span class="nav-number">1.4.2.8.</span> <span class="nav-text">4.3 암묵적 전역</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -323,7 +392,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>

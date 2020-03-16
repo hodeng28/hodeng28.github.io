@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"hodeng28.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="클로저(closure)클로저는 자바스크립트 고유의 개념이 아니므로 ECMAScript 사양에 클로저의 정의가 등장하지 않는다.클로저는 함수와 그 함수가 선언된 렉시컬 환경(Lexical environment)과의 조합이다.">
+  <meta name="description" content="클로저(closure)클로저는 자바스크립트 고유의 개념이 아니므로 ECMAScript 사양에 클로저의 정의가 등장하지 않는다.클로저는 함수와 그 함수가 선언된 렉시컬 환경(Lexical environment)과의 조합이다. 1. 렉시컬 스코프자바스크립트는 함수를 어디서 호출했는지가 아니라 어디에 정의했는지에 따라 상위 스코프를 결정한다. 이를 렉시컬 스코프">
 <meta property="og:type" content="article">
 <meta property="og:title" content="closure">
 <meta property="og:url" content="http://hodeng28.github.io/2020/03/closure/index.html">
 <meta property="og:site_name" content="hodeng">
-<meta property="og:description" content="클로저(closure)클로저는 자바스크립트 고유의 개념이 아니므로 ECMAScript 사양에 클로저의 정의가 등장하지 않는다.클로저는 함수와 그 함수가 선언된 렉시컬 환경(Lexical environment)과의 조합이다.">
+<meta property="og:description" content="클로저(closure)클로저는 자바스크립트 고유의 개념이 아니므로 ECMAScript 사양에 클로저의 정의가 등장하지 않는다.클로저는 함수와 그 함수가 선언된 렉시컬 환경(Lexical environment)과의 조합이다. 1. 렉시컬 스코프자바스크립트는 함수를 어디서 호출했는지가 아니라 어디에 정의했는지에 따라 상위 스코프를 결정한다. 이를 렉시컬 스코프">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-16T14:43:21.265Z">
-<meta property="article:modified_time" content="2020-03-16T14:45:11.512Z">
+<meta property="article:modified_time" content="2020-03-16T15:53:01.061Z">
 <meta property="article:author" content="hodeng28">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content=" js">
@@ -172,10 +172,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-16 23:43:21 / Modified: 23:45:11" itemprop="dateCreated datePublished" datetime="2020-03-16T23:43:21+09:00">2020-03-16</time>
+              <time title="Created: 2020-03-16 23:43:21" itemprop="dateCreated datePublished" datetime="2020-03-16T23:43:21+09:00">2020-03-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-17 00:53:01" itemprop="dateModified" datetime="2020-03-17T00:53:01+09:00">2020-03-17</time>
+              </span>
 
           
 
@@ -189,6 +195,35 @@
 
       
         <h1 id="클로저-closure"><a href="#클로저-closure" class="headerlink" title="클로저(closure)"></a>클로저(closure)</h1><p>클로저는 자바스크립트 고유의 개념이 아니므로 ECMAScript 사양에 클로저의 정의가 등장하지 않는다.<br>클로저는 함수와 그 함수가 선언된 렉시컬 환경(Lexical environment)과의 조합이다.</p>
+<h2 id="1-렉시컬-스코프"><a href="#1-렉시컬-스코프" class="headerlink" title="1. 렉시컬 스코프"></a>1. 렉시컬 스코프</h2><p>자바스크립트는 함수를 어디서 호출했는지가 아니라 어디에 정의했는지에 따라 상위 스코프를 결정한다. 이를 렉시컬 스코프(정적 스코프라)라한다.</p>
+<p>렉시컬 환경의 <strong>외부 렉시컬 환경에 대한 참조</strong>에 저장할 참조값, 즉 상위 스코프에 대한 참조는 함수 정의가 평가되는 시점에 함수가 정의된 환경(위치)에 의해 결정된다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> x = <span class="number">10</span>;</span><br><span class="line">  bar ();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">foo();  <span class="comment">//  1</span></span><br><span class="line">bar();  <span class="comment">//  1</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>foo, bar 함수는 모두 전역에서 정의된 전역 함수</li>
+<li>두 함수의 상위 스코프는 전역이다.</li>
+<li>스코프의 실체는 실행 컨텍스트의 렉시컬 환경이다.</li>
+<li>렉시컬 환경은 자신의 <strong>외부 렉시컬 환경에 대한 참조(Outer Lexical Environment Reference)</strong>를 통해 상위 렉시컬 환경과 연결된다.  이것이 스코프 체인</li>
+<li>함수의 상위 스코프를 결정한다? -&gt; 렉시컬 환경의 외부 렉시컬 환경에 대한 참조에 저장할 참조값을 결정한다.</li>
+</ul>
+<h2 id="2-함수-객체의-내부-슬롯-Environment"><a href="#2-함수-객체의-내부-슬롯-Environment" class="headerlink" title="2. 함수 객체의 내부 슬롯 [[Environment]]"></a>2. 함수 객체의 내부 슬롯 [[Environment]]</h2><ul>
+<li>함수는 자신의 내부슬롯 [[Environment]]에 자신이 정의된 환경, 즉 상위 스코프의 참조를 저장한다. </li>
+<li>함수 정의가 평가되어 함수 객체를 생성할 때, 자신이 정의된 위치에 의해 결정된 상위 스코프의 참조를 함수 객체 자신의 내부슬롯 [[Environment]]에 저장한다.</li>
+<li>이때 자신의 내부슬롯 [[Environment]]에 저장된 상위 스코프의 참조는 현재 실행 중인 실행 컨텍스트의 렉시컬 환경을 가리킨다.</li>
+<li>함수 객체의 내부슬롯 [[Environment]]에 저장한 현재 실행 중인 실행 컨텍스트의 렉시컬 환경의 참조가 바로 상위 스코프이다.<br>자신이 호출되었을 때 생성될 함수 렉시컬 환경의 외부 렉시컬 환경에 대한 참조에 저장될 참조값이다.</li>
+<li>함수 객체는 내부슬롯 [[Environment]]에 저장할 렉시컬 환경의 참조, 즉 상위 스코프를 자신이 존재하는 한 기억한다.</li>
+</ul>
+<h2 id="3-클로저와-렉시컬-환경"><a href="#3-클로저와-렉시컬-환경" class="headerlink" title="3. 클로저와 렉시컬 환경"></a>3. 클로저와 렉시컬 환경</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> x = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">outer</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> x = <span class="number">10</span>;</span><br><span class="line">  <span class="keyword">const</span> inner = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(x);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> inner;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> innerFunc = outer();</span><br><span class="line">innerFUnc();   <span class="comment">//10</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>outer 함수를 호출하면 outer는 중첩함수 inner 함수를 반환하고 생명주기를 마감<br>(outer의 호출이 종료하면 함수 outer의 실행 컨텍스트는 실행 컨텍스트 스택에서 제거)</li>
+<li>이때 함수 outer의 지역 변수 x와 변수값 10을 저장하고 있는 함수 outer 실행<br>컨텍스트가 제거 되었으므로 함수 outer의 지역 변수 x 또한 생명 주기를 마감</li>
+<li>함수 outer의 지역 변수 x는 더이상 유효하지 않게 되어 변수 x에 접근할 수 있는 방법이 없어보임</li>
+<li>그러나 코드의 실행 결과는 x의 값인 10  이러한 함수를 클로저라..한다..</li>
+<li>자신의 상위 스코프를 기억하고 있기 때문이다.</li>
+<li>inner 함수는 자신이 평가될 때 자신이 정의된 위치에 의해 결정된 상위스코프를<br>[[Environment]] 내부슬롯에 저장한다. 이때 저장된 상위 스코프는 함수가 존재하는 한 유지된다.</li>
+<li>outer 함수의 렉시컬 환경은 inner 함수의 [[Environment]] 내부슬롯에 의해 참조되고 있고 inner 함수는 전역 변수 innerFunc에 의해 참조되고 있으므로 가비지 컬렉션의 대상이 되지 않는다. (가비지 컬렉터는 참조되고 있는 메모리공간을 해제하지않는다.)</li>
+</ul>
+<h2 id="4-클로저의-활용"><a href="#4-클로저의-활용" class="headerlink" title="4. 클로저의 활용"></a>4. 클로저의 활용</h2><p>클로저는 상태를 안전하게 유지하기 위해 사용한다. 상태가 의도치 않게 변경되지 않도록 안전하게 은닉한다.<br>이전 상태를 기억하다가 상태가 변경되면 최신 상태(state)를 유지한다.</p>
+<p>….</p>
 
     </div>
 
@@ -267,7 +302,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#클로저-closure"><span class="nav-number">1.</span> <span class="nav-text">클로저(closure)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#클로저-closure"><span class="nav-number">1.</span> <span class="nav-text">클로저(closure)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-렉시컬-스코프"><span class="nav-number">1.1.</span> <span class="nav-text">1. 렉시컬 스코프</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-함수-객체의-내부-슬롯-Environment"><span class="nav-number">1.2.</span> <span class="nav-text">2. 함수 객체의 내부 슬롯 [[Environment]]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-클로저와-렉시컬-환경"><span class="nav-number">1.3.</span> <span class="nav-text">3. 클로저와 렉시컬 환경</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-클로저의-활용"><span class="nav-number">1.4.</span> <span class="nav-text">4. 클로저의 활용</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

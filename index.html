@@ -179,7 +179,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-03-18 22:25:08" itemprop="dateModified" datetime="2020-03-18T22:25:08+09:00">2020-03-18</time>
+                <time title="Modified: 2020-03-18 23:37:50" itemprop="dateModified" datetime="2020-03-18T23:37:50+09:00">2020-03-18</time>
               </span>
 
           
@@ -312,22 +312,12 @@
 <td align="center">◯</td>
 <td align="right">X</td>
 </tr>
-<tr>
-<td>- private 필드는 클래스 내부에서만 참조할 수 있다.</td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td>- 부모 클래스를 포함한 클래스 외부에서 private 필드에 직접 접근할 수 있는 방법은 없다.</td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
-<tr>
-<td>- 접근자 프로퍼티를 통해 간접적으로 접근하는 방법은 유효하다.</td>
-<td align="center"></td>
-<td align="right"></td>
-</tr>
 </tbody></table>
+<ul>
+<li>private 필드는 클래스 내부에서만 참조할 수 있다.</li>
+<li>부모 클래스를 포함한 클래스 외부에서 private 필드에 직접 접근할 수 있는 방법은 없다.</li>
+<li>접근자 프로퍼티를 통해 간접적으로 접근하는 방법은 유효하다.</li>
+</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  #_name = '';         //private 필드 정의</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    this.#_name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">get</span> name () &#123;       <span class="comment">// 접근자 프로퍼티 (name)</span></span><br><span class="line">    return this.#_name.trim();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">'jung'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(me.name);    <span class="comment">//'jung'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>private 필드는 반드시 클래스 몸체에서 정의해야 한다. </li>

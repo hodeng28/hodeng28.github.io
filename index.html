@@ -171,10 +171,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-03-19 17:06:41 / Modified: 20:41:12" itemprop="dateCreated datePublished" datetime="2020-03-19T17:06:41+09:00">2020-03-19</time>
+              <time title="Created: 2020-03-19 17:06:41" itemprop="dateCreated datePublished" datetime="2020-03-19T17:06:41+09:00">2020-03-19</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-03-20 01:57:40" itemprop="dateModified" datetime="2020-03-20T01:57:40+09:00">2020-03-20</time>
+              </span>
 
           
 
@@ -356,30 +362,13 @@
 <li>화살표 함수는 함수 자체의 arguments 객체를 갖지 않는다. 화살표 함수로 가변인자 함수를 구현해야 할 때는 반드시 rest 파라미터를 사용해야 한다.</li>
 </ul>
 <h2 id="5-매개변수-기본값"><a href="#5-매개변수-기본값" class="headerlink" title="5. 매개변수 기본값"></a>5. 매개변수 기본값</h2><ul>
-<li><p>매개변수에 적절한 인수가 전달되었는지 함수 내부에서 확인할 필요가 있다.<br>방어 코드가 필요.</p>
-</li>
-<li><p>ES6에서는 매개변수 기본값을 사용하여 함수 내에서 수행하던 인수 체크, 초키화를 간소화할 수 있다.</p>
-</li>
-<li><p>매개변수 기본값은 매개변수에 인수를 전달하지 않았을 경우와 undifined를 전달한 경우에만 유효하다.</p>
-</li>
-<li><p>Rest 파라미터에는 기본값을 지정할 수 없다. (SyntaxError)</p>
-</li>
-<li><p>매개변수의 기본값은 함수 객체의 length 프로퍼티와 argument 객체에 영향을 주지않는다.</p>
-<pre><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">x, y</span>) </span>{
-x = x || <span class="number">0</span>;
-y = y || <span class="number">0</span>;
-
-<span class="keyword">return</span> x + y;
-}
-<span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>)); <span class="comment">//3</span>
-<span class="built_in">console</span>.log(sum(<span class="number">1</span>)); <span class="comment">//1</span>
-<span class="comment">//</span>
-</code></pre>
+<li>매개변수에 적절한 인수가 전달되었는지 함수 내부에서 확인할 필요가 있다.<br>방어 코드가 필요.</li>
+<li>ES6에서는 매개변수 기본값을 사용하여 함수 내에서 수행하던 인수 체크, 초키화를 간소화할 수 있다.</li>
+<li>매개변수 기본값은 매개변수에 인수를 전달하지 않았을 경우와 undifined를 전달한 경우에만 유효하다.</li>
+<li>Rest 파라미터에는 기본값을 지정할 수 없다. (SyntaxError)</li>
+<li>매개변수의 기본값은 함수 객체의 length 프로퍼티와 argument 객체에 영향을 주지않는다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  x = x || <span class="number">0</span>;</span><br><span class="line">  y = y || <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>)); <span class="comment">//3</span></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>)); <span class="comment">//1</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">x = <span class="number">0</span>, y = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logName</span> (<span class="params">name = <span class="string">'jung'</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name);</span><br><span class="line">&#125;</span><br><span class="line">logName();   <span class="comment">//jung</span></span><br><span class="line">logName(undifined);   <span class="comment">//jung</span></span><br><span class="line">logName(<span class="literal">null</span>);   <span class="comment">//null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">x, y = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum.length);    <span class="comment">//1?   2 아닌가?</span></span><br><span class="line"></span><br><span class="line">sum(<span class="number">1</span>);   <span class="comment">// Arguments &#123; '0': 1 &#125;</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>);  <span class="comment">// Arguments &#123; '0' : 1, '1' : 2&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>function sum (x = 0, y = 0) {<br>  return x + y;<br>}<br>//<br>function logName (name = ‘jung’) {<br>  console.log(name);<br>}<br>logName();   //jung<br>logName(undifined);   //jung<br>logName(null);   //null</p>
-<p>//<br>function sum(x, y = 0) {<br>  console.log(arguments);<br>}<br>console.log(sum.length);    //1?   2 아닌가?</p>
-<p>sum(1);   // Arguments { ‘0’: 1 }<br>sum(1, 2);  // Arguments { ‘0’ : 1, ‘1’ : 2}</p>
 
       
     </div>

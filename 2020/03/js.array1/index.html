@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hodeng28.github.io","root":"/","scheme":"Muse","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="배열1. 배열이란? 배열은 여러 개의 값을 순차적으로 나열한 자료 구조이다. 배열이 가지고 있는 값을 요소(element)라 한다. 자바스크립트에서 값으로 인정하는 모든 것은 배열의 요소가 된다. 배열의 요소는 배열에서 자신의 위치를 나타내는 0 이상의 정수인 index를 갖는다. 이를 통해 요소에 접근할 수 있다. 배열은 요소의 개수, 즉 배열의 길이를">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js.array1">
+<meta property="og:url" content="http://hodeng28.github.io/2020/03/js.array1/index.html">
+<meta property="og:site_name" content="hodeng">
+<meta property="og:description" content="배열1. 배열이란? 배열은 여러 개의 값을 순차적으로 나열한 자료 구조이다. 배열이 가지고 있는 값을 요소(element)라 한다. 자바스크립트에서 값으로 인정하는 모든 것은 배열의 요소가 된다. 배열의 요소는 배열에서 자신의 위치를 나타내는 0 이상의 정수인 index를 갖는다. 이를 통해 요소에 접근할 수 있다. 배열은 요소의 개수, 즉 배열의 길이를">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-20T15:43:57.658Z">
+<meta property="article:modified_time" content="2020-03-21T13:54:50.391Z">
+<meta property="article:author" content="hodeng28">
+<meta property="article:tag" content="javaScript">
+<meta property="article:tag" content=" js">
+<meta property="article:tag" content=" react">
+<meta property="article:tag" content=" angular">
+<meta property="article:tag" content=" HTML">
+<meta property="article:tag" content=" CSS">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://hodeng28.github.io/2020/03/js.array1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>js.array1 | hodeng</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hodeng</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">호뎅의 개발블로그</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en">
+    <link itemprop="mainEntityOfPage" href="http://hodeng28.github.io/2020/03/js.array1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="hodeng28">
+      <meta itemprop="description" content="헤헤">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hodeng">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          js.array1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2020-03-21 00:43:57 / Modified: 22:54:50" itemprop="dateCreated datePublished" datetime="2020-03-21T00:43:57+09:00">2020-03-21</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h1><h2 id="1-배열이란"><a href="#1-배열이란" class="headerlink" title="1. 배열이란?"></a>1. 배열이란?</h2><ul>
+<li>배열은 여러 개의 값을 순차적으로 나열한 자료 구조이다.</li>
+<li>배열이 가지고 있는 값을 요소(element)라 한다.</li>
+<li>자바스크립트에서 값으로 인정하는 모든 것은 배열의 요소가 된다.</li>
+<li>배열의 요소는 배열에서 자신의 위치를 나타내는 0 이상의 정수인 index를 갖는다. 이를 통해 요소에 접근할 수 있다.</li>
+<li>배열은 요소의 개수, 즉 배열의 길이를 나타내는 length 프로퍼티를 갖는다.</li>
+<li>배열 리터럴 또는 Array 생성자 함수로 생성할 수 있다.<br>배열의 생성자 함수는 Array이며 배열의 프로토타입 객체는 <strong>Array.prototype.</strong> -&gt; 배열을 위한 빌트인 메소드 들을 제공한다.</li>
+<li>배열은 객체이다. 일반 객체와는 다른 특징</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th align="center">객체</th>
+<th align="right">배열</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>구조</td>
+<td align="center">프로퍼티 키와 프로퍼티 값</td>
+<td align="right">인덱스와 요소</td>
+</tr>
+<tr>
+<td>값의 참조</td>
+<td align="center">프로퍼티 키</td>
+<td align="right">인덱스</td>
+</tr>
+<tr>
+<td>값의 순서</td>
+<td align="center">X</td>
+<td align="right">O</td>
+</tr>
+<tr>
+<td>length프로퍼티</td>
+<td align="center">X</td>
+<td align="right">O</td>
+</tr>
+</tbody></table>
+<h2 id="2-자바스크립트의-배열"><a href="#2-자바스크립트의-배열" class="headerlink" title="2. 자바스크립트의 배열"></a>2. 자바스크립트의 배열</h2><p><strong>희소 배열(sparse array)</strong> (자바스크립트)<br>배열의 요소가 연속적으로 이어져 있지 않는 배열 </p>
+<p><strong>밀집 배열 (Dense array)</strong> </p>
+<ul>
+<li><p>일반적인 배열로 하나의 타입으로 통일되어 있으면서 서로 연속적으로 인접해 있다.</p>
+</li>
+<li><p>매우 효율적이며 고속으로 동작한다.</p>
+</li>
+<li><p>배열에 요소를 삽입하거나 삭제하는 경우, 배열 요소를 연속적으로 유지하기 위해 요소를 이동시켜야 하는 단점</p>
+</li>
+<li><p>자바스크립트는 일반적인 배열의 동작을 흉내낸 특수한 객체이다.</p>
+</li>
+<li><p>인덱스를 프로퍼티 키로 갖으며 length 프로퍼티를 갖는 특수한 객체이다.</p>
+</li>
+<li><p>어떤 타입의 값이라도 배열의 요소가 될 수 있다.</p>
+</li>
+<li><p>해시 테이블로 구현된 객체이므로 인덱스로 배열 요소에 접근하는 경우, 일반적인 배열보다 성능적인 면에서 느릴수 밖에 없는 구조적 단점</p>
+</li>
+<li><p>특정 요소를 탐색하거나 추가, 삭제하는 경우에는 일반적인 배열보다 빠른 성능</p>
+</li>
+</ul>
+<h2 id="3-length-프로퍼티와-희소-배열"><a href="#3-length-프로퍼티와-희소-배열" class="headerlink" title="3. length 프로퍼티와 희소 배열"></a>3. length 프로퍼티와 희소 배열</h2><ul>
+<li>length 프로퍼티는 요소의 개수, 즉 배열의 길이를 나타내는 정수를 값으로 갖는다.</li>
+<li>length 프로퍼티의 값은 빈 배열일 경우 0이며, 빈 배열이 아닐 경우 가장 큰 인덱스에 +1 이다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[].length  <span class="comment">//0</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].length <span class="comment">// 3</span></span><br></pre></td></tr></table></figure></li>
+<li>length 프로퍼티의 값은 배열에 요소를 추가하거나 삭제하면 자동 갱신된다.</li>
+<li>length 프로퍼티의 값은 임의의 숫자 값을 명시적으로 할당할 수도 있다.<ul>
+<li>length 프로퍼티 값보다 작은 숫자 값을 할당하면 배열의 길이가 줄어든다.</li>
+<li>큰 숫자 값을 할당하는 경우, 프로퍼티 값은 변경되지만 실제로 배열의 길이가 늘어나지 않는다.</li>
+<li>값 없이 비어있는 요소를 위해 메모리 공간을 확보하지 않으며 빈 요소를 생성하지 않는다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line">arr.length = <span class="number">4</span>;</span><br><span class="line"><span class="built_in">console</span>.log(arr.length); <span class="comment">// 4;</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); [ <span class="number">1</span>, <span class="number">2</span>, empty x <span class="number">2</span>];  <span class="comment">//empty는 실제로 추가된 배열의 요소가 아니다.</span></span><br></pre></td></tr></table></figure>
+이처럼 배열의 요소가 연속적으로 위치하지 않고 일부가 비어있는 배열을 희소 배열이라 한다.<br>희소 배열의 length는 배열의 실제 요소 개수보다 언제나 크다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sparse = [, <span class="number">2</span>, , <span class="number">4</span>];  <span class="comment">//희소 배열</span></span><br><span class="line"><span class="built_in">console</span>.log(sparse.length);  <span class="comment">//4</span></span><br><span class="line"><span class="built_in">console</span>.log(sparse);    <span class="comment">// [empty, 2, empty, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 배열 sparse에는 인덱스 0, 2인 요소가 존재하지 않는다.</span></span><br></pre></td></tr></table></figure>
+자바스크립트에서 허용하더라도, 희소 배열은 사용하지 않는 것이 좋다.</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-배열-생성"><a href="#4-배열-생성" class="headerlink" title="4. 배열 생성"></a>4. 배열 생성</h2><h3 id="4-1-배열-리터럴"><a href="#4-1-배열-리터럴" class="headerlink" title="4.1 배열 리터럴"></a>4.1 배열 리터럴</h3><ul>
+<li>0개 이상의 요소를 쉼표로 구분하여 대괄호를 묶는다. 프로퍼티 이름이 없고 값만 존재한다.</li>
+<li>존재하지않는 요소(프로퍼티 키)를 참조할 경우 undifined를 반환한다.</li>
+</ul>
+<h3 id="4-2-Array-생성자-함수"><a href="#4-2-Array-생성자-함수" class="headerlink" title="4.2 Array 생성자 함수"></a>4.2 Array 생성자 함수</h3><ul>
+<li>Array 생성자 함수를 통해 배열을 생성할 수 있다.</li>
+<li>Array 생성자 함수는 전달된 인수 개수에 따라 다르게 동작한다.<ul>
+<li>전달된 인수가 1개이고 숫자인 경우, 인수를 length 프로퍼티의 값으로 갖는 배열을 생성한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">10</span>);</span><br><span class="line"><span class="keyword">const</span>.log(arr);   <span class="comment">// [empty x 10]</span></span><br><span class="line"><span class="keyword">const</span>.log(arr.length);  <span class="comment">// 10</span></span><br></pre></td></tr></table></figure></li>
+<li>전달된 인수가 없는 경우, 빈 배열을 생성한다. []</li>
+<li>전달된 인수가 2개 이상이거나 숫자가 아닌 경우, 인수를 요소로 갖는 배열을 생성한다.</li>
+</ul>
+</li>
+<li>new 연산자와 함께 호출하지 않아도 배열을 생성하는 생성자 함수로 동작한다.<br>Array 생성자 함수 내부에서 new.target을 확인하기 때문이다.</li>
+</ul>
+<h3 id="4-3-Array-of"><a href="#4-3-Array-of" class="headerlink" title="4.3 Array.of"></a>4.3 Array.of</h3><ul>
+<li>ES6에서 도입.  전달된 인수를 요소로 갖는 배열을 생성한다.</li>
+<li>전달된 인수가 1개이고 숫자이더라도 인수를 요소로 갖는 배열을 생성한다 (Array 생성자 함수랑 다름)</li>
+</ul>
+<h3 id="4-4-Array-from"><a href="#4-4-Array-from" class="headerlink" title="4.4 Array.from"></a>4.4 Array.from</h3><ul>
+<li>ES6에서 도입. 유사 배열 객체 또는 이터러블 객체를 변환하여 새로운 배열을 생성한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 문자열은 이터러블</span></span><br><span class="line"><span class="keyword">const</span> arr1 = <span class="built_in">Array</span>.from(<span class="string">'hello'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr1); <span class="comment">//['h', 'e', 'l', 'l', 'o']</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 유사 배열 객체를 새로운 배열로 변환하여 반환한다.</span></span><br><span class="line"><span class="keyword">const</span> arr2 = <span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: <span class="number">2</span>, <span class="number">0</span>: <span class="string">'a'</span>, <span class="number">1</span>: <span class="string">'b'</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr2); <span class="comment">// ['a', 'b']</span></span><br></pre></td></tr></table></figure></li>
+<li>Array.from을 사용하여 두번째 인수로 전달한 함수를 통해 값을 만들면서 요소를 채울 수 있다.<br>두번째 인수로 전달한 함수는 첫번째 인수에 의해 생성된 배열의 요소값과 인덱스를 순차적으로 전달받아 새로운 요소를 생성할 수 있다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr3 = <span class="built_in">Array</span>.from(&#123; <span class="attr">length</span>: <span class="number">5</span> &#125;, <span class="function"><span class="keyword">function</span> (<span class="params">v, i</span>) </span>&#123; <span class="keyword">return</span> i; &#125;);</span><br><span class="line"><span class="built_in">console</span>.log(arr3);  <span class="comment">// [0, 1, 2, 3, 4]</span></span><br><span class="line"><span class="comment">//두번째 인수로 배열의 모든 요소에 대해 호출할 함수를 전달 할 수 있다.</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="5-배열-요소의-참조"><a href="#5-배열-요소의-참조" class="headerlink" title="5. 배열 요소의 참조"></a>5. 배열 요소의 참조</h2><ul>
+<li>배열 요소를 참조할 떄는 대괄호 []표기법을 사용한다. 안에는 인덱스가 와야한다.</li>
+<li>존재하지 않는 요소에 접근하면 undifined 반환된다.</li>
+</ul>
+<h2 id="6-배열-요소의-추가와-갱신"><a href="#6-배열-요소의-추가와-갱신" class="headerlink" title="6. 배열 요소의 추가와 갱신"></a>6. 배열 요소의 추가와 갱신</h2><ul>
+<li>요소를 동적으로 추가할 수 있다.</li>
+<li>length 프로퍼티 값은 자동 갱신된다.</li>
+<li>length 프로퍼티 값보다 큰 인덱스로 요소를 추가하면 희소배열이 된다.</li>
+<li>이미 요소가 존재하는 요소에 값을 재할당하면 요소값이 갱신된다.</li>
+<li>정수 이외의 값을 인덱스처럼 사용하면 요소가 생성되는 것이 아니라 프로퍼티가 생성된다.<br>이때 추가된 프로퍼티는 length 프로퍼티 값에 영향을 주지 않는다.</li>
+</ul>
+<h2 id="7-배열-요소의-삭제"><a href="#7-배열-요소의-삭제" class="headerlink" title="7. 배열 요소의 삭제"></a>7. 배열 요소의 삭제</h2><ul>
+<li>특정 요소를 삭제하기 위해 delete 연산자를 사용할 수 있다.</li>
+<li>요소를 삭제하더라도 length 프로퍼티 값은 변하지 않아서 희소배열을 만든다. 안쓰는게 좋다.</li>
+</ul>
+<h2 id="8-배열-메소드-accessor-method"><a href="#8-배열-메소드-accessor-method" class="headerlink" title="8. 배열 메소드  (accessor method)"></a>8. 배열 메소드  (accessor method)</h2><ul>
+<li><strong>직접 변경하지 않고 새로운 배열을 생성하여 반환하는 메소드 (accessor method)</strong></li>
+<li>원본 배열을직접 변경하는 메소드 (mutator method)</li>
+</ul>
+<h3 id="8-1-Array-isArray"><a href="#8-1-Array-isArray" class="headerlink" title="8.1 Array.isArray"></a>8.1 Array.isArray</h3><ul>
+<li>Array 생성자 함수의 정적 메소드  (Array.of, Array.from 또한 정적 메소드)</li>
+<li>Array.isArray  주어진 인수가 배열이면 true, 아니면 false</li>
+</ul>
+<h3 id="8-2-Array-prototype-indexOf"><a href="#8-2-Array-prototype-indexOf" class="headerlink" title="8.2 Array.prototype.indexOf"></a>8.2 Array.prototype.indexOf</h3><p>원본 배열에서 인수로 전달된 요소를 검색하여 인덱스를 반환한다.</p>
+<ul>
+<li>중복되는 요소가 있는 경우, 첫번째 인덱스를 반환한다.</li>
+<li>해당하는 요소가 없는 경우, -1을 반환한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>];</span><br><span class="line">arr.indexOf(<span class="number">2</span>);   <span class="comment">// 1     요소 2를 검색하여 첫번째 인덱스를 반환</span></span><br><span class="line">arr.indexOf(<span class="number">4</span>);   <span class="comment">// -1</span></span><br><span class="line">arr.IndexOf(<span class="number">2</span>, <span class="number">2</span>);  <span class="comment">//두번째 인수는 검색을 시작할 인덱스이다.</span></span><br></pre></td></tr></table></figure></li>
+<li>indexOf 메소드는 배열에 요소가 존재하는지 확인할 때 유용하다.</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> appleSeries = [<span class="string">'macbook'</span>, <span class="string">'iphone'</span>, <span class="string">'ipad'</span>, <span class="string">'imac'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (appleSeries.indexOf(<span class="string">'magicMouse'</span>) === <span class="number">-1</span>) &#123;   <span class="comment">// 배열에 'magicMouse' 가 있는지 확인</span></span><br><span class="line">  appleSeries.push(<span class="string">'magicMouse'</span>);   <span class="comment">// 존재하지 않으면 요소를 추가</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(appleSeries);</span><br><span class="line"></span><br><span class="line"><span class="comment">// ES7에서 새롭게 도입된 Array.prototype.includes 메소드가 더 가독성이 좋다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> animals = [<span class="string">'cat'</span>, <span class="string">'dog'</span>, <span class="string">'pig'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!animals.includes(<span class="string">'snake'</span>)) &#123;</span><br><span class="line">  animals.push(<span class="string">'snake'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(animals);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>결과값 -1을 비교해봐야하고, 배열에 NaN이 포함되어있는지 확인 불가 ( 단점 )</li>
+</ul>
+<h3 id="8-3-Array-prototype-push"><a href="#8-3-Array-prototype-push" class="headerlink" title="8.3 Array.prototype.push"></a>8.3 Array.prototype.push</h3><ul>
+<li>push 메소드는 인수로 전달받은 모든 값을 원본 배열의 마지막 요소로 추가하고</li>
+<li>변경된 length 값을 반환한다.</li>
+<li>push 메소드는 원본 배열을 직접 변경한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 또한 push 메소드는 원본 배열을 직접 변경하는 부수 효과가 있다.</span></span><br><span class="line"><span class="comment">// ES6의 스프레드 문법을 사용하는 것이 좋다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr3 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">const</span> newArr = [... arr3, <span class="number">3</span>];</span><br><span class="line"><span class="built_in">console</span>.log(newArr);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="8-4-Array-prototype-pop"><a href="#8-4-Array-prototype-pop" class="headerlink" title="8.4 Array.prototype.pop"></a>8.4 Array.prototype.pop</h3><ul>
+<li>pop 메소드는 원본 배열에서 마지막 요소를 제거하고 제거한 요소를 반환한다.</li>
+<li>원본 배열이 빈 배열이면 undifined를 반환한다. </li>
+<li>원본 배열을 직접 변경한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr4 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> res = arr4.pop();</span><br><span class="line"><span class="built_in">console</span>.log(res);</span><br><span class="line"><span class="built_in">console</span>.log(arr4);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="8-5-Array-prototype-unshift"><a href="#8-5-Array-prototype-unshift" class="headerlink" title="8.5 Array.prototype.unshift"></a>8.5 Array.prototype.unshift</h3><ul>
+<li>인수로 전달받은 모든 값을 원본 배열의 선두에 요소로 추가하고 변경된 length 값을 반환한다.</li>
+<li>unshift 메소드는 원본 배열을 직접 변경한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arra = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = arra.unshift(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// 변경된 length 값을 반환</span></span><br><span class="line"><span class="built_in">console</span>.log(arra);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 스프레드 문법을 쓰는 것이 더 좋다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arra1 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">const</span> newArra = [<span class="number">3</span>, ...arra1];</span><br><span class="line"><span class="built_in">console</span>.log(newArra);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="8-6-Array-prototype-shift"><a href="#8-6-Array-prototype-shift" class="headerlink" title="8.6 Array.prototype.shift"></a>8.6 Array.prototype.shift</h3><ul>
+<li>원본 배열에서 첫번째 요소를 제거하고 제거한 요소를 반환한다.</li>
+<li>원본 배열이 빈 배열이면 undifined를 반호나한다.</li>
+<li>shift 메소드는 원본 배열을 직접 변경한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arra2 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> b = arra2.shift();</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="built_in">console</span>.log(arra2);</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="8-7-Array-prototype-concat"><a href="#8-7-Array-prototype-concat" class="headerlink" title="8.7 Array.prototype.concat"></a>8.7 Array.prototype.concat</h3><ul>
+<li>인수로 전달된 값들을 원본 배열의 마지막 요소로 추가한 새로운 배열을 반환한다.</li>
+<li>인수로 전달한 값이 배열인 경우, 배열을 해체하여 새로운 배열의 요소로 추가한다.</li>
+<li>원본 배열은 변경되지 않는다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array1 = [<span class="number">1</span>, <span class="number">2</span>];</span><br><span class="line"><span class="keyword">const</span> array2 = [<span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result3 = array1.concat(array2);</span><br><span class="line"><span class="built_in">console</span>.log(result1);</span><br><span class="line"></span><br><span class="line">result1 = array1.concat(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result1);</span><br><span class="line"></span><br><span class="line">result1 = array1.concat(array2, <span class="number">5</span>); <span class="comment">// 두번째 값은 마지막 요소로 추가</span></span><br><span class="line"><span class="built_in">console</span>.log(result1);</span><br><span class="line"><span class="built_in">console</span>.log(array1);</span><br><span class="line"></span><br><span class="line"><span class="comment">// concat 메소드는 ES6의 스프레드 문법으로 대체 가능하다</span></span><br><span class="line">result2 = [...[<span class="number">1</span>, <span class="number">2</span>], ...[<span class="number">3</span>, <span class="number">4</span>]];</span><br><span class="line"><span class="built_in">console</span>.log(result2);</span><br></pre></td></tr></table></figure></li>
+<li>push , unshift 메소드 - 원본 배열을 직접 변경 (반드시 변수에 할당해야함)</li>
+<li>concat 메소드 - 새로운 배열을 반환 (반환값을 반드시 변수에 할당 받아야함)</li>
+<li>스프레드 문법을 쓰자..!</li>
+</ul>
+<h3 id="8-8-Array-prototype-splice"><a href="#8-8-Array-prototype-splice" class="headerlink" title="8.8 Array.prototype.splice"></a>8.8 Array.prototype.splice</h3><ul>
+<li>원본 배열의 중간에 요소를 추가하거나 제거하는 경우 사용</li>
+<li>3개의 매개변수가 있으며 원본 배열을 직접 변경한다.<ul>
+<li>start - 요소를 제거하기 시작할 인덱스. start만을 지정하면 start부터 모든 요소를<pre><code>제거한다. start가 음수인 경우, 배열의 끝에서의 인덱스를 나타낸다.
+-1이면 마지막 요소, -n이면 마지막에서 n번째 요소를 가리킨다.</code></pre></li>
+<li>deleteCount - start부터 제거할 요소의 개수.  0인 경우, 요소제거X</li>
+<li>items - 제거한 위치에 삽입될 요소들의 목록, 생략가능 (옵션) <pre><code>생략할 경우 제거만 한다.</code></pre><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">const</span> result  = arr.splice(<span class="number">1</span>, <span class="number">2</span>, <span class="number">20</span>, <span class="number">30</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result);   <span class="comment">// [2, 3] 제거한 요소가 배열로 반환된다.</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">//  [1, 20 , 30, 4]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = arr.splice(<span class="number">1</span>, <span class="number">0</span>, <span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [1, 100 ,2 ,3, 4]</span></span><br><span class="line"><span class="built_in">console</span>.log(reusult);  <span class="comment">//  []</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> result = arr.splice(<span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[1]</span></span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//[2, 3, 4]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="8-9-Array-prototype-slice"><a href="#8-9-Array-prototype-slice" class="headerlink" title="8.9 Array.prototype.slice"></a>8.9 Array.prototype.slice</h3><ul>
+<li>인수로 전달된 범위의 요소들을 복사하여 반환한다.</li>
+<li>원본 배열은 변경되지 않는다. 2개의 매개변수를 갖는다.<ul>
+<li>start - 복사를 시작할 인덱스. 음수인 경우, 배열의 끝에서 인덱스를 나타낸다.<pre><code>slice(-2)는 배열의 마지막 2개의 요소를 반환한다.</code></pre></li>
+<li>end   - 복사를 종료할 인덱스. 이 인덱스에 해당하는 요소는 복사되지않는다.           <pre><code>옵션이며 기본값은 length 값이다.</code></pre></li>
+</ul>
+</li>
+<li>인수를 모두 생략하면 원본 배열의 새로운 복사본을 생성하여 반환한다.            <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> result = arr.slice(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//[1]</span></span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">//[1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result = arr.slice(<span class="number">-1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result)  <span class="comment">// [3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> copy = arr.slice();</span><br><span class="line"><span class="built_in">console</span>.log(copy);  <span class="comment">//[1, 2, 3]</span></span><br><span class="line"><span class="built_in">console</span>.log(copy === arr);  <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li>
+<li>slice 메소드를 이용하여 arguments 같은 유사배열객체를 배열로 변환할 수 있다.</li>
+</ul>
+<h3 id="8-10-Array-prototype-join"><a href="#8-10-Array-prototype-join" class="headerlink" title="8.10 Array.prototype.join"></a>8.10 Array.prototype.join</h3><ul>
+<li>원본 배열의 모든 요소를 문자열로 변환한 후, 인수로 전달받은 값, 즉 구분자(separator)로<br>연결한 문자열을 반환한다. 구분자는 생략가능하며 기본구분자는 , 이다<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> result = arr.join();</span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">// '1,2,3,4'</span></span><br><span class="line">result = arr.join(<span class="string">''</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// '1234'</span></span><br><span class="line">result = arr.join(<span class="string">':'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">// '1:2:3:4'</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="8-11-Array-prototype-reverse"><a href="#8-11-Array-prototype-reverse" class="headerlink" title="8.11 Array.prototype.reverse"></a>8.11 Array.prototype.reverse</h3><ul>
+<li>원본 배열의 요소 순서를 반대로 변경한다. 반환값은 변경된 배열이다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> result = arr.reverse();</span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">// [3, 2, 1]</span></span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// [3, 2, 1]</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="8-12-Array-prototype-fill"><a href="#8-12-Array-prototype-fill" class="headerlink" title="8.12 Array.prototype.fill"></a>8.12 Array.prototype.fill</h3><ul>
+<li>ES6에서 새롭게 도입됌</li>
+<li>인수로 전달받은 값을 요소로 배열의 처음부터 끝까지 채운다. </li>
+<li>원본 배열이 변경된다.</li>
+<li>첫번째 인수 - 요소를 변경할 값</li>
+<li>두번째 인수 - 요소 채우기를 시작할 인덱스</li>
+<li>세번째 인수 - 채우기를 멈출 인덱스 (이 인덱스는 채우기에 포함되지 않음)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">arr.fill(<span class="number">0</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">//[0, 0, 0]</span></span><br><span class="line"></span><br><span class="line">arr.fill(<span class="number">0</span>, <span class="number">1</span>);   <span class="comment">// 0을 요소로  인덱스 1부터 채운다.</span></span><br><span class="line"><span class="built_in">console</span>.log(arr); <span class="comment">//[1, 0, 0]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">arr.fill(<span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(arr);  <span class="comment">//[1, 0, 0, 4, 5]</span></span><br></pre></td></tr></table></figure></li>
+<li>모든 요소를 하나의 값만으로 채울 수 밖에 없는 단점이 있다.</li>
+</ul>
+<h3 id="8-13-Array-prototype-includes"><a href="#8-13-Array-prototype-includes" class="headerlink" title="8.13 Array.prototype.includes"></a>8.13 Array.prototype.includes</h3><ul>
+<li>ES7에서 새롭게 도입</li>
+<li>배열 내에 특정 요소가 포함되어 있는지 확인하여 boolean값을 반환한다.</li>
+<li>첫번째 인수로 검색할 대상을 지정한다.</li>
+<li>두번째 인수로 검색을 시작할 인덱스를 전달할 수 있다. 생략할 경우, 기본값은 0<br>음수를 전달하면 length와 음수 인덱스를 합산하여 (length+index)검색 시작 인덱스를 설정한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> result = arr.includes(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">// true</span></span><br><span class="line">result =arr.includes(<span class="number">100</span>);</span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">//false</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line">result = arr.includes(<span class="number">1</span>, <span class="number">1</span>);   <span class="comment">// 1이 포함되어 있는지 인덱스 1부터 검색 </span></span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">// false</span></span><br><span class="line">result = arr.includes(<span class="number">3</span>, <span class="number">-1</span>);  </span><br><span class="line"><span class="comment">// 배열에 요소 3이 포함되어 있는지 인덱스 2부터 확인  (arr.length - 1)</span></span><br><span class="line"><span class="built_in">console</span>.log(result); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="8-14-Array-prototype-flat"><a href="#8-14-Array-prototype-flat" class="headerlink" title="8.14 Array.prototype.flat"></a>8.14 Array.prototype.flat</h3><ul>
+<li>ES10에서 새롭게 도입됌 </li>
+<li>인수로 전달한 깊이만큼 재귀적으로 배열을  평탄화한다.</li>
+<li>인수로 중첩 배열을 평탄화할 깊이를 전달할 수 있다.</li>
+<li>기본값은 1, Infinity를 전달하면 중첩 배열 모두를 평탄화한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]].flat()); <span class="comment">//[1, 2, 3, 4, 5]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>, [<span class="number">2</span>, [<span class="number">3</span>, [<span class="number">4</span>, <span class="number">5</span>]]].flat(<span class="number">2</span>)); <span class="comment">//[1, 2, 3, [4, 5]]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>, [<span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]].flat(<span class="literal">Infinity</span>)); <span class="comment">//[1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/js.functionInES6/" rel="prev" title="js.functionInES6">
+      <i class="fa fa-chevron-left"></i> js.functionInES6
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/js.array2/" rel="next" title="js.array2">
+      js.array2 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#배열"><span class="nav-number">1.</span> <span class="nav-text">배열</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-배열이란"><span class="nav-number">1.1.</span> <span class="nav-text">1. 배열이란?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-자바스크립트의-배열"><span class="nav-number">1.2.</span> <span class="nav-text">2. 자바스크립트의 배열</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-length-프로퍼티와-희소-배열"><span class="nav-number">1.3.</span> <span class="nav-text">3. length 프로퍼티와 희소 배열</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-배열-생성"><span class="nav-number">1.4.</span> <span class="nav-text">4. 배열 생성</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-배열-리터럴"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.1 배열 리터럴</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Array-생성자-함수"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.2 Array 생성자 함수</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-Array-of"><span class="nav-number">1.4.3.</span> <span class="nav-text">4.3 Array.of</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-Array-from"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.4 Array.from</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-배열-요소의-참조"><span class="nav-number">1.5.</span> <span class="nav-text">5. 배열 요소의 참조</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-배열-요소의-추가와-갱신"><span class="nav-number">1.6.</span> <span class="nav-text">6. 배열 요소의 추가와 갱신</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-배열-요소의-삭제"><span class="nav-number">1.7.</span> <span class="nav-text">7. 배열 요소의 삭제</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-배열-메소드-accessor-method"><span class="nav-number">1.8.</span> <span class="nav-text">8. 배열 메소드  (accessor method)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-Array-isArray"><span class="nav-number">1.8.1.</span> <span class="nav-text">8.1 Array.isArray</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-Array-prototype-indexOf"><span class="nav-number">1.8.2.</span> <span class="nav-text">8.2 Array.prototype.indexOf</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-Array-prototype-push"><span class="nav-number">1.8.3.</span> <span class="nav-text">8.3 Array.prototype.push</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-4-Array-prototype-pop"><span class="nav-number">1.8.4.</span> <span class="nav-text">8.4 Array.prototype.pop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-5-Array-prototype-unshift"><span class="nav-number">1.8.5.</span> <span class="nav-text">8.5 Array.prototype.unshift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-6-Array-prototype-shift"><span class="nav-number">1.8.6.</span> <span class="nav-text">8.6 Array.prototype.shift</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-7-Array-prototype-concat"><span class="nav-number">1.8.7.</span> <span class="nav-text">8.7 Array.prototype.concat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-8-Array-prototype-splice"><span class="nav-number">1.8.8.</span> <span class="nav-text">8.8 Array.prototype.splice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-9-Array-prototype-slice"><span class="nav-number">1.8.9.</span> <span class="nav-text">8.9 Array.prototype.slice</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-10-Array-prototype-join"><span class="nav-number">1.8.10.</span> <span class="nav-text">8.10 Array.prototype.join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-11-Array-prototype-reverse"><span class="nav-number">1.8.11.</span> <span class="nav-text">8.11 Array.prototype.reverse</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-12-Array-prototype-fill"><span class="nav-number">1.8.12.</span> <span class="nav-text">8.12 Array.prototype.fill</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-13-Array-prototype-includes"><span class="nav-number">1.8.13.</span> <span class="nav-text">8.13 Array.prototype.includes</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-14-Array-prototype-flat"><span class="nav-number">1.8.14.</span> <span class="nav-text">8.14 Array.prototype.flat</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">hodeng28</p>
+  <div class="site-description" itemprop="description">헤헤</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hodeng28</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

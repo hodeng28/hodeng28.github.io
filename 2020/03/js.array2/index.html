@@ -10,16 +10,16 @@
 <title>js.array2 - hodeng</title>
 
 
-    <meta name="description" content="9. 배열 고차 함수고차 함수(Higher-Order-Function, HOF)는 함수를 인자로 전달받거나 함수를 반환하는 함수를 말한다. 9.1 Array.prototype.sort 배열의 요소를 적절하게 정렬한다. 원본 배열을 직접 변경한다. 기본적으로 오름차순(ascending)으로 요소를 정렬한다. 내림차순은 먼저 오름차순으로 정렬 후 순서를 뒤집는">
+    <meta name="description" content="9. 배열 고차 함수고차 함수(Higher-Order-Function, HOF)는 함수를 인자로 전달받거나 함수를 반환하는 함수를 말한다. 9.1 Array.prototype.sort 배열의 요소를 적절하게 정렬한다.  원본 배열을 직접 변경한다.  기본적으로 오름차순(ascending)으로 요소를 정렬한다.  내림차순은 먼저 오름차순으로 정렬 후 순서를">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js.array2">
 <meta property="og:url" content="http://hodeng28.github.io/2020/03/js.array2/index.html">
 <meta property="og:site_name" content="hodeng">
-<meta property="og:description" content="9. 배열 고차 함수고차 함수(Higher-Order-Function, HOF)는 함수를 인자로 전달받거나 함수를 반환하는 함수를 말한다. 9.1 Array.prototype.sort 배열의 요소를 적절하게 정렬한다. 원본 배열을 직접 변경한다. 기본적으로 오름차순(ascending)으로 요소를 정렬한다. 내림차순은 먼저 오름차순으로 정렬 후 순서를 뒤집는">
+<meta property="og:description" content="9. 배열 고차 함수고차 함수(Higher-Order-Function, HOF)는 함수를 인자로 전달받거나 함수를 반환하는 함수를 말한다. 9.1 Array.prototype.sort 배열의 요소를 적절하게 정렬한다.  원본 배열을 직접 변경한다.  기본적으로 오름차순(ascending)으로 요소를 정렬한다.  내림차순은 먼저 오름차순으로 정렬 후 순서를">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hodeng28.github.io/images/og_image.png">
 <meta property="article:published_time" content="2020-03-21T13:54:33.291Z">
-<meta property="article:modified_time" content="2020-03-21T16:07:39.466Z">
+<meta property="article:modified_time" content="2020-03-24T04:00:58.552Z">
 <meta property="article:author" content="hodeng28">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content=" js">
@@ -148,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    11 minutes read (About 1661 words)
+                    11 minutes read (About 1662 words)
                 </span>
                 
                 
@@ -163,24 +163,36 @@
         <div class="content">
             <h2 id="9-배열-고차-함수"><a href="#9-배열-고차-함수" class="headerlink" title="9. 배열 고차 함수"></a>9. 배열 고차 함수</h2><p>고차 함수(Higher-Order-Function, HOF)는 함수를 인자로 전달받거나 함수를 반환하는 함수를 말한다.</p>
 <h3 id="9-1-Array-prototype-sort"><a href="#9-1-Array-prototype-sort" class="headerlink" title="9.1 Array.prototype.sort"></a>9.1 Array.prototype.sort</h3><ul>
-<li>배열의 요소를 적절하게 정렬한다.</li>
-<li>원본 배열을 직접 변경한다.</li>
-<li>기본적으로 오름차순(ascending)으로 요소를 정렬한다.</li>
-<li>내림차순은 먼저 오름차순으로 정렬 후 순서를 뒤집는다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fruits = [<span class="string">'바나나'</span>, <span class="string">'오렌지'</span>, <span class="string">'사과'</span>];</span><br><span class="line">fruits.sort();</span><br><span class="line"><span class="built_in">console</span>.log(fruits); <span class="comment">//['바나나', '사과', '오렌지']</span></span><br><span class="line">fruits.reverse();   <span class="comment">// 내림차순(descending)</span></span><br><span class="line"><span class="built_in">console</span>.log(fruits);  <span class="comment">// ['오렌지', '사과', '바나나']</span></span><br></pre></td></tr></table></figure></li>
-<li>문자열 정렬은 문제가 없으나 숫자 요소들을 정렬할 떄 문제 발생</li>
-<li>배열의 요소를 일시적으로 문자열로 변환한 후 정렬한다. (Unicode 코드 포인트 순서)</li>
-<li>정렬 순서를 정의하는 비교 함수를 인수로 전달해야한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> points = [<span class="number">40</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">28</span>]</span><br><span class="line">points.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a,  b</span>) </span>&#123; <span class="keyword">return</span> a - b; &#125;);</span><br><span class="line"><span class="comment">// points.sort((a, b) =&gt; a - b);</span></span><br><span class="line"><span class="built_in">console</span>.log(points); <span class="comment">// [1 , 3, 5, 28, 40, 100]</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line">points.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> b - a; &#125;); <span class="comment">//내림차순</span></span><br><span class="line"><span class="comment">// points.sort((a, b) =&gt; b - a);</span></span><br></pre></td></tr></table></figure>
-
+<li><p>배열의 요소를 적절하게 정렬한다.</p>
 </li>
-</ul>
-<h3 id="9-2-Array-prototype-forEach"><a href="#9-2-Array-prototype-forEach" class="headerlink" title="9.2 Array.prototype.forEach"></a>9.2 Array.prototype.forEach</h3><ul>
-<li>for문을 대체할수 있는 메소드</li>
-<li>배열을 순회하며 배열의 각 요소에 대하여 인수로 전달된 콜백 함수를 실행한다.</li>
-<li>forEach 메소드의 콜백함수는 요소값, 인덱스, forEach 메소드를 호출한 배열,<br>즉 this를 전달 받을 수 있다.</li>
-<li>원본 배열을 변경하지 않는다.  하지만 콜백 함수가 원본 배열을 변경할 수 있다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> pows =[];</span><br><span class="line"><span class="comment">// for문</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numbers.length i++) &#123;</span><br><span class="line">  pows.push(numbers[i] ** <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(pows);  <span class="comment">// [1, 4, 9]</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// forEach 문</span></span><br><span class="line">numbers.forEach(<span class="function"><span class="params">item</span> =&gt;</span> pows.push(item ** <span class="number">2</span>));</span><br><span class="line">consoel.log(pows); <span class="comment">//[1, 4, 9]</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 원본 배열 변경에 대해</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">numbers.forEach(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> arr[index] = <span class="built_in">Math</span>.pow(item, <span class="number">2</span>));</span><br><span class="line"><span class="comment">// 원본 배열을 직접 변경하려면 콜백함수의 3번째 인자를 사용한다.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// forEach 메소드의 반환값은 언제나 undifined</span></span><br><span class="line"><span class="keyword">const</span> result = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="built_in">console</span>.log);</span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//undifined</span></span><br></pre></td></tr></table></figure></li>
-<li>break, continue 문을 사용할 수 없다. (SyntaxError)</li>
-<li>배열의 모든 요소를 모두 순회해야하며, 중간에 순회를 중단할 수 없다.</li>
-<li>희소 배열의 존재하지 않는 요소는 순회 대상에서 제외된다.<br>for문에서는 undifined,  forEach메소드에서는 무시</li>
+<li><p>원본 배열을 직접 변경한다.</p>
+</li>
+<li><p>기본적으로 오름차순(ascending)으로 요소를 정렬한다.</p>
+</li>
+<li><p>내림차순은 먼저 오름차순으로 정렬 후 순서를 뒤집는다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fruits = [<span class="string">'바나나'</span>, <span class="string">'오렌지'</span>, <span class="string">'사과'</span>];</span><br><span class="line">fruits.sort();</span><br><span class="line"><span class="built_in">console</span>.log(fruits); <span class="comment">//['바나나', '사과', '오렌지']</span></span><br><span class="line">fruits.reverse();   <span class="comment">// 내림차순(descending)</span></span><br><span class="line"><span class="built_in">console</span>.log(fruits);  <span class="comment">// ['오렌지', '사과', '바나나']</span></span><br></pre></td></tr></table></figure></li>
+<li><p>문자열 정렬은 문제가 없으나 숫자 요소들을 정렬할 떄 문제 발생</p>
+</li>
+<li><p>배열의 요소를 일시적으로 문자열로 변환한 후 정렬한다. (Unicode 코드 포인트 순서)</p>
+</li>
+<li><p>정렬 순서를 정의하는 비교 함수를 인수로 전달해야한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> points = [<span class="number">40</span>, <span class="number">100</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">28</span>]</span><br><span class="line">points.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a,  b</span>) </span>&#123; <span class="keyword">return</span> a - b; &#125;);</span><br><span class="line"><span class="comment">// points.sort((a, b) =&gt; a - b);</span></span><br><span class="line"><span class="built_in">console</span>.log(points); <span class="comment">// [1 , 3, 5, 28, 40, 100]</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// </span></span><br><span class="line">points.sort(<span class="function"><span class="keyword">function</span> (<span class="params">a, b</span>) </span>&#123; <span class="keyword">return</span> b - a; &#125;); <span class="comment">//내림차순</span></span><br><span class="line"><span class="comment">// points.sort((a, b) =&gt; b - a);</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="9-2-Array-prototype-forEach"><a href="#9-2-Array-prototype-forEach" class="headerlink" title="9.2 Array.prototype.forEach"></a>9.2 Array.prototype.forEach</h3></li>
+<li><p>for문을 대체할수 있는 메소드</p>
+</li>
+<li><p>배열을 순회하며 배열의 각 요소에 대하여 인수로 전달된 콜백 함수를 실행한다.</p>
+</li>
+<li><p>forEach 메소드의 콜백함수는 요소값, 인덱스, forEach 메소드를 호출한 배열,<br>즉 this를 전달 받을 수 있다.</p>
+</li>
+<li><p>원본 배열을 변경하지 않는다.  하지만 콜백 함수가 원본 배열을 변경할 수 있다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">let</span> pows =[];</span><br><span class="line"><span class="comment">// for문</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; numbers.length i++) &#123;</span><br><span class="line">  pows.push(numbers[i] ** <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(pows);  <span class="comment">// [1, 4, 9]</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// forEach 문</span></span><br><span class="line">numbers.forEach(<span class="function"><span class="params">item</span> =&gt;</span> pows.push(item ** <span class="number">2</span>));</span><br><span class="line">consoel.log(pows); <span class="comment">//[1, 4, 9]</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// 원본 배열 변경에 대해</span></span><br><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line">numbers.forEach(<span class="function">(<span class="params">item, index, arr</span>) =&gt;</span> arr[index] = <span class="built_in">Math</span>.pow(item, <span class="number">2</span>));</span><br><span class="line"><span class="comment">// 원본 배열을 직접 변경하려면 콜백함수의 3번째 인자를 사용한다.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// forEach 메소드의 반환값은 언제나 undifined</span></span><br><span class="line"><span class="keyword">const</span> result = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].forEach(<span class="built_in">console</span>.log);</span><br><span class="line"><span class="built_in">console</span>.log(result);  <span class="comment">//undifined</span></span><br></pre></td></tr></table></figure></li>
+<li><p>break, continue 문을 사용할 수 없다. (SyntaxError)</p>
+</li>
+<li><p>배열의 모든 요소를 모두 순회해야하며, 중간에 순회를 중단할 수 없다.</p>
+</li>
+<li><p>희소 배열의 존재하지 않는 요소는 순회 대상에서 제외된다.<br>for문에서는 undifined,  forEach메소드에서는 무시</p>
+</li>
 </ul>
 <h3 id="9-3-Array-prototype-map"><a href="#9-3-Array-prototype-map" class="headerlink" title="9.3 Array.prototype.map"></a>9.3 Array.prototype.map</h3><ul>
 <li>배열을 순회하며 배열의 각 요소에 인수로 전달된 콜백 함수를 실행한다.</li>
@@ -362,7 +374,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            25
+                            26
                         </p>
                     </a>
                 </div>
@@ -507,6 +519,25 @@
         
         <article class="media">
             
+            <a href="/2020/03/js.Destructuring/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Destructuring">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-24T01:23:16.930Z">2020-03-24</time></div>
+                    <a href="/2020/03/js.Destructuring/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Destructuring</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/js.spreadSyntax/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.spreadSyntax">
@@ -581,25 +612,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.class/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.class">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T14:43:22.809Z">2020-03-17</time></div>
-                    <a href="/2020/03/js.class/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.class</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -617,7 +629,7 @@
                     <span class="level-item">March 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">14</span>
+                    <span class="level-item tag">15</span>
                 </span>
             </a>
         </li>
@@ -670,6 +682,25 @@
         
         <article class="media">
             
+            <a href="/2020/03/js.Destructuring/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Destructuring">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-24T01:23:16.930Z">2020-03-24</time></div>
+                    <a href="/2020/03/js.Destructuring/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Destructuring</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/js.spreadSyntax/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.spreadSyntax">
@@ -744,25 +775,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.class/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.class">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T14:43:22.809Z">2020-03-17</time></div>
-                    <a href="/2020/03/js.class/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.class</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -780,7 +792,7 @@
                     <span class="level-item">March 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">14</span>
+                    <span class="level-item tag">15</span>
                 </span>
             </a>
         </li>

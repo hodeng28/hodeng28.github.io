@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hodeng28.github.io/images/og_image.png">
 <meta property="article:published_time" content="2020-02-24T12:42:00.989Z">
-<meta property="article:modified_time" content="2020-02-25T09:44:21.194Z">
+<meta property="article:modified_time" content="2020-03-24T04:04:25.504Z">
 <meta property="article:author" content="hodeng28">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content=" js">
@@ -148,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 810 words)
+                    5 minutes read (About 811 words)
                 </span>
                 
                 
@@ -166,11 +166,14 @@
 <p>두 타입변환이 기존 원시값을 직접 변경하는 것은 아니다. (원시값은 변경 불가능한 값이므로 변경할 수 없음)<br>타입변환이란 기존 원시값을 사용해 다른 타입의 새로운 원시값을 생성하는 것이다.</p>
 <h2 id="암묵적-타입-변환"><a href="#암묵적-타입-변환" class="headerlink" title="암묵적 타입 변환"></a>암묵적 타입 변환</h2><h3 id="1-문자열-타입으로-변환"><a href="#1-문자열-타입으로-변환" class="headerlink" title="1. 문자열 타입으로 변환"></a>1. 문자열 타입으로 변환</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> + <span class="string">'2'</span>    <span class="comment">//"12"</span></span><br></pre></td></tr></table></figure>
 <ul>
-<li>+연산자는 피연산자 중 하나 이상이 문자열이므로 문자열 연결 연산자로 동작한다.</li>
-<li>문자열 연결 연산자의 모든 피연산자는 코드의 문맥 상 모두 문자열 타입이여야 한다.</li>
-</ul>
-<h3 id="2-숫자-타입으로-변환"><a href="#2-숫자-타입으로-변환" class="headerlink" title="2. 숫자 타입으로 변환"></a>2. 숫자 타입으로 변환</h3> <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> - <span class="string">'1'</span>   <span class="comment">// 0</span></span><br><span class="line"><span class="number">1</span> * <span class="string">'10'</span>  <span class="comment">// 10</span></span><br><span class="line"><span class="number">1</span> / <span class="string">'one'</span> <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
+<li><p>+연산자는 피연산자 중 하나 이상이 문자열이므로 문자열 연결 연산자로 동작한다.</p>
+</li>
+<li><p>문자열 연결 연산자의 모든 피연산자는 코드의 문맥 상 모두 문자열 타입이여야 한다.</p>
+<a id="more"></a>
+<h3 id="2-숫자-타입으로-변환"><a href="#2-숫자-타입으로-변환" class="headerlink" title="2. 숫자 타입으로 변환"></a>2. 숫자 타입으로 변환</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> - <span class="string">'1'</span>   <span class="comment">// 0</span></span><br><span class="line"><span class="number">1</span> * <span class="string">'10'</span>  <span class="comment">// 10</span></span><br><span class="line"><span class="number">1</span> / <span class="string">'one'</span> <span class="comment">// NaN</span></span><br></pre></td></tr></table></figure>
 <p><strong>산술 연산자</strong>의 역할은 숫자 값을 만드는 것이다.<br>이때 피연산자를 숫자 타입으로 변환할 수 없는 경우는 산술 연산을 수행할 수 없으므로 표현식의 평가 결과는 NaN이 된다.</p>
+</li>
+</ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'1'</span> &gt; <span class="number">0</span>  <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
 <p><strong>비교 연산자</strong>의 역할은 불리언 값을 만드는 것이다.<br>코드의 문맥상 모두 숫자 타입이어야 한다.</p>
 <h3 id="3-불리언-타입으로-변환"><a href="#3-불리언-타입으로-변환" class="headerlink" title="3. 불리언 타입으로 변환"></a>3. 불리언 타입으로 변환</h3><p>if 문이나 for 문 같은 제어문은, 또는 삼항 조건 연산자의 조건식은 불리언 값을 반환해야 하는 표현식이다.<br>자바스크립트 엔진은 불리언 타입이 아닌 값을 Truthy 값 (참으로 평가되는 값) 또는 Falsy 값 (거짓으로 평가되는 값)으로 구분<br>Truthy -&gt; true, Falsy -&gt; false</p>
@@ -307,7 +310,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            25
+                            26
                         </p>
                     </a>
                 </div>
@@ -452,6 +455,25 @@
         
         <article class="media">
             
+            <a href="/2020/03/js.Destructuring/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Destructuring">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-24T01:23:16.930Z">2020-03-24</time></div>
+                    <a href="/2020/03/js.Destructuring/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Destructuring</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/js.spreadSyntax/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.spreadSyntax">
@@ -526,25 +548,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.class/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.class">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T14:43:22.809Z">2020-03-17</time></div>
-                    <a href="/2020/03/js.class/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.class</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -562,7 +565,7 @@
                     <span class="level-item">March 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">14</span>
+                    <span class="level-item tag">15</span>
                 </span>
             </a>
         </li>
@@ -615,6 +618,25 @@
         
         <article class="media">
             
+            <a href="/2020/03/js.Destructuring/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Destructuring">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-24T01:23:16.930Z">2020-03-24</time></div>
+                    <a href="/2020/03/js.Destructuring/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Destructuring</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/js.spreadSyntax/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.spreadSyntax">
@@ -689,25 +711,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.class/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.class">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T14:43:22.809Z">2020-03-17</time></div>
-                    <a href="/2020/03/js.class/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.class</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -725,7 +728,7 @@
                     <span class="level-item">March 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">14</span>
+                    <span class="level-item tag">15</span>
                 </span>
             </a>
         </li>

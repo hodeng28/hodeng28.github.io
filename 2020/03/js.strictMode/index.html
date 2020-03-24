@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hodeng28.github.io/images/og_image.png">
 <meta property="article:published_time" content="2020-03-14T12:37:27.575Z">
-<meta property="article:modified_time" content="2020-03-14T12:55:39.952Z">
+<meta property="article:modified_time" content="2020-03-24T04:03:43.685Z">
 <meta property="article:author" content="hodeng28">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content=" js">
@@ -148,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 714 words)
+                    5 minutes read (About 715 words)
                 </span>
                 
                 
@@ -164,14 +164,19 @@
             <h1 id="엄격모드"><a href="#엄격모드" class="headerlink" title="엄격모드"></a>엄격모드</h1><h2 id="1-strict-mode"><a href="#1-strict-mode" class="headerlink" title="1. strict mode"></a>1. strict mode</h2><p>ES5부터 strict mode가 추가되었다.<br>자바스크립트 언어의 문법을 보다 엄격히 적용하여 기존에 무시되던 오류를 발생시킬 가능성이 높거나 자바스크립트 엔진의 최적화 작업에 문제를 일으킬 수 있는 코드에 대해 명시적 에러를 발생시킨다.</p>
 <p><strong>ESlint</strong>같은 도구로 비슷한 효과를 얻을 수 있다.<br>린트는 정적분석 기능을 통해 소스코드를 실행하기 전에 소스 코드를 스캔하여 문법적 오류만이 아니라 잠재적 오류까지 찾아내고 오류의 이유도 리포팅 해준다.</p>
 <h2 id="2-strict-mode의-적용"><a href="#2-strict-mode의-적용" class="headerlink" title="2. strict mode의 적용"></a>2. strict mode의 적용</h2><ul>
-<li>strict mode를 적용하려면 전역의 선두 또는 함수 몸체 선두에 ‘use strict’;를 추가<br>전역 선두에 추가하면 스크립트 전체에 적용된다.</li>
-<li>함수 몸체의 선두에 추가하면 해당 함수와 중첩된 내부 함수에 strict mode 적용</li>
-<li>코드의 선두에 strict mode를 위치시키지 않으면 작동하지않는다 (에러발생시키지않음)</li>
-</ul>
-<h2 id="3-전역에-strict-mode-적용은-no"><a href="#3-전역에-strict-mode-적용은-no" class="headerlink" title="3. 전역에 strict mode 적용은 no"></a>3. 전역에 strict mode 적용은 no</h2><ul>
-<li>스크립트 단위로 적용된 strict mode는 다른 스크립트에 영향을 주지않고 자신의 스크립트에 한정되어 적용한다.</li>
-<li>strict mode,  non-strict mode를 혼용하면 오류를 발생시킬 수 있음</li>
-<li>즉시 실행 함수로 스크립트 전체를 감싸서 스코프를 구분하고, 함수 선두에 strict mode적용</li>
+<li><p>strict mode를 적용하려면 전역의 선두 또는 함수 몸체 선두에 ‘use strict’;를 추가<br>전역 선두에 추가하면 스크립트 전체에 적용된다.</p>
+</li>
+<li><p>함수 몸체의 선두에 추가하면 해당 함수와 중첩된 내부 함수에 strict mode 적용</p>
+</li>
+<li><p>코드의 선두에 strict mode를 위치시키지 않으면 작동하지않는다 (에러발생시키지않음)</p>
+<a id="more"></a>
+<h2 id="3-전역에-strict-mode-적용은-no"><a href="#3-전역에-strict-mode-적용은-no" class="headerlink" title="3. 전역에 strict mode 적용은 no"></a>3. 전역에 strict mode 적용은 no</h2></li>
+<li><p>스크립트 단위로 적용된 strict mode는 다른 스크립트에 영향을 주지않고 자신의 스크립트에 한정되어 적용한다.</p>
+</li>
+<li><p>strict mode,  non-strict mode를 혼용하면 오류를 발생시킬 수 있음</p>
+</li>
+<li><p>즉시 실행 함수로 스크립트 전체를 감싸서 스코프를 구분하고, 함수 선두에 strict mode적용</p>
+</li>
 </ul>
 <h2 id="4-함수-단위로-strict-mode를-적용하는-것도-no"><a href="#4-함수-단위로-strict-mode를-적용하는-것도-no" class="headerlink" title="4. 함수 단위로 strict mode를 적용하는 것도 no"></a>4. 함수 단위로 strict mode를 적용하는 것도 no</h2><p>strict mode가 적용된 함수가 참조할 함수 외부의 컨텍스트에 strict mode를 적용하지 않는다면 문제를 발생시킨다.</p>
 <h2 id="5-strict-mode가-발생시키는-에러"><a href="#5-strict-mode가-발생시키는-에러" class="headerlink" title="5. strict mode가 발생시키는 에러"></a>5. strict mode가 발생시키는 에러</h2><h3 id="5-1-암묵적-전역"><a href="#5-1-암묵적-전역" class="headerlink" title="5.1 암묵적 전역"></a>5.1 암묵적 전역</h3><p>선언하지 않는 변수를 참조하면 ReferenceError가 발생</p>
@@ -297,7 +302,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            25
+                            26
                         </p>
                     </a>
                 </div>
@@ -442,6 +447,25 @@
         
         <article class="media">
             
+            <a href="/2020/03/js.Destructuring/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Destructuring">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-24T01:23:16.930Z">2020-03-24</time></div>
+                    <a href="/2020/03/js.Destructuring/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Destructuring</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/js.spreadSyntax/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.spreadSyntax">
@@ -516,25 +540,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.class/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.class">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T14:43:22.809Z">2020-03-17</time></div>
-                    <a href="/2020/03/js.class/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.class</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -552,7 +557,7 @@
                     <span class="level-item">March 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">14</span>
+                    <span class="level-item tag">15</span>
                 </span>
             </a>
         </li>
@@ -605,6 +610,25 @@
         
         <article class="media">
             
+            <a href="/2020/03/js.Destructuring/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Destructuring">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-24T01:23:16.930Z">2020-03-24</time></div>
+                    <a href="/2020/03/js.Destructuring/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Destructuring</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/js.spreadSyntax/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.spreadSyntax">
@@ -679,25 +703,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.class/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.class">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-17T14:43:22.809Z">2020-03-17</time></div>
-                    <a href="/2020/03/js.class/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.class</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -715,7 +720,7 @@
                     <span class="level-item">March 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">14</span>
+                    <span class="level-item tag">15</span>
                 </span>
             </a>
         </li>

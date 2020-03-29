@@ -141,6 +141,84 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-29T13:23:09.857Z">2020-03-29</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 minutes read (About 890 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/js.DOM/">js.DOM</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="Id로-요소-노드-취득"><a href="#Id로-요소-노드-취득" class="headerlink" title="Id로 요소 노드 취득"></a>Id로 요소 노드 취득</h2><ul>
+<li><strong>Document.prototype.getElementById</strong> 메소드는 인수로 전달한 id어트리뷰트 값을 갖는 하나의 요소 노드를 탐색하여 반환한다.</li>
+<li>getElementByid 메소드는 Document.prototype의 프로퍼티이다.</li>
+<li>반드시 문서 노드 document를 통해 호출해야 한다.</li>
+<li>문서 내에 중복된 id 값이 있을 경우, 첫번째 하나의 요소 노드만을 반환한다.</li>
+<li>인수로 전달된 id 값을 갖는 요소가 존재하지 않으면, null을 반환한다.</li>
+<li>id 값과 동일한 이름의 전역 변수가 선언되어 있으면 노드 객체가 재할당되지 않는다.</li>
+</ul>
+<h2 id="태그-이름으로-요소-노트-취득"><a href="#태그-이름으로-요소-노트-취득" class="headerlink" title="태그 이름으로 요소 노트 취득"></a>태그 이름으로 요소 노트 취득</h2><p><strong>Document.prototype/Element.prototype.getElementsByTagName</strong> 메소드는 인수로 전달한 태그 이름을 갖는 <strong>모든 요소 노드들을</strong> 탐색하여 반환한다.</p>
+<ul>
+<li>getElementsByTagName 메소드는 여러개의 요소 노드 객체를 갖는 DOM 컬렉션 객체인 HTMLCollection 객체를 반환한다.</li>
+<li>인수로 전달된 태그 이름을 갖는 요소가 존재하지 않는 경우, getElementsByTagName 메소드는 빈 HTMLCollection 객체를 반환한다.</li>
+</ul>
+<h2 id="class로-요소-노드-취득"><a href="#class로-요소-노드-취득" class="headerlink" title="class로 요소 노드 취득"></a>class로 요소 노드 취득</h2><ul>
+<li><strong>Document.prototype/Element.prototype.getElementsByClassName</strong> 메소드는 인수로 전달한 class 어트리뷰트 값을 갖는 <strong>모든 요소 노드들을</strong> 탐색하여 반환한다.</li>
+<li>인수로 전달할 class 값은 공백으로 구분하여 여러 개의 class를 지정할 수 있다.</li>
+<li>여러 개의 요소 노드 객체를 갖는 DOM 컬렉션 객체인 HTMLCollection 객체를 반환한다.</li>
+<li>인수로 전달된 태그 이름을 갖는 요소가 존재하지 않는 경우, getElementsByClassName 메소드는 빈 HTMLCollection 객체를 반환한다.</li>
+</ul>
+<h2 id="CSS-선택자로-요소-노드-취득"><a href="#CSS-선택자로-요소-노드-취득" class="headerlink" title="CSS 선택자로 요소 노드 취득"></a>CSS 선택자로 요소 노드 취득</h2><p>스타일을 적용하고자 하는 HTML 요소를 특정할 때 사용하는 문법이다.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">* &#123; ... &#125;                   /* 전체 선택자: 모든 요소를 선택 */</span><br><span class="line">p &#123; ... &#125;                   /* 태그 선택자: 모든 p 태그 요소를 모두 선택 */</span><br><span class="line">#foo &#123; ... &#125;                /* id 선택자: id 값이 foo인 요소 모두*/    </span><br><span class="line">.foo &#123; ... &#125;                /* class선택자: class값이 foo인 요소 모두*/</span><br><span class="line"></span><br><span class="line">input[type=text] &#123; ... &#125;    </span><br><span class="line"><span class="comment">/* 어트리뷰트 선택자: input 요소중에 type 어트리뷰트 값이 text 요소 모두 */</span></span><br><span class="line">div p &#123; ... &#125;</span><br><span class="line"><span class="comment">/* 후손 선택자: div 요소의 후손 요소 중 p 요소 모두*/</span></span><br><span class="line">div &gt; p &#123; ... &#125;</span><br><span class="line"><span class="comment">/* 자식 선택자: div 요소의 자식 요소 중 p 요소 모두*/</span></span><br><span class="line">p + ul &#123; ... &#125;</span><br><span class="line"><span class="comment">/* 인접 형제 선택자: p 요소의 형제 요소중에 p 요소 바로 뒤에 위치하는 ul 요소*/</span></span><br><span class="line">p ~ ul &#123; ... &#125;</span><br><span class="line"><span class="comment">/* 일반 형제 선택자: p 요소의 형제 요소중에 p 요소 뒤에 위치하는 ul 요소 모두*/</span></span><br><span class="line">a: hover &#123; ... &#125;</span><br><span class="line"><span class="comment">/* 가상 클래스 선택자: hover 상태인 a 요소 모두*/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>Document.prototype/Element.prototype.querySelector</strong> 메소드는 인수로 전달한 CSS 선택자를 만족시키는 하나의 요소 노드를 탐색하여 반환한다.</p>
+</li>
+<li><p>인수로 전달한 CSS선택자를 만족시키는 요소 노드가 여러개인 경우, 첫번째 요소 노드만 반환</p>
+</li>
+<li><p>존재하지 않으면  null 반환</p>
+</li>
+<li><p><strong>Document.prototype/Element.prototype.querySelectorAll</strong> 메소드는 인수로 전달한 CSS 선택자를 만족시키는 모든 요소 노드를 탐색하여 반환한다.</p>
+</li>
+<li><p>querySelectorAll 메소드는 여러 개의 요소 노드 객체를 갖는 DOM컬렉션 객체인 NodeList 객체를 반환한다.</p>
+</li>
+<li><p>요소가 존재하지 않는 경우, 빈 NodeList 객체를 반환한다.</p>
+</li>
+<li><p>CSS 선택자가 문법에 맞지 않은 경우, DOMException 에러가 발생한다.</p>
+</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-03-24T01:23:16.930Z">2020-03-24</time>
                 
                 
@@ -778,78 +856,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-14T13:07:44.357Z">2020-03-14</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    20 minutes read (About 2943 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/03/js.built-in%20object/">js.built-in object</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="빌트인-객체"><a href="#빌트인-객체" class="headerlink" title="빌트인 객체"></a>빌트인 객체</h1><h2 id="1-자바스크립트-객체의-분류"><a href="#1-자바스크립트-객체의-분류" class="headerlink" title="1. 자바스크립트 객체의 분류"></a>1. 자바스크립트 객체의 분류</h2><p>자바스크립트 객체는 크게 3개의 객체로 분류할 수 있다.</p>
-<ul>
-<li><p>표준 빌트인 객체(standard built-in objects, navtive object, global ojbects)</p>
-<ul>
-<li>ECMAScript 사양에 정의된 객체, 애플리케이션 전역의 공통 기능을 제공</li>
-<li>자바스크립트 실행환경과 관계없이 언제나 사용 가능</li>
-<li>표준 빌트인 객체는 전역 객체의 프로퍼티로서 제공된다.</li>
-<li>별도의 선언없이 전역 변수처럼 언제나 참조할 수 있다.</li>
-</ul>
-<ul>
-<li>호스트 객체 (host objects) </li>
-</ul>
-<ul>
-<li>ECMAScript에 정의되어 있지 않음, 자바스크립트 실행환경에서 추가적으로 제공하는 객체</li>
-<li>브라우저 환경에서는 클라이언트 사이드 Web API를 호스트 객체로 제공</li>
-<li>Node.js 환경에서는 Node.js 고유의 API를 호스트 객체로 제공</li>
-</ul>
-</li>
-<li><p>사용자 정의 객체 (user-defined objects)</p>
-<ul>
-<li>기본으로 제공되는 객체가 아닌 사용자가 직접 정의한 객체</li>
-</ul>
-</li>
-</ul>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/03/js.built-in%20object/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -916,7 +922,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            26
+                            27
                         </p>
                     </a>
                 </div>
@@ -1061,6 +1067,25 @@
         
         <article class="media">
             
+            <a href="/2020/03/js.DOM/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.DOM">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-29T13:23:09.857Z">2020-03-29</time></div>
+                    <a href="/2020/03/js.DOM/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.DOM</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/js.Destructuring/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Destructuring">
@@ -1135,25 +1160,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.functionInES6/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.functionInES6">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-19T08:06:41.464Z">2020-03-19</time></div>
-                    <a href="/2020/03/js.functionInES6/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.functionInES6</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1171,7 +1177,7 @@
                     <span class="level-item">March 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">15</span>
+                    <span class="level-item tag">16</span>
                 </span>
             </a>
         </li>
@@ -1224,6 +1230,25 @@
         
         <article class="media">
             
+            <a href="/2020/03/js.DOM/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.DOM">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-29T13:23:09.857Z">2020-03-29</time></div>
+                    <a href="/2020/03/js.DOM/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.DOM</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/03/js.Destructuring/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Destructuring">
@@ -1298,25 +1323,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.functionInES6/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.functionInES6">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-19T08:06:41.464Z">2020-03-19</time></div>
-                    <a href="/2020/03/js.functionInES6/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.functionInES6</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1334,7 +1340,7 @@
                     <span class="level-item">March 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">15</span>
+                    <span class="level-item tag">16</span>
                 </span>
             </a>
         </li>

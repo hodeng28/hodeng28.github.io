@@ -7,17 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Archives - hodeng</title>
+<title>js.DOM - hodeng</title>
 
 
-    <meta name="description" content="헤헤">
-<meta property="og:type" content="website">
-<meta property="og:title" content="hodeng">
-<meta property="og:url" content="http://hodeng28.github.io/archives/page/2/index.html">
+    <meta name="description" content="Id로 요소 노드 취득 Document.prototype.getElementById 메소드는 인수로 전달한 id어트리뷰트 값을 갖는 하나의 요소 노드를 탐색하여 반환한다. getElementByid 메소드는 Document.prototype의 프로퍼티이다. 반드시 문서 노드 document를 통해 호출해야 한다. 문서 내에 중복된 id 값이 있을 경우, 첫">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js.DOM">
+<meta property="og:url" content="http://hodeng28.github.io/2020/03/js.DOM/index.html">
 <meta property="og:site_name" content="hodeng">
-<meta property="og:description" content="헤헤">
+<meta property="og:description" content="Id로 요소 노드 취득 Document.prototype.getElementById 메소드는 인수로 전달한 id어트리뷰트 값을 갖는 하나의 요소 노드를 탐색하여 반환한다. getElementByid 메소드는 Document.prototype의 프로퍼티이다. 반드시 문서 노드 document를 통해 호출해야 한다. 문서 내에 중복된 id 값이 있을 경우, 첫">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hodeng28.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-03-29T13:23:09.857Z">
+<meta property="article:modified_time" content="2020-03-29T14:55:19.845Z">
 <meta property="article:author" content="hodeng28">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content=" js">
@@ -84,7 +86,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="hodeng" height="28">
+                <img src="/images/logo.svg" alt="js.DOM" height="28">
             
             </a>
         </div>
@@ -134,190 +136,129 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
         
-<div class="card widget">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-29T13:23:09.857Z">2020-03-29</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 minutes read (About 890 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                js.DOM
+            
+        </h1>
+        <div class="content">
+            <h2 id="Id로-요소-노드-취득"><a href="#Id로-요소-노드-취득" class="headerlink" title="Id로 요소 노드 취득"></a>Id로 요소 노드 취득</h2><ul>
+<li><strong>Document.prototype.getElementById</strong> 메소드는 인수로 전달한 id어트리뷰트 값을 갖는 하나의 요소 노드를 탐색하여 반환한다.</li>
+<li>getElementByid 메소드는 Document.prototype의 프로퍼티이다.</li>
+<li>반드시 문서 노드 document를 통해 호출해야 한다.</li>
+<li>문서 내에 중복된 id 값이 있을 경우, 첫번째 하나의 요소 노드만을 반환한다.</li>
+<li>인수로 전달된 id 값을 갖는 요소가 존재하지 않으면, null을 반환한다.</li>
+<li>id 값과 동일한 이름의 전역 변수가 선언되어 있으면 노드 객체가 재할당되지 않는다.</li>
+</ul>
+<h2 id="태그-이름으로-요소-노트-취득"><a href="#태그-이름으로-요소-노트-취득" class="headerlink" title="태그 이름으로 요소 노트 취득"></a>태그 이름으로 요소 노트 취득</h2><p><strong>Document.prototype/Element.prototype.getElementsByTagName</strong> 메소드는 인수로 전달한 태그 이름을 갖는 <strong>모든 요소 노드들을</strong> 탐색하여 반환한다.</p>
+<ul>
+<li>getElementsByTagName 메소드는 여러개의 요소 노드 객체를 갖는 DOM 컬렉션 객체인 HTMLCollection 객체를 반환한다.</li>
+<li>인수로 전달된 태그 이름을 갖는 요소가 존재하지 않는 경우, getElementsByTagName 메소드는 빈 HTMLCollection 객체를 반환한다.</li>
+</ul>
+<h2 id="class로-요소-노드-취득"><a href="#class로-요소-노드-취득" class="headerlink" title="class로 요소 노드 취득"></a>class로 요소 노드 취득</h2><ul>
+<li><strong>Document.prototype/Element.prototype.getElementsByClassName</strong> 메소드는 인수로 전달한 class 어트리뷰트 값을 갖는 <strong>모든 요소 노드들을</strong> 탐색하여 반환한다.</li>
+<li>인수로 전달할 class 값은 공백으로 구분하여 여러 개의 class를 지정할 수 있다.</li>
+<li>여러 개의 요소 노드 객체를 갖는 DOM 컬렉션 객체인 HTMLCollection 객체를 반환한다.</li>
+<li>인수로 전달된 태그 이름을 갖는 요소가 존재하지 않는 경우, getElementsByClassName 메소드는 빈 HTMLCollection 객체를 반환한다.</li>
+</ul>
+<h2 id="CSS-선택자로-요소-노드-취득"><a href="#CSS-선택자로-요소-노드-취득" class="headerlink" title="CSS 선택자로 요소 노드 취득"></a>CSS 선택자로 요소 노드 취득</h2><p>스타일을 적용하고자 하는 HTML 요소를 특정할 때 사용하는 문법이다.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">* &#123; ... &#125;                   /* 전체 선택자: 모든 요소를 선택 */</span><br><span class="line">p &#123; ... &#125;                   /* 태그 선택자: 모든 p 태그 요소를 모두 선택 */</span><br><span class="line">#foo &#123; ... &#125;                /* id 선택자: id 값이 foo인 요소 모두*/    </span><br><span class="line">.foo &#123; ... &#125;                /* class선택자: class값이 foo인 요소 모두*/</span><br><span class="line"></span><br><span class="line">input[type=text] &#123; ... &#125;    </span><br><span class="line"><span class="comment">/* 어트리뷰트 선택자: input 요소중에 type 어트리뷰트 값이 text 요소 모두 */</span></span><br><span class="line">div p &#123; ... &#125;</span><br><span class="line"><span class="comment">/* 후손 선택자: div 요소의 후손 요소 중 p 요소 모두*/</span></span><br><span class="line">div &gt; p &#123; ... &#125;</span><br><span class="line"><span class="comment">/* 자식 선택자: div 요소의 자식 요소 중 p 요소 모두*/</span></span><br><span class="line">p + ul &#123; ... &#125;</span><br><span class="line"><span class="comment">/* 인접 형제 선택자: p 요소의 형제 요소중에 p 요소 바로 뒤에 위치하는 ul 요소*/</span></span><br><span class="line">p ~ ul &#123; ... &#125;</span><br><span class="line"><span class="comment">/* 일반 형제 선택자: p 요소의 형제 요소중에 p 요소 뒤에 위치하는 ul 요소 모두*/</span></span><br><span class="line">a: hover &#123; ... &#125;</span><br><span class="line"><span class="comment">/* 가상 클래스 선택자: hover 상태인 a 요소 모두*/</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><strong>Document.prototype/Element.prototype.querySelector</strong> 메소드는 인수로 전달한 CSS 선택자를 만족시키는 하나의 요소 노드를 탐색하여 반환한다.</p>
+</li>
+<li><p>인수로 전달한 CSS선택자를 만족시키는 요소 노드가 여러개인 경우, 첫번째 요소 노드만 반환</p>
+</li>
+<li><p>존재하지 않으면  null 반환</p>
+</li>
+<li><p><strong>Document.prototype/Element.prototype.querySelectorAll</strong> 메소드는 인수로 전달한 CSS 선택자를 만족시키는 모든 요소 노드를 탐색하여 반환한다.</p>
+</li>
+<li><p>querySelectorAll 메소드는 여러 개의 요소 노드 객체를 갖는 DOM컬렉션 객체인 NodeList 객체를 반환한다.</p>
+</li>
+<li><p>요소가 존재하지 않는 경우, 빈 NodeList 객체를 반환한다.</p>
+</li>
+<li><p>CSS 선택자가 문법에 맞지 않은 경우, DOMException 에러가 발생한다.</p>
+</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2020
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-14T13:07:44.357Z">2020-03-14</time>
-                        <a href="/2020/03/js.built-in%20object/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.built-in object</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-14T12:37:27.575Z">2020-03-14</time>
-                        <a href="/2020/03/js.strictMode/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.strictMode</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-12T11:13:20.385Z">2020-03-12</time>
-                        <a href="/2020/03/js.ProtoType2/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.ProtoType2</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-04T13:55:18.321Z">2020-03-04</time>
-                        <a href="/2020/03/js.ProtoType1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.ProtoType1</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-03T09:36:38.155Z">2020-03-03</time>
-                        <a href="/2020/03/js.firstClassObject/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.firstClassObject</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-03T08:31:22.845Z">2020-03-03</time>
-                        <a href="/2020/03/js.constructor/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.constructor</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-02-29T09:57:36.551Z">2020-02-29</time>
-                        <a href="/2020/02/js.property/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.property</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-02-28T14:50:06.292Z">2020-02-28</time>
-                        <a href="/2020/02/js.let%20const%20and%20var/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.let const and var</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-02-27T12:03:33.707Z">2020-02-27</time>
-                        <a href="/2020/02/js.global%20variable/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.global variable</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-02-26T15:07:49.686Z">2020-02-27</time>
-                        <a href="/2020/02/js.function/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.function</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
-    
 
-    
+
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/">Previous</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/js.Destructuring/">
+                <span class="level-item">js.Destructuring</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/archives/page/3/">Next</a>
-        </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/">1</a></li>
-            
-            <li><a class="pagination-link is-current" href="/archives/page/2/">2</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/archives/page/3/">3</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
@@ -827,7 +768,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="hodeng" height="28">
+                    <img src="/images/logo.svg" alt="js.DOM" height="28">
                 
                 </a>
                 <p class="is-size-7">

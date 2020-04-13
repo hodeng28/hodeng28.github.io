@@ -141,6 +141,79 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-04-13T01:08:10.080Z">2020-04-13</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 minutes read (About 846 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/04/REST%20API/">REST API</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="REST-API"><a href="#REST-API" class="headerlink" title="REST API"></a>REST API</h1><h2 id="1-REST-API의-구성"><a href="#1-REST-API의-구성" class="headerlink" title="1. REST API의 구성"></a>1. REST API의 구성</h2><table>
+<thead>
+<tr>
+<th>구성 요소</th>
+<th align="center">내용</th>
+<th align="right">표현 방법</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>자원(Resource)</td>
+<td align="center">자원</td>
+<td align="right">HTTP URI</td>
+</tr>
+<tr>
+<td>행위(Verb)</td>
+<td align="center">자원에 대한 행위</td>
+<td align="right">HTTP 요청 메소드</td>
+</tr>
+<tr>
+<td>표현(Representations)</td>
+<td align="center">자원에 대한 행위의 구체적 내용</td>
+<td align="right">HTTP 페이로드</td>
+</tr>
+</tbody></table>
+<h2 id="GET-요청"><a href="#GET-요청" class="headerlink" title="GET 요청"></a>GET 요청</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"ko"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">pre</span>&gt;</span><span class="tag">&lt;/<span class="name">pre</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// XMLHttpRequest 객체 생성</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">const</span> xhr = <span class="keyword">new</span> XMLHttpRequest();</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// HTTP 요청 초기화</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// todos 리소스에서 모든 todo를 취득 (index)</span></span></span><br><span class="line"><span class="actionscript">    xhr.open(<span class="string">'GET'</span>, <span class="string">'/todos'</span>);</span></span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    <span class="comment">// HTTP 요청 전송</span></span></span><br><span class="line">    xhr.send();</span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// load 이벤트는 요청이 성공적으로 완료된 경우 발생한다.</span></span></span><br><span class="line"><span class="javascript">    xhr.onload = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="comment">// status는 response 상태 코드를 반환 : 200 =&gt; 정상응답 </span></span></span><br><span class="line">      if (xhr.status === 200) &#123;</span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.querySelector(<span class="string">'pre'</span>).textContent = xhr.response;</span></span><br><span class="line"><span class="actionscript">      &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.error(<span class="string">'Error'</span>, xhr.status, xhr.statusText);</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/04/REST%20API/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-04-08T09:53:52.083Z">2020-04-08</time>
                 
                 
@@ -775,74 +848,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-17T14:43:22.809Z">2020-03-17</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    21 minutes read (About 3086 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/03/js.class/">js.class</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="클래스"><a href="#클래스" class="headerlink" title="클래스"></a>클래스</h1><p>클래스는 class 키워드를 사용하여 정의한다.<br>클래스 이름은 생성자 함수와 마찬가지로 파스칼 케이스를 사용하는 것이 일반적이다.<br>파스칼 케이스를 사용하지 않아도 에러가 발생하지 않는다.</p>
-<p><strong>클래스 vs 생성자 함수</strong>   (생성자함수의 경우)</p>
-<ul>
-<li>클래스는 new 연산자를 사용하지 않고 호출하면 에러가 발생한다.  (일반함수로서 호출)</li>
-<li>상속을 지원하는 extends, super 키워드를 제공한다 </li>
-<li>호이스팅이 발생하지 않는 것처럼 동작한다. (함수 선언문으로 정의되면 함수 호이스팅 발생)</li>
-<li>모든 코드는 암묵적으로 strict 모드가 지정, 해지 불가   (strict모드 지정안됌)</li>
-<li>클래스의 constructor, 프로토타입 메소드, 정적 메소드는 모두  프로퍼티 어트리뷰트 [[Enumerable]]의 값이 false이다.  열거되지 않는다.</li>
-</ul>
-<h2 id="1-클래스의-정의"><a href="#1-클래스의-정의" class="headerlink" title="1. 클래스의 정의"></a>1. 클래스의 정의</h2><ul>
-<li><p>class 키워드를 사용하여 정의한다.</p>
-</li>
-<li><p>클래스 이름은 파스칼 케이스로, 물론 사용하지 않아도 에러 발생 없음</p>
-</li>
-<li><p>일반적이지는 않지만, 표현식으로 클래스를 정의할 수도 있다. (익명, 기명)</p>
-</li>
-<li><p>클래스는 일급 객체이다  (클래스 = 함수 = 객체)</p>
-</li>
-<li><p>클래스 몸체에는 0개 이상의 메소드만을 선언할 수 있다. constructor, 프로토타입 메소드, 정적 메소드 3가지</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;           <span class="comment">//클래스 선언문</span></span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;    <span class="comment">// 생성자 constructor</span></span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  sayHi() &#123;               <span class="comment">//프로토타입 메소드</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Hi! <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> sayHello() &#123;       <span class="comment">//정적 메소드</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'hello'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">  <span class="keyword">const</span> me = <span class="keyword">new</span> Person(<span class="string">'jung'</span>);      <span class="comment">//인스턴스 생성</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">console</span>.log(me.name);  <span class="comment">// jung</span></span><br><span class="line">  me.sayHi();  <span class="comment">// Hi! jung</span></span><br><span class="line">  Person.sayHello(); <span class="comment">//hello</span></span><br></pre></td></tr></table></figure>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/03/js.class/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -860,6 +865,8 @@
             <li><a class="pagination-link has-text-black-ter" href="/page/2/">2</a></li>
             
             <li><a class="pagination-link has-text-black-ter" href="/page/3/">3</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/page/4/">4</a></li>
             
         </ul>
     </nav>
@@ -909,7 +916,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            30
+                            31
                         </p>
                     </a>
                 </div>
@@ -1054,6 +1061,25 @@
         
         <article class="media">
             
+            <a href="/2020/04/REST%20API/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="REST API">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T01:08:10.080Z">2020-04-13</time></div>
+                    <a href="/2020/04/REST%20API/" class="title has-link-black-ter is-size-6 has-text-weight-normal">REST API</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/js.promise/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.promise">
@@ -1128,25 +1154,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.Destructuring/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Destructuring">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-24T01:23:16.930Z">2020-03-24</time></div>
-                    <a href="/2020/03/js.Destructuring/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Destructuring</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1164,7 +1171,7 @@
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -1228,6 +1235,25 @@
         
         <article class="media">
             
+            <a href="/2020/04/REST%20API/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="REST API">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T01:08:10.080Z">2020-04-13</time></div>
+                    <a href="/2020/04/REST%20API/" class="title has-link-black-ter is-size-6 has-text-weight-normal">REST API</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/js.promise/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.promise">
@@ -1302,25 +1328,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.Destructuring/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Destructuring">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-24T01:23:16.930Z">2020-03-24</time></div>
-                    <a href="/2020/03/js.Destructuring/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Destructuring</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1338,7 +1345,7 @@
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>

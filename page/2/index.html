@@ -141,6 +141,73 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-19T08:06:41.464Z">2020-03-19</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    19 minutes read (About 2894 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/js.functionInES6/">js.functionInES6</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="ES6-함수의-추가-기능"><a href="#ES6-함수의-추가-기능" class="headerlink" title="ES6 함수의 추가 기능"></a>ES6 함수의 추가 기능</h1><ol>
+<li>함수의 구분</li>
+</ol>
+<ul>
+<li><p>ES6 이전의 함수는 동일한 함수라도 다양한 형태로 호출할 수 있다.</p>
+</li>
+<li><p>ES6 이전의 함수는 callable이며 constructor 이다.</p>
+<ul>
+<li>callable - 호출할 수 있는 함수 객체</li>
+<li>constructor - 인스턴스를 생성할 수 있는 함수 객체</li>
+<li>non-constructor - 인스턴스를 생성할 수 없는 함수 객체<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 일반적인 함수로서 호출</span></span><br><span class="line">foo ();  <span class="comment">//  1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 생성자 함수로서 호출</span></span><br><span class="line"><span class="keyword">new</span> foo ();  <span class="comment">// foo &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 메소드로서 호출</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: foo &#125;;</span><br><span class="line">obj.a();   <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>일반적으로 메소드라고 부르는 객체에 바인딩된 함수도 callable이며 constructor이다.</p>
+</li>
+<li><p>객체에 바인딩된 함수도 일반 함수, 생성자 함수로서 호출할 수도 있다.</p>
+</li>
+<li><p>바인딩된 함수가 constructor면 prototype 프로퍼티에 바인딩된 프로토타입 객체를 생성한다는 것을 의미</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  x: <span class="number">10</span>;</span><br><span class="line">  f: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//프로퍼티 f에 할당된 함수를 메소드로서 호출</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.f());  <span class="comment">// 10</span></span><br><span class="line"><span class="comment">//프로퍼티 f에 할당된 함수를 일반 함수로서 호출</span></span><br><span class="line"><span class="keyword">var</span> bar = obj.f;</span><br><span class="line"><span class="built_in">console</span>.log(bar());  <span class="comment">// undifined</span></span><br><span class="line"><span class="comment">//프로퍼티 f에 할당된 함수를 생성자 함수로서 호출</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> obj.f()); <span class="comment">// f &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/03/js.functionInES6/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-03-17T14:43:22.809Z">2020-03-17</time>
                 
                 
@@ -729,68 +796,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-03T08:31:22.845Z">2020-03-03</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    11 minutes read (About 1657 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/03/js.constructor/">js.constructor</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="생성자-함수에-의한-객체-생성"><a href="#생성자-함수에-의한-객체-생성" class="headerlink" title="생성자 함수에 의한 객체 생성"></a>생성자 함수에 의한 객체 생성</h1><h2 id="1-Object-생성자-함수"><a href="#1-Object-생성자-함수" class="headerlink" title="1. Object 생성자 함수"></a>1. Object 생성자 함수</h2><ul>
-<li>new 연산자와 함께 Object 생성자 함수를 호출하면 빈 객체를 생성하여 반환한다.</li>
-<li>생성자(constructor) 함수란 new 연산자와 함께 호출하여 객체(인스턴스)를 생성하는 함수를 말한다. 생성자 함수에 의해 생성된 객체를 인스턴스(instance)라 한다.</li>
-<li>new 연산자와 함께 생성자 함수를 호출하지 않으면, 일반 함수로 동작한다.</li>
-</ul>
-<h2 id="2-생성자-함수"><a href="#2-생성자-함수" class="headerlink" title="2. 생성자 함수"></a>2. 생성자 함수</h2><h3 id="2-1-객체-리터럴에-의한-객체-생성-방식의-문제점"><a href="#2-1-객체-리터럴에-의한-객체-생성-방식의-문제점" class="headerlink" title="2.1 객체 리터럴에 의한 객체 생성 방식의 문제점"></a>2.1 객체 리터럴에 의한 객체 생성 방식의 문제점</h3><ul>
-<li>객체 리터럴에 의한 객체 생성 방식은 단 하나의 객체만을 생성한다.</li>
-<li>동일한 프로퍼티를 갖는 객체를 여러개 생성해야 하는 경우 비효율적이다.</li>
-<li>객체는 프로퍼티를 통해 객체의 고유상태를 표현,<br>메소드를 통해 상태 데이터인 프로퍼티를 참조하고 조작하는 동작을 표현한다.</li>
-</ul>
-<h3 id="2-2-생성자-함수에-의한-객체-생성-방식의-장점"><a href="#2-2-생성자-함수에-의한-객체-생성-방식의-장점" class="headerlink" title="2.2 생성자 함수에 의한 객체 생성 방식의 장점"></a>2.2 생성자 함수에 의한 객체 생성 방식의 장점</h3><ul>
-<li>프로퍼티 구조가 동일한 객체 여러 개를 간편하게 생성한다.</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 생성자 함수</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Circle</span>(<span class="params">radius</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.radius = radius;</span><br><span class="line">  <span class="keyword">this</span>.getDiameter = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * <span class="keyword">this</span>.radius;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 인스턴스의 생성</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> circle1 = <span class="keyword">new</span> Circle(<span class="number">5</span>);  <span class="comment">//반지름이 5인 Circle 객체 생성</span></span><br><span class="line"><span class="keyword">const</span> circle2 = <span class="keyword">new</span> Circle(<span class="number">10</span>);  <span class="comment">//반지름이 10인 Circle 객체 생성  </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(circle1.getDiameter());  <span class="comment">// 10</span></span><br><span class="line"><span class="built_in">console</span>.log(circle2.getDiameter());  <span class="comment">// 20</span></span><br></pre></td></tr></table></figure>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/03/js.constructor/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -859,7 +864,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            31
+                            32
                         </p>
                     </a>
                 </div>
@@ -1004,16 +1009,35 @@
         
         <article class="media">
             
-            <a href="/2020/04/REST%20API/" class="media-left">
+            <a href="/2020/04/js.Module/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="REST API">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Module">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T04:53:16.751Z">2020-04-14</time></div>
+                    <a href="/2020/04/js.Module/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Module</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/js.REST%20API/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.REST API">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T01:08:10.080Z">2020-04-13</time></div>
-                    <a href="/2020/04/REST%20API/" class="title has-link-black-ter is-size-6 has-text-weight-normal">REST API</a>
+                    <a href="/2020/04/js.REST%20API/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.REST API</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -1078,25 +1102,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.DOM/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.DOM">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-29T13:23:09.857Z">2020-03-29</time></div>
-                    <a href="/2020/03/js.DOM/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.DOM</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1114,7 +1119,7 @@
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -1178,16 +1183,35 @@
         
         <article class="media">
             
-            <a href="/2020/04/REST%20API/" class="media-left">
+            <a href="/2020/04/js.Module/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="REST API">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Module">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T04:53:16.751Z">2020-04-14</time></div>
+                    <a href="/2020/04/js.Module/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Module</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/js.REST%20API/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.REST API">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T01:08:10.080Z">2020-04-13</time></div>
-                    <a href="/2020/04/REST%20API/" class="title has-link-black-ter is-size-6 has-text-weight-normal">REST API</a>
+                    <a href="/2020/04/js.REST%20API/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.REST API</a>
                     <p class="is-size-7 is-uppercase">
                         
                     </p>
@@ -1252,25 +1276,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/03/js.DOM/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.DOM">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-29T13:23:09.857Z">2020-03-29</time></div>
-                    <a href="/2020/03/js.DOM/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.DOM</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1288,7 +1293,7 @@
                     <span class="level-item">April 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>

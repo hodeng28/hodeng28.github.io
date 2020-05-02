@@ -19,7 +19,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://hodeng28.github.io/images/og_image.png">
 <meta property="article:published_time" content="2020-04-14T04:53:16.751Z">
-<meta property="article:modified_time" content="2020-04-14T14:58:07.076Z">
+<meta property="article:modified_time" content="2020-04-14T15:28:06.519Z">
 <meta property="article:author" content="hodeng28">
 <meta property="article:tag" content="javaScript">
 <meta property="article:tag" content=" js">
@@ -148,7 +148,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 740 words)
+                    7 minutes read (About 988 words)
                 </span>
                 
                 
@@ -202,7 +202,17 @@
 <li>선언된 변수, 함수, 클래스 모두 export 가능하다.</li>
 <li>선언문 앞에 export 키워드를 사용한다. export는 이름으로 구별할 수 있다.</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 변수 공개</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> pi = <span class="built_in">Math</span>.PI;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 공개</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 클래스 공개</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// export 대상을 모아 하나의 객체로 구성하여 export 할 수 있다.</span></span><br><span class="line"><span class="comment">// 위에 export 키워드가 없을 시</span></span><br><span class="line"><span class="keyword">export</span> &#123; Pi, add, Person &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib.mjs</span></span><br><span class="line"><span class="comment">// 변수 공개</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> pi = <span class="built_in">Math</span>.PI;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수 공개</span></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 클래스 공개</span></span><br><span class="line"><span class="keyword">export</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(name) &#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// export 대상을 모아 하나의 객체로 구성하여 export 할 수 있다.</span></span><br><span class="line"><span class="comment">// 위에 export 키워드가 없을 시</span></span><br><span class="line"><span class="keyword">export</span> &#123; Pi, add, Person &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-import-키워드"><a href="#3-import-키워드" class="headerlink" title="3. import 키워드"></a>3. import 키워드</h2><p>모듈에서 공개(export)한 대상을 로드하려면 import 키워드를 사용한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// app.mjs</span></span><br><span class="line"><span class="comment">// 같은 폴더 내의 lib.mjs (위 code) 모듈로드</span></span><br><span class="line"><span class="comment">// lib.mjs 모듈이 export한 식별자로 import</span></span><br><span class="line"><span class="comment">// ES6 모듈의 파일 확장자를 생략할 수 없다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; Pi, add, Person&#125; <span class="keyword">from</span> <span class="string">'./libmjs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(lib.pi);</span><br><span class="line"><span class="built_in">console</span>.log(lib.add(<span class="number">1</span>, <span class="number">2</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> lib.Person(<span class="string">'jung'</span>));  </span><br><span class="line"></span><br><span class="line"><span class="comment">// 이름을 변경하여 import</span></span><br><span class="line"><span class="keyword">import</span> &#123; pi <span class="keyword">as</span> A, add <span class="keyword">as</span> Plus, Person <span class="keyword">as</span> name &#125; <span class="keyword">from</span> <span class="string">'./lib.mjs'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(A);</span><br><span class="line"><span class="built_in">console</span>.log(Plus(<span class="number">1</span>, <span class="number">2</span>));</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> name(<span class="string">'jung'</span>));</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>모듈에서 하나만을 export할 때는 default 키워드를 사용할 수 있다.</li>
+<li>default 사용하는 경우, var, let, const 사용불가</li>
+<li>default 키워드와 함께 export한 모듈은 {} 없이 임의의 이름으로 import한다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 모듈에서 하나만 export 할 때는 default 키워드를 사용할 수 있다.</span></span><br><span class="line"><span class="comment">// default를 사용하는 경우  var, let, const는 사용할 수 없다.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> dafalut <span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> () =&gt; &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">const</span> foo = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;;    <span class="comment">// SyntaxError : Unexpected token 'const'</span></span><br></pre></td></tr></table></figure></li>
+</ul>
 
         </div>
         
@@ -251,6 +261,13 @@
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/05/js.mouseEvent/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">js.mouseEvent</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -309,7 +326,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            32
+                            33
                         </p>
                     </a>
                 </div>
@@ -454,6 +471,25 @@
         
         <article class="media">
             
+            <a href="/2020/05/js.mouseEvent/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.mouseEvent">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-02T14:08:53.904Z">2020-05-02</time></div>
+                    <a href="/2020/05/js.mouseEvent/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.mouseEvent</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/js.Module/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Module">
@@ -528,25 +564,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/04/js.Timer/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Timer">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-06T14:03:23.349Z">2020-04-06</time></div>
-                    <a href="/2020/04/js.Timer/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Timer</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -557,6 +574,17 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/04/">
@@ -628,6 +656,25 @@
         
         <article class="media">
             
+            <a href="/2020/05/js.mouseEvent/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.mouseEvent">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-02T14:08:53.904Z">2020-05-02</time></div>
+                    <a href="/2020/05/js.mouseEvent/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.mouseEvent</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/js.Module/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Module">
@@ -702,25 +749,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/04/js.Timer/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Timer">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-06T14:03:23.349Z">2020-04-06</time></div>
-                    <a href="/2020/04/js.Timer/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Timer</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -731,6 +759,17 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/04/">

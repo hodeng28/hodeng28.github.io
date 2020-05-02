@@ -141,13 +141,61 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-05-02T14:08:53.904Z">2020-05-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a few seconds read (About 100 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/05/js.mouseEvent/">js.mouseEvent</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="mouseover-와-mouseenter-이벤트-차이"><a href="#mouseover-와-mouseenter-이벤트-차이" class="headerlink" title="mouseover 와 mouseenter 이벤트 차이"></a>mouseover 와 mouseenter 이벤트 차이</h2><p>버블링의 차이</p>
+<ol>
+<li><p>mouseover는 직접 이벤트를 걸지않은 자식요소에 마우스 포인터가 와도 발생<br>mouseout과 한 쌍을 이룬다.<br>( 버블링이 발생한다 )</p>
+</li>
+<li><p>mouseenter는 오로지 자신에게 마우스 포인터가 와야만 발생한다.<br>mouseleave와 한 쌍을 이룬다.<br>( 버블링이 발생하지 않는다 )</p>
+</li>
+</ol>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-04-14T04:53:16.751Z">2020-04-14</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    5 minutes read (About 740 words)
+                    7 minutes read (About 988 words)
                 </span>
                 
                 
@@ -744,110 +792,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-20T15:43:57.658Z">2020-03-21</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    25 minutes read (About 3714 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/03/js.array1/">js.array1</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="배열"><a href="#배열" class="headerlink" title="배열"></a>배열</h1><h2 id="1-배열이란"><a href="#1-배열이란" class="headerlink" title="1. 배열이란?"></a>1. 배열이란?</h2><ul>
-<li>배열은 여러 개의 값을 순차적으로 나열한 자료 구조이다.</li>
-<li>배열이 가지고 있는 값을 요소(element)라 한다.</li>
-<li>자바스크립트에서 값으로 인정하는 모든 것은 배열의 요소가 된다.</li>
-<li>배열의 요소는 배열에서 자신의 위치를 나타내는 0 이상의 정수인 index를 갖는다. 이를 통해 요소에 접근할 수 있다.</li>
-<li>배열은 요소의 개수, 즉 배열의 길이를 나타내는 length 프로퍼티를 갖는다.</li>
-<li>배열 리터럴 또는 Array 생성자 함수로 생성할 수 있다.<br>배열의 생성자 함수는 Array이며 배열의 프로토타입 객체는 <strong>Array.prototype.</strong> -&gt; 배열을 위한 빌트인 메소드 들을 제공한다.</li>
-<li>배열은 객체이다. 일반 객체와는 다른 특징</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>구분</th>
-<th align="center">객체</th>
-<th align="right">배열</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>구조</td>
-<td align="center">프로퍼티 키와 프로퍼티 값</td>
-<td align="right">인덱스와 요소</td>
-</tr>
-<tr>
-<td>값의 참조</td>
-<td align="center">프로퍼티 키</td>
-<td align="right">인덱스</td>
-</tr>
-<tr>
-<td>값의 순서</td>
-<td align="center">X</td>
-<td align="right">O</td>
-</tr>
-<tr>
-<td>length프로퍼티</td>
-<td align="center">X</td>
-<td align="right">O</td>
-</tr>
-</tbody></table>
-<h2 id="2-자바스크립트의-배열"><a href="#2-자바스크립트의-배열" class="headerlink" title="2. 자바스크립트의 배열"></a>2. 자바스크립트의 배열</h2><p><strong>희소 배열(sparse array)</strong> (자바스크립트)<br>배열의 요소가 연속적으로 이어져 있지 않는 배열 </p>
-<p><strong>밀집 배열 (Dense array)</strong> </p>
-<ul>
-<li><p>일반적인 배열로 하나의 타입으로 통일되어 있으면서 서로 연속적으로 인접해 있다.</p>
-</li>
-<li><p>매우 효율적이며 고속으로 동작한다.</p>
-</li>
-<li><p>배열에 요소를 삽입하거나 삭제하는 경우, 배열 요소를 연속적으로 유지하기 위해 요소를 이동시켜야 하는 단점</p>
-</li>
-<li><p>자바스크립트는 일반적인 배열의 동작을 흉내낸 특수한 객체이다.</p>
-</li>
-<li><p>인덱스를 프로퍼티 키로 갖으며 length 프로퍼티를 갖는 특수한 객체이다.</p>
-</li>
-<li><p>어떤 타입의 값이라도 배열의 요소가 될 수 있다.</p>
-</li>
-<li><p>해시 테이블로 구현된 객체이므로 인덱스로 배열 요소에 접근하는 경우, 일반적인 배열보다 성능적인 면에서 느릴수 밖에 없는 구조적 단점</p>
-</li>
-<li><p>특정 요소를 탐색하거나 추가, 삭제하는 경우에는 일반적인 배열보다 빠른 성능</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/03/js.array1/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -916,7 +860,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            32
+                            33
                         </p>
                     </a>
                 </div>
@@ -1061,6 +1005,25 @@
         
         <article class="media">
             
+            <a href="/2020/05/js.mouseEvent/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.mouseEvent">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-02T14:08:53.904Z">2020-05-02</time></div>
+                    <a href="/2020/05/js.mouseEvent/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.mouseEvent</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/js.Module/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Module">
@@ -1135,25 +1098,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/04/js.Timer/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Timer">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-06T14:03:23.349Z">2020-04-06</time></div>
-                    <a href="/2020/04/js.Timer/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Timer</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1164,6 +1108,17 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/04/">
@@ -1235,6 +1190,25 @@
         
         <article class="media">
             
+            <a href="/2020/05/js.mouseEvent/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.mouseEvent">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-02T14:08:53.904Z">2020-05-02</time></div>
+                    <a href="/2020/05/js.mouseEvent/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.mouseEvent</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/04/js.Module/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Module">
@@ -1309,25 +1283,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/04/js.Timer/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="js.Timer">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-06T14:03:23.349Z">2020-04-06</time></div>
-                    <a href="/2020/04/js.Timer/" class="title has-link-black-ter is-size-6 has-text-weight-normal">js.Timer</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1338,6 +1293,17 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/04/">

@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.2.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>javaScript/js.functionInES6 - hodeng</title>
+
+
+    <meta name="description" content="ES6 함수의 추가 기능 함수의 구분   ES6 이전의 함수는 동일한 함수라도 다양한 형태로 호출할 수 있다.  ES6 이전의 함수는 callable이며 constructor 이다.  callable - 호출할 수 있는 함수 객체 constructor - 인스턴스를 생성할 수 있는 함수 객체 non-constructor - 인스턴스를 생성할 수 없는 함수">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaScript&#x2F;js.functionInES6">
+<meta property="og:url" content="http://hodeng28.github.io/2020/03/javaScript/js.functionInES6/index.html">
+<meta property="og:site_name" content="hodeng">
+<meta property="og:description" content="ES6 함수의 추가 기능 함수의 구분   ES6 이전의 함수는 동일한 함수라도 다양한 형태로 호출할 수 있다.  ES6 이전의 함수는 callable이며 constructor 이다.  callable - 호출할 수 있는 함수 객체 constructor - 인스턴스를 생성할 수 있는 함수 객체 non-constructor - 인스턴스를 생성할 수 없는 함수">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://hodeng28.github.io/images/og_image.png">
+<meta property="article:published_time" content="2020-03-19T08:06:41.464Z">
+<meta property="article:modified_time" content="2020-03-24T04:02:45.419Z">
+<meta property="article:author" content="hodeng28">
+<meta property="article:tag" content="javaScript">
+<meta property="article:tag" content=" js">
+<meta property="article:tag" content=" react">
+<meta property="article:tag" content=" angular">
+<meta property="article:tag" content=" HTML">
+<meta property="article:tag" content=" CSS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://hodeng28.github.io/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="javaScript/js.functionInES6" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-19T08:06:41.464Z">2020-03-19</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    19 minutes read (About 2894 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                javaScript/js.functionInES6
+            
+        </h1>
+        <div class="content">
+            <h1 id="ES6-함수의-추가-기능"><a href="#ES6-함수의-추가-기능" class="headerlink" title="ES6 함수의 추가 기능"></a>ES6 함수의 추가 기능</h1><ol>
+<li>함수의 구분</li>
+</ol>
+<ul>
+<li><p>ES6 이전의 함수는 동일한 함수라도 다양한 형태로 호출할 수 있다.</p>
+</li>
+<li><p>ES6 이전의 함수는 callable이며 constructor 이다.</p>
+<ul>
+<li>callable - 호출할 수 있는 함수 객체</li>
+<li>constructor - 인스턴스를 생성할 수 있는 함수 객체</li>
+<li>non-constructor - 인스턴스를 생성할 수 없는 함수 객체<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 일반적인 함수로서 호출</span></span><br><span class="line">foo ();  <span class="comment">//  1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 생성자 함수로서 호출</span></span><br><span class="line"><span class="keyword">new</span> foo ();  <span class="comment">// foo &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 메소드로서 호출</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: foo &#125;;</span><br><span class="line">obj.a();   <span class="comment">// 1</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>일반적으로 메소드라고 부르는 객체에 바인딩된 함수도 callable이며 constructor이다.</p>
+</li>
+<li><p>객체에 바인딩된 함수도 일반 함수, 생성자 함수로서 호출할 수도 있다.</p>
+</li>
+<li><p>바인딩된 함수가 constructor면 prototype 프로퍼티에 바인딩된 프로토타입 객체를 생성한다는 것을 의미</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  x: <span class="number">10</span>;</span><br><span class="line">  f: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//프로퍼티 f에 할당된 함수를 메소드로서 호출</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.f());  <span class="comment">// 10</span></span><br><span class="line"><span class="comment">//프로퍼티 f에 할당된 함수를 일반 함수로서 호출</span></span><br><span class="line"><span class="keyword">var</span> bar = obj.f;</span><br><span class="line"><span class="built_in">console</span>.log(bar());  <span class="comment">// undifined</span></span><br><span class="line"><span class="comment">//프로퍼티 f에 할당된 함수를 생성자 함수로서 호출</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> obj.f()); <span class="comment">// f &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a></li>
+<li><p>ES6 이전의 모든 함수는 사용 목적에 따라 명확한 구분이 없음</p>
+</li>
+<li><p>호출 방식에 특별한 제약 없음</p>
+</li>
+<li><p>생성자 함수로 호출되지 않아도 프로토타입 객체를 생성</p>
+</li>
+<li><p>ES6에서는 사용 목적에 따라 함수를 3가지 종류로 명확히 구분함</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>ES함수의 구분</th>
+<th align="center">cosntructor</th>
+<th align="right">prototype</th>
+<th align="right">super</th>
+<th align="right">arguments</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>일반 함수</td>
+<td align="center">O</td>
+<td align="right">O</td>
+<td align="right">x</td>
+<td align="right">O</td>
+</tr>
+<tr>
+<td>메소드</td>
+<td align="center">X</td>
+<td align="right">X</td>
+<td align="right">O</td>
+<td align="right">O</td>
+</tr>
+<tr>
+<td>화살표 함수</td>
+<td align="center">X</td>
+<td align="right">X</td>
+<td align="right">X</td>
+<td align="right">X</td>
+</tr>
+</tbody></table>
+<h2 id="2-메소드"><a href="#2-메소드" class="headerlink" title="2. 메소드"></a>2. 메소드</h2><ul>
+<li><p>ES6 사양에서 메소드는 <strong>메소드 축약 표현으로 정의된 함수 만을 의미한다.</strong></p>
+</li>
+<li><p>인스턴스를 생성할 수 없는 non-constructor, (생성자 함수로서 호출 불가)</p>
+</li>
+<li><p>prototype 프로퍼티가 없고 프로토타입도 생성하지 않는다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  x: <span class="number">1</span>, </span><br><span class="line">  foo () &#123;       <span class="comment">// 메소드</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.x;</span><br><span class="line">  &#125;,</span><br><span class="line">  bar: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.x      <span class="comment">// 일반함수 바인딩</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(obj());  <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(bar());  <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> obj.foo(); <span class="comment">// TypeError: obj.foo is not a constructor</span></span><br><span class="line"><span class="keyword">new</span> obj.bar(); <span class="comment">//   bar &#123;&#125;       일반함수여서 호출가능</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.prototype.hasOwnProperty.call(obj.foo, <span class="string">'prototype'</span>); <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>표준 빌트인 객체의 메소드는 모두 non-constructor </p>
+</li>
+<li><p>ES6 메소드는 메소드가 바인딩된 객체를 가리키는 내부 슬롯 [[HomeObject]]를 갖는다.<br>super 참조는 [[HomeObject]]를 사용하여 수퍼 클래스의 메소드를 참조하므로 내부슬롯을 갖는 ES6 메소드만이 super 키워드를 사용할 수 있다.</p>
+</li>
+<li><p>ES6 메소드가 아니면 super 키워드를 사용할 수 없다. (내부슬롯 안가지고있음)<br>일반 함수로 super 키워드를 사용했을 시 SytaxError</p>
+</li>
+<li><p>super 기능 추가, constructor 제거.  </p>
+</li>
+<li><p>메소드 정의할 때, 프로퍼티 값으로 익명 함수 표현식을 할당하는 ES6 이전 방식은 더이상 사용 하지 말아야 함.</p>
+</li>
+</ul>
+<h2 id="3-화살표-함수"><a href="#3-화살표-함수" class="headerlink" title="3. 화살표 함수"></a>3. 화살표 함수</h2><h2 id="3-1-화살표-함수-정의"><a href="#3-1-화살표-함수-정의" class="headerlink" title="3.1 화살표 함수 정의"></a>3.1 화살표 함수 정의</h2><h6 id="1-매개변수-선언"><a href="#1-매개변수-선언" class="headerlink" title="(1) 매개변수 선언"></a>(1) 매개변수 선언</h6><ul>
+<li>매개 변수가 여러 개인 경우, 소괄호 안에 매개 변수를 선언한다.</li>
+<li>매개 변수가 한 개인 경우, 소괄호 생략할 수 있다.</li>
+<li>매개 변수가 없는 경우, <strong>소괄호를 생략할 수 없다.</strong></li>
+</ul>
+<h6 id="2-함수-몸체-정의"><a href="#2-함수-몸체-정의" class="headerlink" title="(2) 함수 몸체 정의"></a>(2) 함수 몸체 정의</h6><ul>
+<li><p>함수 몸체가 한 줄의 문으로 구성된다면 함수 몸체를 감싸는 중괄호 생략 가능<br>이때 문은 암묵적으로 반환된다.</p>
+</li>
+<li><p>여러 줄의 문으로 구성된다면 중괄호 생략 불가능, 반환값이 있다면 명시적으로 반환해야한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">x =&gt; x * x;</span><br><span class="line">x =&gt; &#123; <span class="keyword">return</span> x + x; &#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 화살표 함수와 일반함수 비교</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> now = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Date</span>.now();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> now () &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Date</span>.now();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">const</span> x = <span class="function"><span class="params">value</span> =&gt;</span> value;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> x = <span class="function"><span class="keyword">function</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">const</span> sum = <span class="function">(<span class="params">a, b</span>) =&gt;</span> a + b;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sum = <span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>객체 리터럴을 반환하는 경우, 객체 리터럴을 소괄호()로 감싸 주어야 한다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">() =&gt; &#123; <span class="keyword">return</span> &#123; <span class="attr">a</span>: <span class="number">1</span> &#125;; &#125;</span><br><span class="line">() =&gt; (&#123; <span class="attr">a</span>: <span class="number">1</span>&#125;)    <span class="comment">//같은 표현</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> create = <span class="function">(<span class="params">id, content</span>) =&gt;</span> (&#123; id, content &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> create = <span class="function"><span class="keyword">function</span> (<span class="params">id, content</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123; id, content &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
+<li><p>화살표 함수도 즉시 실행 함수(IIFE)로 사용 가능</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = (<span class="function"><span class="params">name</span> =&gt;</span> (&#123;</span><br><span class="line">  sayHi() &#123; <span class="keyword">return</span> <span class="string">`My name is <span class="subst">$&#123;name&#125;</span>`</span>;&#125;</span><br><span class="line">&#125;))(<span class="string">'jung'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.sayHi());</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>화살표 함수도 일급 객체.. 따라서 고차함수(HOF)에 인수로 전달할 수 있다.<br> (Array.prototype.map/filter/reduce)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ES6 </span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map( <span class="function"><span class="params">v</span> =&gt;</span> v * <span class="number">2</span>);  <span class="comment">// [2, 4, 6]</span></span><br><span class="line"><span class="comment">// ES5</span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].map(<span class="function"><span class="keyword">function</span> (<span class="params">v</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> v * <span class="number">2</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="3-2-화살표-함수와-일반-함수의-차이"><a href="#3-2-화살표-함수와-일반-함수의-차이" class="headerlink" title="3.2 화살표 함수와 일반 함수의 차이"></a>3.2 화살표 함수와 일반 함수의 차이</h3><h6 id="1-화살표-함수는-non-constructor-인스턴스-생성X"><a href="#1-화살표-함수는-non-constructor-인스턴스-생성X" class="headerlink" title="(1) 화살표 함수는 non-constructor (인스턴스 생성X)"></a>(1) 화살표 함수는 non-constructor (인스턴스 생성X)</h6><ul>
+<li>생성자 함수로 호출할 수 없다. (TypeError)</li>
+<li>prototype 프로퍼티가 없고 프로토타입도 생성하지 않는다.</li>
+</ul>
+<h6 id="2-중복된-매개-변수-이름을-선언할-수-없다"><a href="#2-중복된-매개-변수-이름을-선언할-수-없다" class="headerlink" title="(2) 중복된 매개 변수 이름을 선언할 수 없다."></a>(2) 중복된 매개 변수 이름을 선언할 수 없다.</h6><ul>
+<li>일반 함수는 중복된 매개 변수를 선언해도 에러가 발생하지 않는다.(SytaxError)</li>
+</ul>
+<h6 id="3-화살표-함수는-함수-자체의-this-arguments-super-new-target-바인딩을-갖지-않는다"><a href="#3-화살표-함수는-함수-자체의-this-arguments-super-new-target-바인딩을-갖지-않는다" class="headerlink" title="(3) 화살표 함수는 함수 자체의 this, arguments, super, new.target 바인딩을 갖지 않는다."></a>(3) 화살표 함수는 함수 자체의 this, arguments, super, new.target 바인딩을 갖지 않는다.</h6><ul>
+<li>화살표 함수 내에서 참조하면 스코프 체인을 통해 상위 컨텍스트의 것을 참조한다.</li>
+</ul>
+<h3 id="3-3-this"><a href="#3-3-this" class="headerlink" title="3.3 this"></a>3.3 this</h3><ul>
+<li>중첩 함수 내부의 this가 외부 함수의 this와 다르기 때문에 발생하는 문제를 해결하기 위해.</li>
+<li>화살표 함수는 함수 자체의 this 바인딩이 없다. <strong>화살표 함수 내부에서 this를 참조하면 상위 컨텍스트의 this를 그대로 참조한다.</strong> 이를 <strong>Lexical this</strong>라 한다.</li>
+</ul>
+<p><strong>화살표 함수의 this가 함수가 정의된 위치에 의해 결정된다는 것을의미..</strong></p>
+<ul>
+<li><p>화살표 함수가 화살표 함수의 중첩 함수인 경우, 부모 화살표 함수가 참조하는 상위 컨텍스트의 this를 참조한다. 화살표 함수가 전역 함수라면 this는 전역 객체를 가리킴</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">foo();  <span class="comment">//window</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">  foo();</span><br><span class="line">&#125;).call(&#123; <span class="attr">a</span>: <span class="number">1</span>&#125;);   <span class="comment">// &#123; a: 1&#125;</span></span><br><span class="line"><span class="comment">//foo의 상위 컨텍스트는 즉시 실행함수. this는 즉시 실행함수를 가리킴</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> counter = &#123;</span><br><span class="line">  num: <span class="number">1</span>;</span><br><span class="line">  increase: <span class="function"><span class="params">()</span> =&gt;</span> ++<span class="keyword">this</span>.num</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(counter.increase());   <span class="comment">//NaN</span></span><br><span class="line"><span class="comment">// 상위 컨텍스트는 전역이므로 this는 전역 객체를 가리킴</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>화살표 함수 내부의 this는 Function.prototype.call/apply/bind 메소드를     사용하여 변경할 수 없다. 화살표 함수의 this는 일단 결정된 이후 변경할 수 없고 언제나 유지된다.</p>
+</li>
+<li><p><strong>메소드를 화살표 함수로 정의하는 것은 자제해야 한다.</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'jung'</span></span><br><span class="line">  sayHi: <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`hi <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>)</span><br><span class="line">&#125;;</span><br><span class="line">person.sayHi();  <span class="comment">// hi</span></span><br><span class="line"><span class="comment">//전역 객체 window에 빌트인 프로퍼티 name이 존재</span></span><br><span class="line"><span class="comment">//함수 내부의 this는 전역 객체를 가리키므로 브라우저에서 실행하면 빈문자열을 갖는</span></span><br><span class="line"><span class="comment">// window.name이 출력된다.</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// ES6 메소드 정의를 사용하기</span></span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name: <span class="string">'jung'</span>,</span><br><span class="line">  sayHi() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`hi <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">person.sayHi()  <span class="comment">//hi jung</span></span><br></pre></td></tr></table></figure></li>
+<li><p><strong>프로토타입 객체에 화살표 함수를 할당하는 경우도 동일한 문제가 발생한다.(위 예제와)</strong></p>
+</li>
+<li><p>프로토타입 객체에는 ES6 메소드 정의를 사용할 수 없으므로 일반 함수를 할당한다.</p>
+</li>
+<li><p><strong>클래스 필드 정의 제안을 사용하여 클래스 필드에 화살표 함수를 할당할 수도있다.</strong></p>
+</li>
+<li><p>클래스 필드에 할당한 화살표 함수는 프로토타입 메소드가 아니라 인스턴스의 메소드가 된다.<br>ES6 메소드 정의를 사용하는 것이 좋다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  name = <span class="string">'jung'</span>;</span><br><span class="line"></span><br><span class="line">  sayHi() &#123; <span class="built_in">console</span>.log(<span class="string">`hi <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>`</span>); &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> person = <span class="keyword">new</span> Person();</span><br><span class="line">person.sayHi(); <span class="comment">//hi jung</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-4-super"><a href="#3-4-super" class="headerlink" title="3.4 super"></a>3.4 super</h3></li>
+<li><p>화살표 함수는 함수 자체에 super 바인딩이 없다. </p>
+</li>
+<li><p>화살표 함수 내부에서 super를 참조하면 상위 컨텍스트의 super를 참조한다.</p>
+</li>
+<li><p>super 내부슬롯 [[HomeObject]]를 갖는 ES6 메소드만이 사용할 수 있는 키워드</p>
+</li>
+</ul>
+<h3 id="3-5-arguments"><a href="#3-5-arguments" class="headerlink" title="3.5  arguments"></a>3.5  arguments</h3><ul>
+<li>화살표 함수는 함수 자체의 arguments 바인딩이 없다. </li>
+<li>함수 내부에서 arguments를 참조하면 상위 컨텍스트의 argumnets를 참조한다.</li>
+<li>상위 컨텍스트의 arguments 객체를 참조할 수는 있지만 화살표 함수 자신에게 전달된 인수 목록을 확인할 수 없으므로 도움이 되지 않음<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="built_in">arguments</span>); <span class="comment">//[Arguments] &#123; '0': 1, '1' : 2&#125;</span></span><br><span class="line">  foo(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line">&#125;(<span class="number">1</span> ,<span class="number">2</span>));</span><br><span class="line"><span class="comment">// 화살표 함수 foo의 arguments는 즉시 실행 함수의 arguments를 가리킨다. </span></span><br><span class="line"><span class="comment">// 중첩 함수 foo의 상위 컨텍스트가 즉시 실행함수..</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">const</span> bar = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">bar(<span class="number">1</span> ,<span class="number">2</span>);    <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="comment">// 전역 함수 bar의 상위 컨텍스트는 전역, 전역에는 arguments 객체가 없다. </span></span><br><span class="line"><span class="comment">//(함수 내에서만 유효)</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="4-Rest-파라미터"><a href="#4-Rest-파라미터" class="headerlink" title="4 Rest 파라미터"></a>4 Rest 파라미터</h2><h3 id="4-1-기본-문법"><a href="#4-1-기본-문법" class="headerlink" title="4.1 기본 문법"></a>4.1 기본 문법</h3><p>Rest 파라미터(나머지 매개변수)는 매개변수 이름 앞에 세개의 점을 붙여서 정의한 매개변수를 의미한다.  함수에 전달된 인수들의 목록을 배열로 전달받는다.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params">...rest</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(rest); [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">Array</span>.isArray(rest)); <span class="comment">// true</span></span><br><span class="line">&#125;</span><br><span class="line">foo(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 함수에 전달된 인수들은 순차적으로 파라미터와 Rest 파라미터에 할당된다.</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span> (<span class="params">param1, param2, ...rest</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(param1);  <span class="comment">// 1</span></span><br><span class="line">  <span class="built_in">console</span>.log(param2);  <span class="comment">// 2</span></span><br><span class="line">  <span class="built_in">console</span>.log(rest); <span class="comment">// [ 3, 4, 5 ]</span></span><br><span class="line">&#125;</span><br><span class="line">bar (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Rest 파라미터는 반드시 마지막 파라미터여야한다. (SyntaxError)</li>
+<li>Rest 파라미터는 단 하나만 선언할 수 있다.</li>
+<li>함수 객체의 length 프로퍼티에 영향을 주지 않는다.</li>
+</ul>
+<h3 id="4-2-Rest-파라미터와-arguments-객체"><a href="#4-2-Rest-파라미터와-arguments-객체" class="headerlink" title="4.2 Rest 파라미터와 arguments 객체"></a>4.2 Rest 파라미터와 arguments 객체</h3><ul>
+<li><p>ES5에서는 가변 인자 함수의 경우, arguments 객체를 통해 인수를 확인한다.<br>arguments 객체는 유사 배열 객체이며 함수내부에서 지역 변수처럼 사용할 수 있다.</p>
+</li>
+<li><p>가변 인자 함수는 파라미터를 통해 인수를 전달받는 것이 불가능하므로 arguments 객체를 활용하여 인수를 전달받는다.</p>
+</li>
+<li><p>arguments 객체는 유사 배열 객체이므로 배열 메소드를 사용하려면 Function.prototype.call 메소드를 통해 this를 변경하여 배열 메소드를 호출해야함</p>
+</li>
+<li><p>ES6에서는 rest 파라미터를 사용하여 가변인자의 목록을 배열로 직접 전달받을 수 있다.</p>
+</li>
+<li><p>유사 배열인 arguments 객체를 배열로 변환하는 번거로움을 피할 수 있다.</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> array = <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">  <span class="comment">//유사 배열 객체인 argments 객체를 배열로 변환한다.</span></span><br><span class="line">  <span class="keyword">return</span> array.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">pre, cur</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> pre + cur;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>));   <span class="comment">//15  ?</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//ES6</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">...args</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> args.reduce(<span class="function">(<span class="params">pre, cur</span>) =&gt;</span> pre + cur);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>));   <span class="comment">// 15</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>화살표 함수는 함수 자체의 arguments 객체를 갖지 않는다. 화살표 함수로 가변인자 함수를 구현해야 할 때는 반드시 rest 파라미터를 사용해야 한다.</li>
+</ul>
+<h2 id="5-매개변수-기본값"><a href="#5-매개변수-기본값" class="headerlink" title="5. 매개변수 기본값"></a>5. 매개변수 기본값</h2><ul>
+<li>매개변수에 적절한 인수가 전달되었는지 함수 내부에서 확인할 필요가 있다.<br>방어 코드가 필요.</li>
+<li>ES6에서는 매개변수 기본값을 사용하여 함수 내에서 수행하던 인수 체크, 초키화를 간소화할 수 있다.</li>
+<li>매개변수 기본값은 매개변수에 인수를 전달하지 않았을 경우와 undifined를 전달한 경우에만 유효하다.</li>
+<li>Rest 파라미터에는 기본값을 지정할 수 없다. (SyntaxError)</li>
+<li>매개변수의 기본값은 함수 객체의 length 프로퍼티와 argument 객체에 영향을 주지않는다.<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">  x = x || <span class="number">0</span>;</span><br><span class="line">  y = y || <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>, <span class="number">2</span>)); <span class="comment">//3</span></span><br><span class="line"><span class="built_in">console</span>.log(sum(<span class="number">1</span>)); <span class="comment">//1</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span> (<span class="params">x = <span class="number">0</span>, y = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logName</span> (<span class="params">name = <span class="string">'jung'</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name);</span><br><span class="line">&#125;</span><br><span class="line">logName();   <span class="comment">//jung</span></span><br><span class="line">logName(undifined);   <span class="comment">//jung</span></span><br><span class="line">logName(<span class="literal">null</span>);   <span class="comment">//null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">x, y = <span class="number">0</span></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(sum.length);    <span class="comment">//1?   2 아닌가?</span></span><br><span class="line"></span><br><span class="line">sum(<span class="number">1</span>);   <span class="comment">// Arguments &#123; '0': 1 &#125;</span></span><br><span class="line">sum(<span class="number">1</span>, <span class="number">2</span>);  <span class="comment">// Arguments &#123; '0' : 1, '1' : 2&#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/javaScript/js.array1/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">javaScript/js.array1</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/javaScript/js.class/">
+                <span class="level-item">javaScript/js.class</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Your name">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Your name
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        Your title
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Your location</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            36
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            0
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Github" href="https://github.com/ppoffice">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank" rel="noopener"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Links
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">Hexo</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">hexo.io</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://github.com/ppoffice" target="_blank" rel="noopener">
+                    <span class="level-left">
+                        <span class="level-item">PPOffice</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">github.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/05/React/React.props/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.props">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-08T14:20:01.227Z">2020-05-08</time></div>
+                    <a href="/2020/05/React/React.props/" class="title has-link-black-ter is-size-6 has-text-weight-normal">React/React.props</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/05/React/React.state/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.state">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-08T14:19:51.458Z">2020-05-08</time></div>
+                    <a href="/2020/05/React/React.state/" class="title has-link-black-ter is-size-6 has-text-weight-normal">React/React.state</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/05/React/React.Component/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.Component">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-08T14:12:56.705Z">2020-05-08</time></div>
+                    <a href="/2020/05/React/React.Component/" class="title has-link-black-ter is-size-6 has-text-weight-normal">React/React.Component</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/05/javaScript/js.mouseEvent/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="javaScript/js.mouseEvent">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-02T14:08:53.904Z">2020-05-02</time></div>
+                    <a href="/2020/05/javaScript/js.mouseEvent/" class="title has-link-black-ter is-size-6 has-text-weight-normal">javaScript/js.mouseEvent</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/javaScript/js.Module/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="javaScript/js.Module">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T04:53:16.751Z">2020-04-14</time></div>
+                    <a href="/2020/04/javaScript/js.Module/" class="title has-link-black-ter is-size-6 has-text-weight-normal">javaScript/js.Module</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">16</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">11</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2020/05/React/React.props/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.props">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-08T14:20:01.227Z">2020-05-08</time></div>
+                    <a href="/2020/05/React/React.props/" class="title has-link-black-ter is-size-6 has-text-weight-normal">React/React.props</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/05/React/React.state/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.state">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-08T14:19:51.458Z">2020-05-08</time></div>
+                    <a href="/2020/05/React/React.state/" class="title has-link-black-ter is-size-6 has-text-weight-normal">React/React.state</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/05/React/React.Component/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.Component">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-08T14:12:56.705Z">2020-05-08</time></div>
+                    <a href="/2020/05/React/React.Component/" class="title has-link-black-ter is-size-6 has-text-weight-normal">React/React.Component</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/05/javaScript/js.mouseEvent/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="javaScript/js.mouseEvent">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-02T14:08:53.904Z">2020-05-02</time></div>
+                    <a href="/2020/05/javaScript/js.mouseEvent/" class="title has-link-black-ter is-size-6 has-text-weight-normal">javaScript/js.mouseEvent</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2020/04/javaScript/js.Module/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="javaScript/js.Module">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T04:53:16.751Z">2020-04-14</time></div>
+                    <a href="/2020/04/javaScript/js.Module/" class="title has-link-black-ter is-size-6 has-text-weight-normal">javaScript/js.Module</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">16</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">11</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="javaScript/js.functionInES6" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2020 hodeng28&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+<script>
+var IcarusThemeSettings = {
+    site: {
+        url: 'http://hodeng28.github.io',
+        external_link: {"enable":true,"exclude":[]}
+    },
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+
+
+<script src="/js/animation.js"></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>

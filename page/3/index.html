@@ -141,6 +141,78 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-14T13:07:44.357Z">2020-03-14</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    20 minutes read (About 2943 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/03/javaScript/js.built-in%20object/">javaScript/js.built-in object</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="빌트인-객체"><a href="#빌트인-객체" class="headerlink" title="빌트인 객체"></a>빌트인 객체</h1><h2 id="1-자바스크립트-객체의-분류"><a href="#1-자바스크립트-객체의-분류" class="headerlink" title="1. 자바스크립트 객체의 분류"></a>1. 자바스크립트 객체의 분류</h2><p>자바스크립트 객체는 크게 3개의 객체로 분류할 수 있다.</p>
+<ul>
+<li><p>표준 빌트인 객체(standard built-in objects, navtive object, global ojbects)</p>
+<ul>
+<li>ECMAScript 사양에 정의된 객체, 애플리케이션 전역의 공통 기능을 제공</li>
+<li>자바스크립트 실행환경과 관계없이 언제나 사용 가능</li>
+<li>표준 빌트인 객체는 전역 객체의 프로퍼티로서 제공된다.</li>
+<li>별도의 선언없이 전역 변수처럼 언제나 참조할 수 있다.</li>
+</ul>
+<ul>
+<li>호스트 객체 (host objects) </li>
+</ul>
+<ul>
+<li>ECMAScript에 정의되어 있지 않음, 자바스크립트 실행환경에서 추가적으로 제공하는 객체</li>
+<li>브라우저 환경에서는 클라이언트 사이드 Web API를 호스트 객체로 제공</li>
+<li>Node.js 환경에서는 Node.js 고유의 API를 호스트 객체로 제공</li>
+</ul>
+</li>
+<li><p>사용자 정의 객체 (user-defined objects)</p>
+<ul>
+<li>기본으로 제공되는 객체가 아닌 사용자가 직접 정의한 객체</li>
+</ul>
+</li>
+</ul>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2020/03/javaScript/js.built-in%20object/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-03-14T12:37:27.575Z">2020-03-14</time>
                 
                 
@@ -667,60 +739,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-02-26T07:36:31.830Z">2020-02-26</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    8 minutes read (About 1213 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/02/javaScript/js.scope/">javaScript/js.scope</a>
-            
-        </h1>
-        <div class="content">
-            <h1 id="스코프"><a href="#스코프" class="headerlink" title="스코프"></a>스코프</h1><p>스코프는 변수, 함수와 관련있다. 스코프는 식별자가 유효한 범위를 말한다.</p>
-<p><strong>함수</strong>의 매개변수는 함수 몸체 내부에서만 참조할 수 있고, 함수 몸체 외부에서는 참조할 수 없다.<br>매개변수의 스포크가 함수 몸체 내부로 한정되기 때문이다.</p>
-<p><strong>변수</strong>는 코드의 가장 바깥영역(window)뿐만 아니라 코드 블록이나 함수 몸체 내에서도 선언할 수 있다. 코드 블록이나 함수는 중첩될 수 있다.<br>변수는 자신이 선언된 위치에 의해 자신이 유효한 범위(다른 코드가 변수 자신을 참조할 수 있는 범위)가 결정된다.<br>이를 스코프라 한다.</p>
-<p>프로그래밍 언어에서 스코프를 통해 식별자인 변수 이름의 충돌을 방지하여 같은 이름의 변수를 사용할 수 있도록 한다. 스코프 내에서 식별자는 유일해야 하지만 다른 스코프에는 같은 이름의 식별자를 사용할 수 있다.</p>
-<h2 id="스코프의-종류"><a href="#스코프의-종류" class="headerlink" title="스코프의 종류"></a>스코프의 종류</h2><p>코드는 전역(global)과 지역(local)으로 구분할 수 있다.</p>
-<p>이때 변수는 자신이 선언된 위치(전역 or 지역)에 의해 자신이 유효한 범위인 스코프가 결정된다.</p>
-        </div>
-        
-        
-        <div class="level is-mobile">
-            <div class="level-start">
-                <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2020/02/javaScript/js.scope/#more">Read More</a>
-                </div>
-            </div>
-        </div>
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -789,7 +807,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            36
+                            37
                         </p>
                     </a>
                 </div>
@@ -934,6 +952,25 @@
         
         <article class="media">
             
+            <a href="/2020/05/React/React.HOC%20/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.HOC ">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-10T12:20:34.501Z">2020-05-10</time></div>
+                    <a href="/2020/05/React/React.HOC%20/" class="title has-link-black-ter is-size-6 has-text-weight-normal">React/React.HOC </a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/05/React/React.props/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.props">
@@ -1008,25 +1045,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/04/javaScript/js.Module/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="javaScript/js.Module">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T04:53:16.751Z">2020-04-14</time></div>
-                    <a href="/2020/04/javaScript/js.Module/" class="title has-link-black-ter is-size-6 has-text-weight-normal">javaScript/js.Module</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -1044,7 +1062,7 @@
                     <span class="level-item">May 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -1119,6 +1137,25 @@
         
         <article class="media">
             
+            <a href="/2020/05/React/React.HOC%20/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.HOC ">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-10T12:20:34.501Z">2020-05-10</time></div>
+                    <a href="/2020/05/React/React.HOC%20/" class="title has-link-black-ter is-size-6 has-text-weight-normal">React/React.HOC </a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/05/React/React.props/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.props">
@@ -1193,25 +1230,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/04/javaScript/js.Module/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="javaScript/js.Module">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-14T04:53:16.751Z">2020-04-14</time></div>
-                    <a href="/2020/04/javaScript/js.Module/" class="title has-link-black-ter is-size-6 has-text-weight-normal">javaScript/js.Module</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1229,7 +1247,7 @@
                     <span class="level-item">May 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>

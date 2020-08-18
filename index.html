@@ -141,6 +141,47 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-08-18T14:40:39.588Z">2020-08-18</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a few seconds read (About 2 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2020/08/javaScript/Debounce%20&%20Throttle/">javaScript/Debounce &amp; Throttle</a>
+            
+        </h1>
+        <div class="content">
+            <h1 id="Debounce-amp-Throttle"><a href="#Debounce-amp-Throttle" class="headerlink" title="Debounce &amp; Throttle"></a>Debounce &amp; Throttle</h1>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2020-05-10T12:20:34.501Z">2020-05-10</time>
                 
                 
@@ -627,58 +668,6 @@
 
 
 
-    
-<div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-04-06T14:03:23.349Z">2020-04-06</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    2 minutes read (About 284 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2020/04/javaScript/js.Timer/">javaScript/js.Timer</a>
-            
-        </h1>
-        <div class="content">
-            <ul>
-<li>타이머 함수들은 모두 window의 메소드</li>
-<li>모두 일정 시간이 경과된 이후 콜백 함수를 호출하는 타이머를 설정</li>
-<li>비동기적 (asynchronous)으로 동작한다. ( 싱글 스레드로 동작하기 때문)</li>
-<li>ECMAScript 표준사양은 아니나 브라우저, Node,js환경에서 모두 제공한다.</li>
-</ul>
-<h2 id="setTimeout-clearTimeout"><a href="#setTimeout-clearTimeout" class="headerlink" title="setTimeout / clearTimeout"></a>setTimeout / clearTimeout</h2><p>setTimeout 함수는 두번째 인수로 전달한 시간이 경과한 이후에 <strong>첫번째 인수로 전달한 콜백 함수를 단 한번 호출한다.</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1초 후에 첫번째 인수로 전달한 함수 호출</span></span><br><span class="line">setTImeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Hi'</span>), <span class="number">1000</span>);</span><br><span class="line"><span class="comment">// 1초 후에 첫번째 인수로 전달한 함수에 인수를 전달하면서 호출</span></span><br><span class="line">setTImeout(<span class="function"><span class="params">name</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">`Hi <span class="subst">$&#123;name&#125;</span>.`</span>) <span class="number">1000</span>, <span class="string">'jung'</span>);</span><br><span class="line"><span class="comment">// 지연 시간을 생략하면 기본값이 0 지정</span></span><br><span class="line">setTImeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Hi'</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Timeout = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">console</span>.log(<span class="string">'Hi'</span>), <span class="number">1000</span>);</span><br><span class="line">clearTimeout(Timeout);</span><br><span class="line"><span class="comment">// 타이머 취소</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="setInterval-clearInterval"><a href="#setInterval-clearInterval" class="headerlink" title="setInterval / clearInterval"></a>setInterval / clearInterval</h2><p>setInterval 함수는 두번째 인수로 전달한 시간이 경과할 때 마다 첫번째 인수로 전달한 콜백 함수를 타이머가 취소될 때까지 호출한다.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> count = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> timeOutId = setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(count);   </span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (count++ === <span class="number">5</span>) clerarInterval(timeOutId);</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
-
-        </div>
-        
-        
-        
-    </div>
-</div>
-
-
-
-
-
-
-
-
 
     
 <div class="card card-transparent">
@@ -747,7 +736,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            37
+                            38
                         </p>
                     </a>
                 </div>
@@ -892,6 +881,25 @@
         
         <article class="media">
             
+            <a href="/2020/08/javaScript/Debounce%20&%20Throttle/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="javaScript/Debounce &amp; Throttle">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-08-18T14:40:39.588Z">2020-08-18</time></div>
+                    <a href="/2020/08/javaScript/Debounce%20&%20Throttle/" class="title has-link-black-ter is-size-6 has-text-weight-normal">javaScript/Debounce &amp; Throttle</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/05/React/React.HOC%20/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.HOC ">
@@ -966,25 +974,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/05/javaScript/js.mouseEvent/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="javaScript/js.mouseEvent">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-02T14:08:53.904Z">2020-05-02</time></div>
-                    <a href="/2020/05/javaScript/js.mouseEvent/" class="title has-link-black-ter is-size-6 has-text-weight-normal">javaScript/js.mouseEvent</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -995,6 +984,17 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/05/">
@@ -1077,6 +1077,25 @@
         
         <article class="media">
             
+            <a href="/2020/08/javaScript/Debounce%20&%20Throttle/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="javaScript/Debounce &amp; Throttle">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-08-18T14:40:39.588Z">2020-08-18</time></div>
+                    <a href="/2020/08/javaScript/Debounce%20&%20Throttle/" class="title has-link-black-ter is-size-6 has-text-weight-normal">javaScript/Debounce &amp; Throttle</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2020/05/React/React.HOC%20/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="React/React.HOC ">
@@ -1151,25 +1170,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2020/05/javaScript/js.mouseEvent/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="javaScript/js.mouseEvent">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-05-02T14:08:53.904Z">2020-05-02</time></div>
-                    <a href="/2020/05/javaScript/js.mouseEvent/" class="title has-link-black-ter is-size-6 has-text-weight-normal">javaScript/js.mouseEvent</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -1180,6 +1180,17 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2020/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2020/05/">
